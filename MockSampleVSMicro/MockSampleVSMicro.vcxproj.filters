@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Misc Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>xml;json;txt;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="modules">
+      <UniqueIdentifier>{37389be6-407e-4c5d-839e-6c578ecc9d45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="activities">
+      <UniqueIdentifier>{fe163d82-e437-4c50-9e74-19612055a8e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="modules\sensors">
+      <UniqueIdentifier>{57f015d0-528a-4eef-9646-27bb26acc3f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="modules\devices">
+      <UniqueIdentifier>{4053af3b-87b2-4621-9e2e-39f10cc8a36b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="services">
+      <UniqueIdentifier>{eca45973-f575-46a0-b9ce-6e0b64a44367}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="activity">
+      <UniqueIdentifier>{29404579-5782-4344-9eec-d83f4a28d82b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MockSampleVSMicro.ino" />
+    <None Include="src\arduino folders read me.txt">
+      <Filter>Misc Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="__vm\.MockSampleVSMicro.vsarduino.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\sensor.h">
+      <Filter>modules\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="sensorActivity.h">
+      <Filter>activity</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\modules\sensor.cpp">
+      <Filter>modules\sensors</Filter>
+    </ClCompile>
+    <ClCompile Include="sensorActivity.cpp">
+      <Filter>activity</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
