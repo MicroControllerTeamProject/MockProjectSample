@@ -11,7 +11,7 @@ int main()
 
 	When(Method(mock, analogicRead)).Return(1024); // Method mock.foo will return 1 once.
 
-	When(Method(mock, getAlarmMaxValue)).Return(3.00); // Method mock.foo will return 1 once.
+	When(Method(mock, getAlarmMaxValue)).Return(5.10); // Method mock.foo will return 1 once.
 
 	sensor& i = mock.get();
 
@@ -19,7 +19,7 @@ int main()
 
 	waterSensor* w = new waterSensor(5.00);
 
-	bool a = w->isThereWater(i);
+	std::cout << w->isThereWater(i);
 	
 
 	//Mock<waterSensor> mock2;

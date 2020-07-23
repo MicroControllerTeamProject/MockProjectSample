@@ -7,7 +7,10 @@ public:
 	waterSensor(float vref);
 	/*bool areValuesOK();*/
 	virtual bool isThereWater(sensor& sr);
-public:
+	float analogVrefRead(sensor& sr);
+	float getVref();
+private:
+	float _vref;
 	
 };
 
