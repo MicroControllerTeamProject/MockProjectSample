@@ -1,24 +1,16 @@
 #include "waterSensor.h"
 
-waterSensor::waterSensor(uint8_t analogicSegnalPin,
-	float analogicAllarmMaxValue,
-	float analogicAllarmMinValue, 
-	float vref,
-	char* uid) 
-	:sensor(analogicSegnalPin, analogicAllarmMaxValue, analogicAllarmMinValue,vref,uid){
+waterSensor::waterSensor(float vref) {
 }
 
-
-bool waterSensor::isThereWater()
+bool waterSensor::isThereWater(sensor& sr)
 {
-	if (analogicRead() > getMaxValue())
+	if (sr.analogicRead() > sr.getAlarmMaxValue())
 	{
-		//setLastComunication("Water max level");
 		return true;
 	}
 	else
 	{
-		//setLastComunication("No Water found");
 		return false;
 	}
 }

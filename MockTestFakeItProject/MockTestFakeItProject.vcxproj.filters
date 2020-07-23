@@ -18,12 +18,18 @@
     <ClCompile Include="MockTestFakeItProject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\MockSampleVSMicro\src\modules\waterSensor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\extend.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\fakeit.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MockSampleVSMicro\src\modules\sensor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

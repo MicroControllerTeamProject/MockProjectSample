@@ -1,10 +1,11 @@
 #include "sensor.h"
 #include <Arduino.h>
 
+sensor::sensor() {}
 
 sensor::sensor(uint8_t analSignalPin, float analogicAllarmMaxValue, float analogicAllarmMinValue, char* uid)
 {
-	_analSignalPin = analSignalPin;
+	_analogPin = analSignalPin;
 	_analogicAllarmMaxValue = analogicAllarmMaxValue;
 	_analogicAllarmMinValue = analogicAllarmMinValue;
 	_uid = uid;
@@ -13,7 +14,7 @@ sensor::sensor(uint8_t analSignalPin, float analogicAllarmMaxValue, float analog
 
 sensor::sensor(char* uid,float analogicAllarmMaxValue, float analogicAllarmMinValue, uint8_t digitalSegnalPin)
 {
-	_digitalSignalPin = digitalSegnalPin;
+	_digitalPin = digitalSegnalPin;
 	pinMode(digitalSegnalPin, INPUT);
 	_uid = uid;
 	sensor(0, digitalSegnalPin,analogicAllarmMaxValue,analogicAllarmMinValue, uid);
@@ -24,11 +25,11 @@ sensor::sensor(uint8_t analSignalPin, uint8_t digitalSegnalPinIn, float analogic
 {
 	if (analSignalPin != 0)
 	{
-		_analSignalPin = analSignalPin;
+		_analogPin = analSignalPin;
 	}
 	if (digitalSegnalPinIn != 0)
 	{
-		_digitalSignalPin = digitalSegnalPinIn;
+		_digitalPin = digitalSegnalPinIn;
 		pinMode(digitalSegnalPinIn, INPUT);
 	}
 	_analogicAllarmMaxValue = analogicAllarmMaxValue;
@@ -43,7 +44,7 @@ float sensor::getAlarmMinValue() { return _analogicAllarmMinValue; }
 float sensor::getAlarmMaxValue() { return _analogicAllarmMaxValue; }
 
 bool sensor::isDigitalSignalPinOn() {
-	return digitalRead(_digitalSignalPin);
+	return digitalRead(_digitalPin);
 }
 
 void sensor::setDigitalAlarmPinOut(int alarmPin) {
@@ -69,11 +70,9 @@ bool sensor::isAllarmPinOn() {
 	return digitalRead(_alarmPin);
 }
 
-
 int sensor::analogicRead() {
-	return analogRead(_analSignalPin);
+	return analogRead(_analogPin);
 }
-
 
 char* sensor::uid()
 {

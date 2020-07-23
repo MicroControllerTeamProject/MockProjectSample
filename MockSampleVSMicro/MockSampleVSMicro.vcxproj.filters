@@ -19,9 +19,6 @@
     <Filter Include="activities">
       <UniqueIdentifier>{fe163d82-e437-4c50-9e74-19612055a8e9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="modules\sensors">
-      <UniqueIdentifier>{57f015d0-528a-4eef-9646-27bb26acc3f6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="modules\devices">
       <UniqueIdentifier>{4053af3b-87b2-4621-9e2e-39f10cc8a36b}</UniqueIdentifier>
     </Filter>
@@ -30,6 +27,12 @@
     </Filter>
     <Filter Include="activity">
       <UniqueIdentifier>{29404579-5782-4344-9eec-d83f4a28d82b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="modules\sensorConnector">
+      <UniqueIdentifier>{57f015d0-528a-4eef-9646-27bb26acc3f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="modules\sensorsLogic">
+      <UniqueIdentifier>{96dfaba5-a261-42b0-8266-5f4b70271260}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -43,18 +46,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\modules\sensor.h">
-      <Filter>modules\sensors</Filter>
+      <Filter>modules\sensorConnector</Filter>
     </ClInclude>
     <ClInclude Include="sensorActivity.h">
       <Filter>activity</Filter>
     </ClInclude>
+    <ClInclude Include="src\modules\waterSensor.h">
+      <Filter>modules\sensorsLogic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\modules\sensor.cpp">
-      <Filter>modules\sensors</Filter>
+      <Filter>modules\sensorConnector</Filter>
     </ClCompile>
     <ClCompile Include="sensorActivity.cpp">
       <Filter>activity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\waterSensor.cpp">
+      <Filter>modules\sensorsLogic</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

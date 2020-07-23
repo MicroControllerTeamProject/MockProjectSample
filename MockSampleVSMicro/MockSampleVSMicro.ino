@@ -10,7 +10,7 @@
 //waterSensor* w;
 void setup() {
     Serial.begin(9600);
-    //w = new waterSensor(A0,5.00,2.0,4.80, "w1");
+   /* w = new waterSensor(A0,5.00,2.0,4.80, "w1");*/
 }
 
 // the loop function runs over and over again until power down or reset

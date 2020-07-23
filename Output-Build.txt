@@ -1,0 +1,12 @@
+﻿1>------ Build started: Project: MockTestFakeItProject, Configuration: Debug x64 ------
+1>MockTestFakeItProject.cpp
+1>C:\Repos\MicroControllerTeamProject\MockProjectSample\MockTestFakeItProject\src\extend.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+1>C:\Repos\MicroControllerTeamProject\MockProjectSample\MockTestFakeItProject\src\extend.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+1>C:\Repos\MicroControllerTeamProject\MockProjectSample\MockTestFakeItProject\MockTestFakeItProject.cpp(11,42): warning C4244: 'argument': conversion from 'double' to 'const R', possible loss of data
+1>        with
+1>        [
+1>            R=int
+1>        ]
+1>MockTestFakeItProject.vcxproj -> C:\Repos\MicroControllerTeamProject\MockProjectSample\x64\Debug\MockTestFakeItProject.exe
+1>Done building project "MockTestFakeItProject.vcxproj".
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========

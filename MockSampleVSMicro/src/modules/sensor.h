@@ -1,9 +1,13 @@
 #pragma once
 #include "stdint.h"
 
+
+
 class sensor
 {
 public:
+
+	sensor();
 
 	sensor(uint8_t analSignalPin, float analogicAllarmMaxValue, float analogicAllarmMinValue, char* uid);
 
@@ -40,9 +44,9 @@ private :
 
 	float _analogicAllarmMaxValue;
 
-	int _analSignalPin;
+	int _analogPin;
 
-	uint8_t _digitalSignalPin;
+	uint8_t _digitalPin;
 
 	int _alarmPin;
 

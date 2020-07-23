@@ -1,15 +1,13 @@
 #pragma once
 #include "sensor.h"
 
-class waterSensor : public sensor
+class waterSensor
 {
 public:
-	waterSensor(uint8_t analogicSegnalPinIn,
-		float analogicAllarmMaxValue,
-		float analogicAllarmMinValue, 
-		float vref,
-		char* uid);
+	waterSensor(float vref);
 	/*bool areValuesOK();*/
-	bool isThereWater();
+	virtual bool isThereWater(sensor& sr);
+public:
+	
 };
 

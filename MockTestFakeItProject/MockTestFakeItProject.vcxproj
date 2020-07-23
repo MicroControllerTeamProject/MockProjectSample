@@ -147,9 +147,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\MockSampleVSMicro\src\modules\waterSensor.cpp" />
     <ClCompile Include="MockTestFakeItProject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\MockSampleVSMicro\src\modules\sensor.h" />
     <ClInclude Include="src\extend.h" />
     <ClInclude Include="src\fakeit.hpp" />
   </ItemGroup>
