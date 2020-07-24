@@ -148,10 +148,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\MockSampleVSMicro\src\modules\waterSensor.cpp" />
+    <ClCompile Include="..\MockSampleVSMicro\src\waterSensorActivity.cpp" />
     <ClCompile Include="MockTestFakeItProject.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\MockSampleVSMicro\src\modules\sensor.h" />
+    <ClInclude Include="..\MockSampleVSMicro\src\modules\sensorInterface.h" />
+    <ClInclude Include="..\MockSampleVSMicro\src\programStates.h" />
     <ClInclude Include="src\extend.h" />
     <ClInclude Include="src\fakeit.hpp" />
   </ItemGroup>

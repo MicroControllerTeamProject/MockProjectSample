@@ -21,6 +21,9 @@
     <ClCompile Include="..\MockSampleVSMicro\src\modules\waterSensor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\MockSampleVSMicro\src\waterSensorActivity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\extend.h">
@@ -29,7 +32,10 @@
     <ClInclude Include="src\fakeit.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\MockSampleVSMicro\src\modules\sensor.h">
+    <ClInclude Include="..\MockSampleVSMicro\src\modules\sensorInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MockSampleVSMicro\src\programStates.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

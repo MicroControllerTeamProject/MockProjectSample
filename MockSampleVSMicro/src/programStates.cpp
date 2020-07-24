@@ -4,3 +4,8 @@ programStates::programStates()
 {
 
 }
+
+bool programStates::test()
+{
+	return true;
+}

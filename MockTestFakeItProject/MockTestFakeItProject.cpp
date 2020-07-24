@@ -1,13 +1,19 @@
 // MockTestFakeItProject.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
 #include "..\MockSampleVSMicro\src\modules\waterSensor.h"
 #include "..\MockSampleVSMicro\src\modules\sensorInterface.h"
-
+#include "..\MockSampleVSMicro\src\waterSensorActivity.h"
+#include "..\MockSampleVSMicro\src\programStates.h"
 #include "..\MockTestFakeItProject\src\extend.h"
 
 int main()
 {
+	
+
+	Mock<programStates> mock2;
+
+	programStates& i2 = mock2.get();
+
 	Mock<sensorInterface> mock;
 
 	When(Method(mock, analogicRead)).Return(1024); // Method mock.foo will return 1 once.
@@ -16,17 +22,12 @@ int main()
 
 	sensorInterface& i = mock.get();
 
-	//std::cout << i.analogicRead();
+	waterSensor w(5.00);
 
-	waterSensor* w = new waterSensor(5.00);
+	waterSensorActivity* wsa = new waterSensorActivity(w, i, i2);
 
-	std::cout << w->isThereWater(i);
+	//std::cout << w->isThereWater(i);
 	
-
-	//Mock<waterSensor> mock2;
-	//When(Method(mock, getMaxValue)).Return(5.00); // Method mock.foo will return 1 once.
-	//waterSensor& i2 = mock.get();
- //   std::cout << i2.getMaxValue();
 	return 0;
 }
 
