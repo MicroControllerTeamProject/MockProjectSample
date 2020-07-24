@@ -1,4 +1,7 @@
-﻿Compiling 'MockSampleVSMicro' for 'ATmega328P (Arduino Nano)'
-Program size: 1,430 bytes (used 5% of a 30,720 byte maximum) (2.23 secs)
+﻿Ignoring source code that is included in the project but can not be located: C:\Repos\MicroControllerTeamProject\MockProjectSample\MockSampleVSMicro\waterSensorActivity.cpp
+Ignoring source code that is included in the project but can not be located: C:\Repos\MicroControllerTeamProject\MockProjectSample\MockSampleVSMicro\waterSensorActivity.h
+
+Compiling 'MockSampleVSMicro' for 'ATmega328P (Arduino Nano)'
+Program size: 1,430 bytes (used 5% of a 30,720 byte maximum) (1.60 secs)
 Minimum Memory Usage: 184 bytes (9% of a 2048 byte maximum)
  

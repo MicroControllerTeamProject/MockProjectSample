@@ -22,7 +22,3 @@ void loop() {
 }
 
 
-void waterSensorActivity(waterSensor ws,sensorInterface& sr,programStates& ps)
-{
-
-}

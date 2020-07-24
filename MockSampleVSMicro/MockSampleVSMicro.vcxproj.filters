@@ -45,8 +45,11 @@
     <ClInclude Include="src\modules\sensorInterface.h">
       <Filter>modules\sensorConnector</Filter>
     </ClInclude>
-    <ClInclude Include="programStates.h">
+    <ClInclude Include="src\programStates.h">
       <Filter>dto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\waterSensorActivity.h">
+      <Filter>activities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -56,8 +59,11 @@
     <ClCompile Include="src\modules\sensorInterface.cpp">
       <Filter>modules\sensorConnector</Filter>
     </ClCompile>
-    <ClCompile Include="programStates.cpp">
+    <ClCompile Include="src\programStates.cpp">
       <Filter>dto</Filter>
+    </ClCompile>
+    <ClCompile Include="src\waterSensorActivity.cpp">
+      <Filter>activities</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
