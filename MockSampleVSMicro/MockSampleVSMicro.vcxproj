@@ -116,14 +116,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="sensorActivity.h" />
-    <ClInclude Include="src\modules\sensor.h" />
+    <ClInclude Include="programStates.h" />
+    <ClInclude Include="src\modules\sensorInterface.h" />
     <ClInclude Include="src\modules\waterSensor.h" />
     <ClInclude Include="__vm\.MockSampleVSMicro.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="sensorActivity.cpp" />
-    <ClCompile Include="src\modules\sensor.cpp" />
+    <ClCompile Include="programStates.cpp" />
+    <ClCompile Include="src\modules\sensorInterface.cpp" />
     <ClCompile Include="src\modules\waterSensor.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

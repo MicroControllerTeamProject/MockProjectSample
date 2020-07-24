@@ -2,18 +2,18 @@
 //
 
 #include "..\MockSampleVSMicro\src\modules\waterSensor.h"
-#include "..\MockSampleVSMicro\src\modules\sensor.h"
+#include "..\MockSampleVSMicro\src\modules\sensorInterface.h"
 #include "..\MockTestFakeItProject\src\extend.h"
 
 int main()
 {
-	Mock<sensor> mock;
+	Mock<sensorInterface> mock;
 
 	When(Method(mock, analogicRead)).Return(1024); // Method mock.foo will return 1 once.
 
 	When(Method(mock, getAlarmMaxValue)).Return(5.10); // Method mock.foo will return 1 once.
 
-	sensor& i = mock.get();
+	sensorInterface& i = mock.get();
 
 	//std::cout << i.analogicRead();
 

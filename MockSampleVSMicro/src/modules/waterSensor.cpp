@@ -2,6 +2,7 @@
 
 waterSensor::waterSensor(float vref) {
 	_vref = vref;
+
 }
 
 float waterSensor::getVref()
@@ -9,12 +10,13 @@ float waterSensor::getVref()
 	return _vref;
 }
 
-float waterSensor::analogVrefRead(sensor& sr)
+
+float waterSensor::analogVrefRead(sensorInterface& sr)
 {
 	return (_vref / 1024) * sr.analogicRead();
 }
 
-bool waterSensor::isThereWater(sensor& sr)
+bool waterSensor::isThereWater(sensorInterface& sr)
 {
 	if (analogVrefRead(sr) > sr.getAlarmMaxValue())
 	{

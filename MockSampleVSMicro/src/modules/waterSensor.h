@@ -1,16 +1,16 @@
 #pragma once
-#include "sensor.h"
+#include "sensorInterface.h"
 
 class waterSensor
 {
 public:
 	waterSensor(float vref);
 	/*bool areValuesOK();*/
-	virtual bool isThereWater(sensor& sr);
-	float analogVrefRead(sensor& sr);
+	virtual bool isThereWater(sensorInterface& sr);
+	float analogVrefRead(sensorInterface& sr);
 	float getVref();
 private:
 	float _vref;
-	
+
 };
 

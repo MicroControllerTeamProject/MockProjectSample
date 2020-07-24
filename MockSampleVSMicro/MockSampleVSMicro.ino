@@ -3,7 +3,7 @@
  Created:	7/20/2020 7:10:10 PM
  Author:	luigi.santagada
 */
-//#include "src/modules/waterSensor.h"
+#include "src/modules/waterSensor.h"
 //#include "Arduino.h"
 
 // the setup function runs once when you press reset or power the board
@@ -19,4 +19,10 @@ void loop() {
     //Serial.println(w->analogicRead());
     //Serial.println(w->isAnalogicValueOutOfRange());
     //Serial.println(w->getLastComunication());
+}
+
+
+void waterSensorActivity(waterSensor ws,sensorInterface& sr,programStates& ps)
+{
+
 }

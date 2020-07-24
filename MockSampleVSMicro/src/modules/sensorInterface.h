@@ -1,21 +1,19 @@
 #pragma once
 #include "stdint.h"
 
-
-
-class sensor
+class sensorInterface
 {
 public:
 
-	sensor();
+	sensorInterface();
 
-	sensor(uint8_t analSignalPin, float analogicAllarmMaxValue, float analogicAllarmMinValue, char* uid);
+	sensorInterface(uint8_t analSignalPin, float analogicAllarmMaxValue, float analogicAllarmMinValue, char* uid);
 
-	sensor(char* uid, float analogicAllarmMaxValue, float analogicAllarmMinValue,uint8_t digitalSegnalPinIn);
+	sensorInterface(char* uid, float analogicAllarmMaxValue, float analogicAllarmMinValue,uint8_t digitalSegnalPinIn);
 
-	sensor(uint8_t analSignalPin, uint8_t digitalSegnalPinIn, float analogicAllarmMaxValue, float analogicAllarmMinValue,char* uid);
+	sensorInterface(uint8_t analSignalPin, uint8_t digitalSegnalPinIn, float analogicAllarmMaxValue, float analogicAllarmMinValue,char* uid);
 	
-	~sensor();
+	~sensorInterface();
 
 	virtual float getAlarmMinValue();
 

@@ -1,80 +1,80 @@
-#include "sensor.h"
+#include "sensorInterface.h"
 #include <Arduino.h>
 
-sensor::sensor() {}
+sensorInterface::sensorInterface() {}
 
-sensor::sensor(uint8_t analSignalPin, float analogicAllarmMaxValue, float analogicAllarmMinValue, char* uid)
+sensorInterface::sensorInterface(uint8_t analogPin, float analogicAllarmMaxValue, float analogicAllarmMinValue, char* uid)
 {
-	_analogPin = analSignalPin;
+	_analogPin = analogPin;
 	_analogicAllarmMaxValue = analogicAllarmMaxValue;
 	_analogicAllarmMinValue = analogicAllarmMinValue;
 	_uid = uid;
-	sensor(analSignalPin, 0,analogicAllarmMaxValue,_analogicAllarmMinValue, uid);
+	sensorInterface(analogPin, 0,analogicAllarmMaxValue,_analogicAllarmMinValue, uid);
 }
 
-sensor::sensor(char* uid,float analogicAllarmMaxValue, float analogicAllarmMinValue, uint8_t digitalSegnalPin)
+sensorInterface::sensorInterface(char* uid,float analogicAllarmMaxValue, float analogicAllarmMinValue, uint8_t digitalSegnalPin)
 {
 	_digitalPin = digitalSegnalPin;
 	pinMode(digitalSegnalPin, INPUT);
 	_uid = uid;
-	sensor(0, digitalSegnalPin,analogicAllarmMaxValue,analogicAllarmMinValue, uid);
+	sensorInterface(0, digitalSegnalPin,analogicAllarmMaxValue,analogicAllarmMinValue, uid);
 
 }
 
-sensor::sensor(uint8_t analSignalPin, uint8_t digitalSegnalPinIn, float analogicAllarmMaxValue, float analogicAllarmMinValue, char* uid)
+sensorInterface::sensorInterface(uint8_t analogPin, uint8_t digitalPin, float analogicAllarmMaxValue, float analogicAllarmMinValue, char* uid)
 {
-	if (analSignalPin != 0)
+	if (analogPin != 0)
 	{
-		_analogPin = analSignalPin;
+		_analogPin = analogPin;
 	}
-	if (digitalSegnalPinIn != 0)
+	if (digitalPin != 0)
 	{
-		_digitalPin = digitalSegnalPinIn;
-		pinMode(digitalSegnalPinIn, INPUT);
+		_digitalPin = digitalPin;
+		pinMode(digitalPin, INPUT);
 	}
 	_analogicAllarmMaxValue = analogicAllarmMaxValue;
 	_analogicAllarmMinValue = analogicAllarmMinValue;
 	_uid = uid;
 }
 
-sensor::~sensor() {}
+sensorInterface::~sensorInterface() {}
 
-float sensor::getAlarmMinValue() { return _analogicAllarmMinValue; }
+float sensorInterface::getAlarmMinValue() { return _analogicAllarmMinValue; }
 
-float sensor::getAlarmMaxValue() { return _analogicAllarmMaxValue; }
+float sensorInterface::getAlarmMaxValue() { return _analogicAllarmMaxValue; }
 
-bool sensor::isDigitalSignalPinOn() {
+bool sensorInterface::isDigitalSignalPinOn() {
 	return digitalRead(_digitalPin);
 }
 
-void sensor::setDigitalAlarmPinOut(int alarmPin) {
+void sensorInterface::setDigitalAlarmPinOut(int alarmPin) {
 	pinMode(alarmPin, OUTPUT);
 	_alarmPin = alarmPin;
 }
 
-void sensor::switchAlarmPin_On_Off(unsigned long time) {
+void sensorInterface::switchAlarmPin_On_Off(unsigned long time) {
 	digitalWrite(_alarmPin, HIGH);
 	delay(time);
 	digitalWrite(_alarmPin, LOW);
 }
 
-void sensor::turnAlarmPinOn() {
+void sensorInterface::turnAlarmPinOn() {
 	digitalWrite(_alarmPin, HIGH);
 }
 
-void sensor::turnAllarmPinOff() {
+void sensorInterface::turnAllarmPinOff() {
 	digitalWrite(_alarmPin, LOW);
 }
 
-bool sensor::isAllarmPinOn() {
+bool sensorInterface::isAllarmPinOn() {
 	return digitalRead(_alarmPin);
 }
 
-int sensor::analogicRead() {
+int sensorInterface::analogicRead() {
 	return analogRead(_analogPin);
 }
 
-char* sensor::uid()
+char* sensorInterface::uid()
 {
 	return _uid;
 }
