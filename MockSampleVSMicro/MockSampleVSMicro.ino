@@ -10,15 +10,15 @@
 waterSensor  ws(5.00, "x01");
 microInterface si(A0, 5.00, 2.00);
 programStates ps;
-waterSensorActivity wsa;
+waterSensorActivity _waterSensorActivity;
 
 void setup() {
     Serial.begin(9600);
-    wsa.start(ws, si, ps);
 }
 
 void loop() {
-    wsa.start(ws, si, ps);
+    _waterSensorActivity.start(ws, si, ps);
+
 }
 
 
