@@ -1,8 +1,13 @@
 #include "waterSensorActivity.h"
 
-waterSensorActivity::waterSensorActivity(waterSensor ws, sensorInterface& sr, programStates& ps)
-{
-	float a = ws.analogVrefRead(sr);
-	bool a2 = ps.test();
-	sr.print(a,true);
+waterSensorActivity::waterSensorActivity(){
 }
+
+bool waterSensorActivity::isWaterDetect(waterSensor ws, sensorInterface& sr, programStates& ps)
+{
+	ps._isWaterDetected  = ws.isThereWater(sr);
+	return ps._isWaterDetected;
+}
+
+
+

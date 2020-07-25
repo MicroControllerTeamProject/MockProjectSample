@@ -75,12 +75,10 @@ bool sensorInterface::print(float data, bool isCR)
 {
 	if (isCR) {
 		Serial.println(data);
-		
 	}
 	else
 	{
 		Serial.print(data);
-		
 	}
 	return true;
 }

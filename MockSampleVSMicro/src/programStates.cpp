@@ -1,11 +1,6 @@
 #include "programStates.h"
 
-programStates::programStates()
-{
-
+programStates::programStates(){
+	_isWaterDetected = false;
 }
 
-bool programStates::test()
-{
-	return true;
-}

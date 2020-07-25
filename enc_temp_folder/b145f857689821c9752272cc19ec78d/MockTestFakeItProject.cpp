@@ -8,11 +8,19 @@
 
 int main()
 {
+	/*Mock<programStates> mock2;*/
+
+	//programStates& i2 = mock2.get();
+
+	//When(Method(mock2, test)).Return(567); // Method mock.foo will return 1 once.
+	
 	Mock<sensorInterface> mock;
 
 	When(Method(mock, analogicRead)).Return(50); // Method mock.foo will return 1 once.
 
 	When(Method(mock, getAlarmMinValue)).Return(2); // Method mock.foo will return 1 once.
+
+	//When(Method(mock, print)).Return(true); // Method mock.foo will return 1 once.
 
 	sensorInterface& i = mock.get();
 

@@ -3,7 +3,6 @@ class programStates
 {
 public:
 	programStates();
-	virtual bool test();
-private:
+	bool _isWaterDetected;
 };
 

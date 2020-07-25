@@ -8,10 +8,11 @@
 
 void setup() {
     Serial.begin(9600);
-    waterSensor ws(5.00,"x01");
+    waterSensor  ws(5.00,"x01");
     sensorInterface si(A0, 5.00, 2.00);
     programStates ps;
-    waterSensorActivity wsa(ws, si, ps);
+    waterSensorActivity wsa;
+    Serial.println(wsa.isWaterDetect(ws, si, ps));
 }
 
 void loop() {

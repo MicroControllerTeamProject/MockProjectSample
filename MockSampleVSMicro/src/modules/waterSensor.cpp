@@ -22,7 +22,7 @@ float waterSensor::analogVrefRead(sensorInterface& sr)
 
 bool waterSensor::isThereWater(sensorInterface& sr)
 {
-	if (analogVrefRead(sr) > sr.getAlarmMaxValue())
+	if (analogVrefRead(sr) < sr.getAlarmMinValue())
 	{
 		return true;
 	}

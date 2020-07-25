@@ -33,7 +33,7 @@ public:
 
 	virtual bool isDigitalSignalPinOn();
 
-	virtual bool print(float data, bool isCR);
+	void print(float data, bool isCR);
 
 private :
 

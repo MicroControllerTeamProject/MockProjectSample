@@ -6,7 +6,8 @@
 class waterSensorActivity
 {
 public:
-	waterSensorActivity(waterSensor ws, sensorInterface& sr, programStates& ps);
+	waterSensorActivity();
+	bool isWaterDetect(waterSensor ws, sensorInterface& sr, programStates& ps);
 private:
 };
 
