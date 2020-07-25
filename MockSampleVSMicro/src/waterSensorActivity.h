@@ -7,7 +7,7 @@ class waterSensorActivity
 {
 public:
 	waterSensorActivity();
-	bool isWaterDetect(waterSensor ws, microInterface& sr, programStates& ps);
+	void start(waterSensor ws, microInterface& sr, programStates& ps);
 private:
 };
 

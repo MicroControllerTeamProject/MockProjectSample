@@ -71,7 +71,7 @@ int microInterface::analogicRead() {
 	return analogRead(_analogPin);
 }
 
-void microInterface::print(float data, bool isCR)
+bool microInterface::printFloat(float data, bool isCR)
 {
 	if (isCR) {
 		Serial.println(data);
@@ -80,6 +80,19 @@ void microInterface::print(float data, bool isCR)
 	{
 		Serial.print(data);
 	}
+	return true;
+}
+
+bool microInterface::printData(const char* data, bool isCR)
+{
+	if (isCR) {
+		Serial.println(data);
+	}
+	else
+	{
+		Serial.print(data);
+	}
+	return data;
 }
 
 
