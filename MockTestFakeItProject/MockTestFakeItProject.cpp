@@ -8,21 +8,23 @@
 
 int main()
 {
-	
-
 	Mock<programStates> mock2;
 
 	programStates& i2 = mock2.get();
 
+	When(Method(mock2, test)).Return(567); // Method mock.foo will return 1 once.
+	
 	Mock<sensorInterface> mock;
 
 	When(Method(mock, analogicRead)).Return(1024); // Method mock.foo will return 1 once.
 
-	When(Method(mock, getAlarmMaxValue)).Return(5.10); // Method mock.foo will return 1 once.
+	When(Method(mock, getAlarmMaxValue)).Return(5); // Method mock.foo will return 1 once.
+
+	When(Method(mock, print)).Return(true); // Method mock.foo will return 1 once.
 
 	sensorInterface& i = mock.get();
 
-	waterSensor w(5.00);
+	waterSensor w(5.00,"x01");
 
 	waterSensorActivity* wsa = new waterSensorActivity(w, i, i2);
 

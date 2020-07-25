@@ -3,25 +3,23 @@
 
 sensorInterface::sensorInterface() {}
 
-sensorInterface::sensorInterface(uint8_t analogPin, float analogicAllarmMaxValue, float analogicAllarmMinValue, char* uid)
+sensorInterface::sensorInterface(uint8_t analogPin, float analogicAllarmMaxValue, float analogicAllarmMinValue)
 {
 	_analogPin = analogPin;
 	_analogicAllarmMaxValue = analogicAllarmMaxValue;
 	_analogicAllarmMinValue = analogicAllarmMinValue;
-	_uid = uid;
-	sensorInterface(analogPin, 0,analogicAllarmMaxValue,_analogicAllarmMinValue, uid);
+	sensorInterface(analogPin, 0,analogicAllarmMaxValue,_analogicAllarmMinValue);
 }
 
-sensorInterface::sensorInterface(char* uid,float analogicAllarmMaxValue, float analogicAllarmMinValue, uint8_t digitalSegnalPin)
+sensorInterface::sensorInterface(float analogicAllarmMaxValue, float analogicAllarmMinValue, uint8_t digitalSegnalPin)
 {
 	_digitalPin = digitalSegnalPin;
 	pinMode(digitalSegnalPin, INPUT);
-	_uid = uid;
-	sensorInterface(0, digitalSegnalPin,analogicAllarmMaxValue,analogicAllarmMinValue, uid);
+	sensorInterface(0, digitalSegnalPin,analogicAllarmMaxValue,analogicAllarmMinValue);
 
 }
 
-sensorInterface::sensorInterface(uint8_t analogPin, uint8_t digitalPin, float analogicAllarmMaxValue, float analogicAllarmMinValue, char* uid)
+sensorInterface::sensorInterface(uint8_t analogPin, uint8_t digitalPin, float analogicAllarmMaxValue, float analogicAllarmMinValue)
 {
 	if (analogPin != 0)
 	{
@@ -34,7 +32,6 @@ sensorInterface::sensorInterface(uint8_t analogPin, uint8_t digitalPin, float an
 	}
 	_analogicAllarmMaxValue = analogicAllarmMaxValue;
 	_analogicAllarmMinValue = analogicAllarmMinValue;
-	_uid = uid;
 }
 
 sensorInterface::~sensorInterface() {}
@@ -74,10 +71,21 @@ int sensorInterface::analogicRead() {
 	return analogRead(_analogPin);
 }
 
-char* sensorInterface::uid()
+bool sensorInterface::print(float data, bool isCR)
 {
-	return _uid;
+	if (isCR) {
+		Serial.println(data);
+		
+	}
+	else
+	{
+		Serial.print(data);
+		
+	}
+	return true;
 }
+
+
 
 
 

@@ -7,11 +7,11 @@ public:
 
 	sensorInterface();
 
-	sensorInterface(uint8_t analSignalPin, float analogicAllarmMaxValue, float analogicAllarmMinValue, char* uid);
+	sensorInterface(uint8_t analSignalPin, float analogicAllarmMaxValue, float analogicAllarmMinValue);
 
-	sensorInterface(char* uid, float analogicAllarmMaxValue, float analogicAllarmMinValue,uint8_t digitalSegnalPinIn);
+	sensorInterface(float analogicAllarmMaxValue, float analogicAllarmMinValue,uint8_t digitalSegnalPinIn);
 
-	sensorInterface(uint8_t analSignalPin, uint8_t digitalSegnalPinIn, float analogicAllarmMaxValue, float analogicAllarmMinValue,char* uid);
+	sensorInterface(uint8_t analSignalPin, uint8_t digitalSegnalPinIn, float analogicAllarmMaxValue, float analogicAllarmMinValue);
 	
 	~sensorInterface();
 
@@ -33,8 +33,7 @@ public:
 
 	virtual bool isDigitalSignalPinOn();
 
-	char* uid();
-
+	virtual bool print(float data, bool isCR);
 
 private :
 
@@ -48,6 +47,5 @@ private :
 
 	int _alarmPin;
 
-	char* _uid;
 };
 

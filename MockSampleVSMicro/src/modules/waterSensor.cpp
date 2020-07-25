@@ -1,9 +1,8 @@
 #include "waterSensor.h"
 
-
-waterSensor::waterSensor(float vref) {
+waterSensor::waterSensor(float vref,const char* uid) {
 	_vref = vref;
-
+	_uid = uid;
 }
 
 float waterSensor::getVref()
@@ -11,6 +10,10 @@ float waterSensor::getVref()
 	return _vref;
 }
 
+const char* waterSensor::getUid()
+{
+	return _uid;
+}
 
 float waterSensor::analogVrefRead(sensorInterface& sr)
 {
@@ -28,3 +31,5 @@ bool waterSensor::isThereWater(sensorInterface& sr)
 		return false;
 	}
 }
+
+
