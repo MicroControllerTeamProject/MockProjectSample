@@ -15,12 +15,12 @@ const char* waterSensor::getUid()
 	return _uid;
 }
 
-float waterSensor::analogVrefRead(sensorInterface& sr)
+float waterSensor::analogVrefRead(microInterface& sr)
 {
 	return (_vref / 1024) * sr.analogicRead();
 }
 
-bool waterSensor::isThereWater(sensorInterface& sr)
+bool waterSensor::isThereWater(microInterface& sr)
 {
 	if (analogVrefRead(sr) < sr.getAlarmMinValue())
 	{

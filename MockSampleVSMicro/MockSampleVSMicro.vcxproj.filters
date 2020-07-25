@@ -19,14 +19,14 @@
     <Filter Include="activities">
       <UniqueIdentifier>{fe163d82-e437-4c50-9e74-19612055a8e9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="modules\sensorConnector">
-      <UniqueIdentifier>{57f015d0-528a-4eef-9646-27bb26acc3f6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="modules\sensors">
       <UniqueIdentifier>{96dfaba5-a261-42b0-8266-5f4b70271260}</UniqueIdentifier>
     </Filter>
     <Filter Include="dto">
       <UniqueIdentifier>{defa923f-da01-43a4-bbb3-2fee656a3a74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="modules\microInterface">
+      <UniqueIdentifier>{57f015d0-528a-4eef-9646-27bb26acc3f6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -42,28 +42,28 @@
     <ClInclude Include="src\modules\waterSensor.h">
       <Filter>modules\sensors</Filter>
     </ClInclude>
-    <ClInclude Include="src\modules\sensorInterface.h">
-      <Filter>modules\sensorConnector</Filter>
-    </ClInclude>
     <ClInclude Include="src\programStates.h">
       <Filter>dto</Filter>
     </ClInclude>
     <ClInclude Include="src\waterSensorActivity.h">
       <Filter>activities</Filter>
     </ClInclude>
+    <ClInclude Include="src\modules\microInterface.h">
+      <Filter>modules\microInterface</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\modules\waterSensor.cpp">
       <Filter>modules\sensors</Filter>
-    </ClCompile>
-    <ClCompile Include="src\modules\sensorInterface.cpp">
-      <Filter>modules\sensorConnector</Filter>
     </ClCompile>
     <ClCompile Include="src\programStates.cpp">
       <Filter>dto</Filter>
     </ClCompile>
     <ClCompile Include="src\waterSensorActivity.cpp">
       <Filter>activities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\microInterface.cpp">
+      <Filter>modules\microInterface</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

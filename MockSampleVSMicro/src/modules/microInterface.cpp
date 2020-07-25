@@ -1,25 +1,25 @@
-#include "sensorInterface.h"
+#include "microInterface.h"
 #include <Arduino.h>
 
-sensorInterface::sensorInterface() {}
+microInterface::microInterface() {}
 
-sensorInterface::sensorInterface(uint8_t analogPin, float analogicAllarmMaxValue, float analogicAllarmMinValue)
+microInterface::microInterface(uint8_t analogPin, float analogicAllarmMaxValue, float analogicAllarmMinValue)
 {
 	_analogPin = analogPin;
 	_analogicAllarmMaxValue = analogicAllarmMaxValue;
 	_analogicAllarmMinValue = analogicAllarmMinValue;
-	sensorInterface(analogPin, 0,analogicAllarmMaxValue,_analogicAllarmMinValue);
+	microInterface(analogPin, 0,analogicAllarmMaxValue,_analogicAllarmMinValue);
 }
 
-sensorInterface::sensorInterface(float analogicAllarmMaxValue, float analogicAllarmMinValue, uint8_t digitalSegnalPin)
+microInterface::microInterface(float analogicAllarmMaxValue, float analogicAllarmMinValue, uint8_t digitalSegnalPin)
 {
 	_digitalPin = digitalSegnalPin;
 	pinMode(digitalSegnalPin, INPUT);
-	sensorInterface(0, digitalSegnalPin,analogicAllarmMaxValue,analogicAllarmMinValue);
+	microInterface(0, digitalSegnalPin,analogicAllarmMaxValue,analogicAllarmMinValue);
 
 }
 
-sensorInterface::sensorInterface(uint8_t analogPin, uint8_t digitalPin, float analogicAllarmMaxValue, float analogicAllarmMinValue)
+microInterface::microInterface(uint8_t analogPin, uint8_t digitalPin, float analogicAllarmMaxValue, float analogicAllarmMinValue)
 {
 	if (analogPin != 0)
 	{
@@ -34,44 +34,44 @@ sensorInterface::sensorInterface(uint8_t analogPin, uint8_t digitalPin, float an
 	_analogicAllarmMinValue = analogicAllarmMinValue;
 }
 
-sensorInterface::~sensorInterface() {}
+microInterface::~microInterface() {}
 
-float sensorInterface::getAlarmMinValue() { return _analogicAllarmMinValue; }
+float microInterface::getAlarmMinValue() { return _analogicAllarmMinValue; }
 
-float sensorInterface::getAlarmMaxValue() { return _analogicAllarmMaxValue; }
+float microInterface::getAlarmMaxValue() { return _analogicAllarmMaxValue; }
 
-bool sensorInterface::isDigitalSignalPinOn() {
+bool microInterface::isDigitalSignalPinOn() {
 	return digitalRead(_digitalPin);
 }
 
-void sensorInterface::setDigitalAlarmPinOut(int alarmPin) {
+void microInterface::setDigitalAlarmPinOut(int alarmPin) {
 	pinMode(alarmPin, OUTPUT);
 	_alarmPin = alarmPin;
 }
 
-void sensorInterface::switchAlarmPin_On_Off(unsigned long time) {
+void microInterface::switchAlarmPin_On_Off(unsigned long time) {
 	digitalWrite(_alarmPin, HIGH);
 	delay(time);
 	digitalWrite(_alarmPin, LOW);
 }
 
-void sensorInterface::turnAlarmPinOn() {
+void microInterface::turnAlarmPinOn() {
 	digitalWrite(_alarmPin, HIGH);
 }
 
-void sensorInterface::turnAllarmPinOff() {
+void microInterface::turnAllarmPinOff() {
 	digitalWrite(_alarmPin, LOW);
 }
 
-bool sensorInterface::isAllarmPinOn() {
+bool microInterface::isAllarmPinOn() {
 	return digitalRead(_alarmPin);
 }
 
-int sensorInterface::analogicRead() {
+int microInterface::analogicRead() {
 	return analogRead(_analogPin);
 }
 
-bool sensorInterface::print(float data, bool isCR)
+void microInterface::print(float data, bool isCR)
 {
 	if (isCR) {
 		Serial.println(data);
@@ -80,7 +80,6 @@ bool sensorInterface::print(float data, bool isCR)
 	{
 		Serial.print(data);
 	}
-	return true;
 }
 
 

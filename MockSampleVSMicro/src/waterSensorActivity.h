@@ -1,5 +1,5 @@
 #pragma once
-#include "modules/sensorInterface.h"
+#include "modules/microInterface.h"
 #include "modules/waterSensor.h"
 #include "programStates.h"
 
@@ -7,7 +7,7 @@ class waterSensorActivity
 {
 public:
 	waterSensorActivity();
-	bool isWaterDetect(waterSensor ws, sensorInterface& sr, programStates& ps);
+	bool isWaterDetect(waterSensor ws, microInterface& sr, programStates& ps);
 private:
 };
 

@@ -116,14 +116,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\modules\sensorInterface.h" />
+    <ClInclude Include="src\modules\microInterface.h" />
     <ClInclude Include="src\modules\waterSensor.h" />
     <ClInclude Include="src\programStates.h" />
     <ClInclude Include="src\waterSensorActivity.h" />
     <ClInclude Include="__vm\.MockSampleVSMicro.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\modules\sensorInterface.cpp" />
+    <ClCompile Include="src\modules\microInterface.cpp" />
     <ClCompile Include="src\modules\waterSensor.cpp" />
     <ClCompile Include="src\programStates.cpp" />
     <ClCompile Include="src\waterSensorActivity.cpp" />
