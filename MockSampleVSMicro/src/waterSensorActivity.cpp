@@ -3,12 +3,12 @@
 waterSensorActivity::waterSensorActivity(){
 }
 
-void waterSensorActivity::start(waterSensor ws, microInterface& sr, programStates& ps)
+void waterSensorActivity::start(waterSensor ws, microInterface& microInterface, programStates& programStates)
 {
-	ps._isWaterDetected  = ws.isThereWater(sr);
-	ps._isWaterDetected;
-	if (ps._isWaterDetected){
-		sr.printData("water is detected",true);
+	programStates._isWaterDetected  = ws.isThereWater(microInterface);
+	programStates._isWaterDetected;
+	if (programStates._isWaterDetected){
+		microInterface.printData("water is detected",true);
 	}
 }
 
