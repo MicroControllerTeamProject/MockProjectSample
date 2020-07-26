@@ -30,10 +30,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="MockSampleVSMicro.ino" />
     <None Include="src\arduino folders read me.txt">
       <Filter>Misc Files</Filter>
     </None>
+    <None Include="GarageMonitorSystem.ino" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.MockSampleVSMicro.vsarduino.h">
