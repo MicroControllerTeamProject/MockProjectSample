@@ -10,13 +10,13 @@ int main()
 {
 	Mock<microInterface> mock;
 
-	When(Method(mock, printData)).Return(true); // Method mock.foo will return 1 once.
+	When(Method(mock, printData)).Return(true); 
 
-	When(Method(mock, analogicRead)).Return(50); // Method mock.foo will return 1 once.
+	When(Method(mock, analogicRead)).Return(50); 
 
-	When(Method(mock, getAlarmMinValue)).Return(2); // Method mock.foo will return 1 once.
+	When(Method(mock, getAlarmMinValue)).Return(2); 
 
-	When(Method(mock, getAlarmMaxValue)).Return(5); // Method mock.foo will return 1 once.
+	When(Method(mock, getAlarmMaxValue)).Return(5);
 
 	microInterface& i = mock.get();
 

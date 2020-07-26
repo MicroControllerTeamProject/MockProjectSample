@@ -37,6 +37,7 @@ public:
 
 	virtual bool printData(const char* data, bool isCR);
 
+
 private :
 
 	float _analogicAllarmMinValue;
