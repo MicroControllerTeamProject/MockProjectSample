@@ -32,4 +32,16 @@ bool waterSensor::isThereWater(microInterface& sr)
 	}
 }
 
+bool waterSensor::isSensorWorking(microInterface& sr)
+{
+	if (analogVrefRead(sr) < sr.getAlarmMaxValue())
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
 

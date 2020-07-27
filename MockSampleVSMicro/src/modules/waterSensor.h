@@ -8,6 +8,7 @@ public:
 	waterSensor(float vref,const char* uid);
 	/*bool areValuesOK();*/
 	virtual bool isThereWater(microInterface& sr);
+	virtual bool isSensorWorking(microInterface& sr);
 	float analogVrefRead(microInterface& sr);
 	float getVref();
 	const char* getUid();

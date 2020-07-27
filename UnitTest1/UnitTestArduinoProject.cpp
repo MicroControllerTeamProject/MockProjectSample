@@ -24,7 +24,7 @@ namespace UnitTestArduinoProject
 
 			When(Method(mock, printData)).Return(true);
 
-			When(Method(mock, analogicRead)).Return(50);
+			When(Method(mock, analogicRead)).Return(1000);
 
 			When(Method(mock, getAlarmMinValue)).Return(2);
 
@@ -32,15 +32,15 @@ namespace UnitTestArduinoProject
 
 			microInterface& i = mock.get();
 
-			waterSensor w(5.00, "x01");
+			waterSensor waterSensor(5.00, "x01");
 
-			programStates ps;
+			programStates programStates;
 
 			waterSensorActivity* wsActivity = new waterSensorActivity();
 
-			wsActivity->start(w, i, ps);
+			wsActivity->start(waterSensor, i, programStates);
 
-			Assert::AreEqual(true, ps._isWaterDetected);
+			Assert::AreEqual(true, programStates._isWaterDetected);
 		}
 	};
 }
