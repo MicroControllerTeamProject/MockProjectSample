@@ -1,9 +1,9 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-#include "..\MockSampleVSMicro\src\modules\waterSensor.h"
-#include "..\MockSampleVSMicro\src\modules\microInterface.h"
-#include "..\MockSampleVSMicro\src\waterSensorActivity.h"
-#include "..\MockSampleVSMicro\src\programStates.h"
+#include "..\GarageMonitorSystem\src\modules\waterSensor.h"
+#include "..\GarageMonitorSystem\src\modules\microInterface.h"
+#include "..\GarageMonitorSystem\src\waterSensorActivity.h"
+#include "..\GarageMonitorSystem\src\programStates.h"
 #include "src\extend.h"
 
 
@@ -24,7 +24,7 @@ namespace UnitTestArduinoProject
 
 			When(Method(mock, printData)).Return(true);
 
-			When(Method(mock, analogicRead)).Return(1000);
+			When(Method(mock, analogicRead)).Return(50);
 
 			When(Method(mock, getAlarmMinValue)).Return(2);
 

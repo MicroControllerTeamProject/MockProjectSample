@@ -21,17 +21,17 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\MockSampleVSMicro\src\programStates.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\MockSampleVSMicro\src\waterSensorActivity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\MockSampleVSMicro\src\modules\waterSensor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="UnitTestArduinoProject.cpp">
       <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GarageMonitorSystem\src\programStates.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GarageMonitorSystem\src\waterSensorActivity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GarageMonitorSystem\src\modules\waterSensor.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

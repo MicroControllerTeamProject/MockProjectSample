@@ -1,5 +1,6 @@
 #include "microInterface.h"
 #include <Arduino.h>
+#include <SoftwareSerial.h>
 
 microInterface::microInterface() {}
 
