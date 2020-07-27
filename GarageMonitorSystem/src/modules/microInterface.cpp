@@ -84,6 +84,19 @@ bool microInterface::printFloat(float data, bool isCR)
 	return true;
 }
 
+bool microInterface::printFloat(float data, bool isCR,uint8_t tx, uint8_t rx)
+{
+	SoftwareSerial s(rx, tx);
+	if (isCR) {
+		s.println(data);
+	}
+	else
+	{
+		s.print(data);
+	}
+	return true;
+}
+
 bool microInterface::printData(const char* data, bool isCR)
 {
 	if (isCR) {

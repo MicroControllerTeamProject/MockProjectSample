@@ -35,6 +35,8 @@ public:
 
 	virtual bool printFloat(float data, bool isCR);
 
+	virtual bool printFloat(float data, bool isCR, uint8_t tx, uint8_t rx);
+
 	virtual bool printData(const char* data, bool isCR);
 
 
