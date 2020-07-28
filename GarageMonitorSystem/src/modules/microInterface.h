@@ -39,6 +39,10 @@ public:
 
 	virtual bool printData(const char* data, bool isCR);
 
+	virtual bool printTest(double data,int end) = 0;
+
+	virtual bool printTest(int data) = 0;
+
 
 private :
 

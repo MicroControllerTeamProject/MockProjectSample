@@ -109,6 +109,16 @@ bool microInterface::printData(const char* data, bool isCR)
 	return data;
 }
 
+bool printTest(double data, int end) 
+{
+
+}
+
+bool printTest(int data) 
+{
+
+}
+
 
 
 

@@ -22,6 +22,10 @@ namespace UnitTestArduinoProject
 		{
 			Mock<microInterface> mock;
 
+			When(OverloadedMethod(mock, printTest,bool(int))).Return(false);
+
+			When(OverloadedMethod(mock, printTest, bool(double,int))).Return(true);
+
 			When(Method(mock, printData)).Return(true);
 
 			When(Method(mock, analogicRead)).Return(50);
