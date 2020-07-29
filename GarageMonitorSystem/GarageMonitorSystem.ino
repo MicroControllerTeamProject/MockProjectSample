@@ -4,13 +4,9 @@
  Author:	luigi.santagada
 */
 
-#include "src/modules/waterSensor.h"
 #include "src/waterSensorActivity.h"
 
-
-waterSensor  ws(5.00, "x01",2,5);
-
-microInterface si(A0,0);
+microInterface micrInterface(A0,0);
 
 programStates ps;
 waterSensorActivity _waterSensorActivity;
@@ -20,7 +16,7 @@ void setup() {
 }
 
 void loop() {
-    _waterSensorActivity.start(ws, si, ps);
+    _waterSensorActivity.start(micrInterface, ps);
 
 }
 

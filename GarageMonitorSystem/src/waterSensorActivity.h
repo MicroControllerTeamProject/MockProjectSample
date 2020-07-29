@@ -7,7 +7,7 @@ class waterSensorActivity
 {
 public:
 	waterSensorActivity();
-	void start(waterSensor ws, microInterface& sr, programStates& ps);
+	void start(microInterface& microInterface, programStates& programStates);
 private:
 };
 

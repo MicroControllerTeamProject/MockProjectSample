@@ -34,13 +34,13 @@ namespace UnitTestGarageMonitorSystem
 			microInterface& microInterface = mock.get();
 
 
-			waterSensor waterSensor(5.00, "x01",2,5);
+			//waterSensor waterSensor(5.00, "x01",2,5);
 
 			programStates programStates;
 
 			waterSensorActivity* wsActivity = new waterSensorActivity();
 
-			wsActivity->start(waterSensor, microInterface, programStates);
+			wsActivity->start(microInterface, programStates);
 
 			Assert::AreEqual(true, programStates._isWaterDetected);
 		}
@@ -61,13 +61,11 @@ namespace UnitTestGarageMonitorSystem
 
 			microInterface& microInterface = mock.get();
 
-			waterSensor waterSensor(5.00, "x01", 2, 5);
-
 			programStates programStates;
 
 			waterSensorActivity* wsActivity = new waterSensorActivity();
 
-			wsActivity->start(waterSensor, microInterface, programStates);
+			wsActivity->start(microInterface, programStates);
 
 			Assert::AreEqual(false, programStates._isWaterDetected);
 		}

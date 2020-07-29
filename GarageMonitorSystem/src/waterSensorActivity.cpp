@@ -1,10 +1,12 @@
 #include "waterSensorActivity.h"
+#include "modules/waterSensor.h"
 
 waterSensorActivity::waterSensorActivity(){
 }
 
-void waterSensorActivity::start(waterSensor waterSensor, microInterface& microInterface, programStates& programStates)
+void waterSensorActivity::start(microInterface& microInterface, programStates& programStates)
 {
+	waterSensor waterSensor(5.00, "x01", 2, 5);
 	microInterface.print(waterSensor.analogVrefRead(microInterface), true);
 	programStates._isWaterDetected = waterSensor.isThereWater(microInterface);
 	if (programStates._isWaterDetected){
