@@ -12,13 +12,12 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace UnitTestArduinoProject
+namespace UnitTestGarageMonitorSystem
 {
-	TEST_CLASS(UnitTestArduinoProject)
+	TEST_CLASS(UnitTestGarageMonitorSystem)
 	{
 	public:
-		
-		TEST_METHOD(TestMethodWaterSensor)
+		TEST_METHOD(TestMethod_WaterInGarage)
 		{
 			Mock<microInterface> mock;
 
@@ -32,8 +31,8 @@ namespace UnitTestArduinoProject
 
 			When(OverloadedMethod(mock, print,bool(const char*, bool))).AlwaysReturn(true);
 
-		
-			microInterface& i = mock.get();
+			microInterface& microInterface = mock.get();
+
 
 			waterSensor waterSensor(5.00, "x01",2,5);
 
@@ -41,9 +40,36 @@ namespace UnitTestArduinoProject
 
 			waterSensorActivity* wsActivity = new waterSensorActivity();
 
-			wsActivity->start(waterSensor, i, programStates);
+			wsActivity->start(waterSensor, microInterface, programStates);
 
 			Assert::AreEqual(true, programStates._isWaterDetected);
+		}
+
+		TEST_METHOD(TestMethod_NoWaterInGarage)
+		{
+			Mock<microInterface> mock;
+
+			When(Method(mock, analogicRead)).AlwaysReturn(1000);
+
+			When(OverloadedMethod(mock, print, bool(const char*, bool))).AlwaysReturn(false);
+
+			When(OverloadedMethod(mock, print, bool(float, bool))).AlwaysReturn(false);
+
+			When(OverloadedMethod(mock, print, bool(float, bool, uint8_t, uint8_t))).AlwaysReturn(false);
+
+			When(OverloadedMethod(mock, print, bool(const char*, bool))).AlwaysReturn(true);
+
+			microInterface& microInterface = mock.get();
+
+			waterSensor waterSensor(5.00, "x01", 2, 5);
+
+			programStates programStates;
+
+			waterSensorActivity* wsActivity = new waterSensorActivity();
+
+			wsActivity->start(waterSensor, microInterface, programStates);
+
+			Assert::AreEqual(false, programStates._isWaterDetected);
 		}
 	};
 }

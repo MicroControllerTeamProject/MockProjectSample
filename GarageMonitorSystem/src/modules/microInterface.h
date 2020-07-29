@@ -11,29 +11,21 @@ public:
 	
 	~microInterface();
 	
-	void setDigitalAlarmPinOut(int alarmPin);
+	virtual void setDigitalAlarmPinOut(int alarmPin);
 
 	virtual int analogicRead();
 
-	void switchAlarmPin_On_Off(unsigned long time);
+	virtual void switchAlarmPin_On_Off(unsigned long time);
 
-	void turnAlarmPinOn();
+	virtual void turnAlarmPinOn();
 
-	void turnAllarmPinOff();
+	virtual void turnAllarmPinOff();
 
 	virtual bool isAllarmPinOn();
 
 	virtual bool isDigitalSignalPinOn();
 
-	//virtual bool printFloat(float data, bool isCR);
-
-	//virtual bool printFloat(float data, bool isCR, uint8_t tx, uint8_t rx);
-
 	virtual bool print(const char* data, bool isCR);
-
-	//virtual bool printTest(const char* data,int end);
-
-	//virtual bool printTest(int data);
 
 	virtual bool print(float data, bool isCR);
 
