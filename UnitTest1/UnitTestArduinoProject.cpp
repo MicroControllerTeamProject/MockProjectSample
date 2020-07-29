@@ -22,21 +22,20 @@ namespace UnitTestArduinoProject
 		{
 			Mock<microInterface> mock;
 
-			When(OverloadedMethod(mock, printTest,bool(int))).Return(false);
+			When(Method(mock, analogicRead)).AlwaysReturn(50);
 
-			When(OverloadedMethod(mock, printTest, bool(double,int))).Return(true);
+			When(OverloadedMethod(mock, print, bool(const char*, bool))).AlwaysReturn(false);
 
-			When(Method(mock, printData)).Return(true);
+			When(OverloadedMethod(mock, print, bool(float,bool))).AlwaysReturn(false);
 
-			When(Method(mock, analogicRead)).Return(50);
+			When(OverloadedMethod(mock, print, bool(float, bool,uint8_t,uint8_t))).AlwaysReturn(false);
 
-			When(Method(mock, getAlarmMinValue)).Return(2);
+			When(OverloadedMethod(mock, print,bool(const char*, bool))).AlwaysReturn(true);
 
-			When(Method(mock, getAlarmMaxValue)).Return(5);
-
+		
 			microInterface& i = mock.get();
 
-			waterSensor waterSensor(5.00, "x01");
+			waterSensor waterSensor(5.00, "x01",2,5);
 
 			programStates programStates;
 

@@ -8,8 +8,10 @@
 #include "src/waterSensorActivity.h"
 
 
-waterSensor  ws(5.00, "x01");
-microInterface si(A0, 5.00, 2.00);
+waterSensor  ws(5.00, "x01",2,5);
+
+microInterface si(A0,0);
+
 programStates ps;
 waterSensorActivity _waterSensorActivity;
 

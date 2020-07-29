@@ -28,6 +28,7 @@
     <ClInclude Include="src\modules\microInterface.h">
       <Filter>connectors</Filter>
     </ClInclude>
+    <ClInclude Include="__vm\.GarageMonitorSystem.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GarageMonitorSystem.ino" />

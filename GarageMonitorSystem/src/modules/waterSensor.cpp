@@ -1,8 +1,10 @@
 #include "waterSensor.h"
 
-waterSensor::waterSensor(float vref,const char* uid) {
+waterSensor::waterSensor(float vref,const char* uid,float analogMinValue, float analogMaxValue) {
 	_vref = vref;
 	_uid = uid;
+	_analogMinValue = analogMinValue;
+	_analogMaxValue = analogMaxValue;
 }
 
 float waterSensor::getVref()
@@ -10,8 +12,7 @@ float waterSensor::getVref()
 	return _vref;
 }
 
-const char* waterSensor::getUid()
-{
+const char* waterSensor::getUid(){
 	return _uid;
 }
 
@@ -22,7 +23,7 @@ float waterSensor::analogVrefRead(microInterface& sr)
 
 bool waterSensor::isThereWater(microInterface& sr)
 {
-	if (analogVrefRead(sr) < sr.getAlarmMinValue())
+	if (analogVrefRead(sr) < _analogMinValue)
 	{
 		return true;
 	}
@@ -34,7 +35,7 @@ bool waterSensor::isThereWater(microInterface& sr)
 
 bool waterSensor::isSensorWorking(microInterface& sr)
 {
-	if (analogVrefRead(sr) < sr.getAlarmMaxValue())
+	if (analogVrefRead(sr) < _analogMaxValue)
 	{
 		return true;
 	}
@@ -42,6 +43,16 @@ bool waterSensor::isSensorWorking(microInterface& sr)
 	{
 		return false;
 	}
+}
+
+float waterSensor::getAnalogMinValue()
+{
+	return _analogMinValue;
+}
+
+float waterSensor::getAnalogMaxValue()
+{
+	return _analogMaxValue;
 }
 
 

@@ -4,23 +4,8 @@
 
 microInterface::microInterface() {}
 
-microInterface::microInterface(uint8_t analogPin, float analogicAllarmMaxValue, float analogicAllarmMinValue)
-{
-	_analogPin = analogPin;
-	_analogicAllarmMaxValue = analogicAllarmMaxValue;
-	_analogicAllarmMinValue = analogicAllarmMinValue;
-	microInterface(analogPin, 0,analogicAllarmMaxValue,_analogicAllarmMinValue);
-}
 
-microInterface::microInterface(float analogicAllarmMaxValue, float analogicAllarmMinValue, uint8_t digitalSegnalPin)
-{
-	_digitalPin = digitalSegnalPin;
-	pinMode(digitalSegnalPin, INPUT);
-	microInterface(0, digitalSegnalPin,analogicAllarmMaxValue,analogicAllarmMinValue);
-
-}
-
-microInterface::microInterface(uint8_t analogPin, uint8_t digitalPin, float analogicAllarmMaxValue, float analogicAllarmMinValue)
+microInterface::microInterface(uint8_t analogPin, uint8_t digitalPin)
 {
 	if (analogPin != 0)
 	{
@@ -31,15 +16,9 @@ microInterface::microInterface(uint8_t analogPin, uint8_t digitalPin, float anal
 		_digitalPin = digitalPin;
 		pinMode(digitalPin, INPUT);
 	}
-	_analogicAllarmMaxValue = analogicAllarmMaxValue;
-	_analogicAllarmMinValue = analogicAllarmMinValue;
 }
 
 microInterface::~microInterface() {}
-
-float microInterface::getAlarmMinValue() { return _analogicAllarmMinValue; }
-
-float microInterface::getAlarmMaxValue() { return _analogicAllarmMaxValue; }
 
 bool microInterface::isDigitalSignalPinOn() {
 	return digitalRead(_digitalPin);
@@ -72,32 +51,7 @@ int microInterface::analogicRead() {
 	return analogRead(_analogPin);
 }
 
-bool microInterface::printFloat(float data, bool isCR)
-{
-	if (isCR) {
-		Serial.println(data);
-	}
-	else
-	{
-		Serial.print(data);
-	}
-	return true;
-}
-
-bool microInterface::printFloat(float data, bool isCR,uint8_t tx, uint8_t rx)
-{
-	SoftwareSerial s(rx, tx);
-	if (isCR) {
-		s.println(data);
-	}
-	else
-	{
-		s.print(data);
-	}
-	return true;
-}
-
-bool microInterface::printData(const char* data, bool isCR)
+bool microInterface::print(const char* data, bool isCR)
 {
 	if (isCR) {
 		Serial.println(data);
@@ -109,14 +63,29 @@ bool microInterface::printData(const char* data, bool isCR)
 	return data;
 }
 
-bool microInterface::printTest(double data, int end)
+bool microInterface::print(float data, bool isCR)
 {
-
+	if (isCR) {
+		Serial.println(data);
+	}
+	else
+	{
+		Serial.print(data);
+	}
+	return true;
 }
 
-bool microInterface::printTest(int data)
+bool microInterface::print(float data, bool isCR, uint8_t tx, uint8_t rx)
 {
-
+	SoftwareSerial s(rx, tx);
+	if (isCR) {
+		s.println(data);
+	}
+	else
+	{
+		s.print(data);
+	}
+	return true;
 }
 
 
