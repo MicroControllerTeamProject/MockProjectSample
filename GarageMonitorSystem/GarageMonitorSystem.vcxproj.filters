@@ -13,6 +13,9 @@
     <ClCompile Include="src\modules\microInterface.cpp">
       <Filter>connectors</Filter>
     </ClCompile>
+    <ClCompile Include="sensor.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.MockSampleVSMicro.vsarduino.h" />
@@ -29,6 +32,9 @@
       <Filter>connectors</Filter>
     </ClInclude>
     <ClInclude Include="__vm\.GarageMonitorSystem.vsarduino.h" />
+    <ClInclude Include="sensor.h">
+      <Filter>base</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="GarageMonitorSystem.ino" />
@@ -46,6 +52,9 @@
     </Filter>
     <Filter Include="connectors">
       <UniqueIdentifier>{0976663d-2a45-4b4a-849b-51eae28af497}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="base">
+      <UniqueIdentifier>{d06bf669-3438-45d2-afa5-1d1bcc1be25d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
