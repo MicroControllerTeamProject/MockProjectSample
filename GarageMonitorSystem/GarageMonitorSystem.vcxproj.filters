@@ -13,7 +13,7 @@
     <ClCompile Include="src\modules\microInterface.cpp">
       <Filter>connectors</Filter>
     </ClCompile>
-    <ClCompile Include="sensor.cpp">
+    <ClCompile Include="src\sensor.cpp">
       <Filter>base</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,7 +32,7 @@
       <Filter>connectors</Filter>
     </ClInclude>
     <ClInclude Include="__vm\.GarageMonitorSystem.vsarduino.h" />
-    <ClInclude Include="sensor.h">
+    <ClInclude Include="src\sensor.h">
       <Filter>base</Filter>
     </ClInclude>
   </ItemGroup>

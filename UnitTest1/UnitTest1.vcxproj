@@ -163,6 +163,9 @@
     <ClCompile Include="..\GarageMonitorSystem\src\programStates.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\GarageMonitorSystem\src\sensor.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="..\GarageMonitorSystem\src\waterSensorActivity.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -175,6 +178,7 @@
     <ClCompile Include="UnitTestArduinoProject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\GarageMonitorSystem\src\sensor.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="src\extend.h" />
     <ClInclude Include="src\fakeit.hpp" />

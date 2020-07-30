@@ -1,4 +1,4 @@
-#include "src/modules/microInterface.h"
+#include "modules/microInterface.h"
 
 class sensor
 {
@@ -11,7 +11,7 @@ public:
 	float getVref();
 	const char* getUid();
 
-private:
+protected:
 	float _vref;
 	const char* _uid;
 	float _analogMinValue;

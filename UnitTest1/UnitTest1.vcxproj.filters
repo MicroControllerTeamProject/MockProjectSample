@@ -33,6 +33,9 @@
     <ClCompile Include="..\GarageMonitorSystem\src\modules\waterSensor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\GarageMonitorSystem\src\sensor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\fakeit.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GarageMonitorSystem\src\sensor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

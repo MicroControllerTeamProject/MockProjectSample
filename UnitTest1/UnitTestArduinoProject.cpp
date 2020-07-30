@@ -6,8 +6,6 @@
 #include "..\GarageMonitorSystem\src\programStates.h"
 #include "src\extend.h"
 
-
-
 //https://docs.microsoft.com/it-it/visualstudio/test/writing-unit-tests-for-c-cpp?view=vs-2019
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -32,9 +30,6 @@ namespace UnitTestGarageMonitorSystem
 			When(OverloadedMethod(mock, print,bool(const char*, bool))).AlwaysReturn(true);
 
 			microInterface& microInterface = mock.get();
-
-
-			//waterSensor waterSensor(5.00, "x01",2,5);
 
 			programStates programStates;
 

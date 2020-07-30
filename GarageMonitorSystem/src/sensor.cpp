@@ -1,6 +1,7 @@
 
 #include "sensor.h"
 
+
 sensor::sensor(float vref, const char* uid, float analogMinValue, float analogMaxValue) {
 	_vref = vref;
 	_uid = uid;
