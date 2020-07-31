@@ -130,10 +130,22 @@
     <ClCompile Include="..\..\Libraries\LSG_Utils\MySim900.cpp" />
     <ClCompile Include="microInterfaceGarageSystem.cpp" />
     <ClCompile Include="src\modules\microInterface.cpp" />
-    <ClCompile Include="src\modules\waterSensor.cpp" />
-    <ClCompile Include="src\programStates.cpp" />
-    <ClCompile Include="src\sensor.cpp" />
-    <ClCompile Include="src\waterSensorActivity.cpp" />
+    <ClCompile Include="src\modules\waterSensor.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="src\programStates.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="src\sensor.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="src\waterSensorActivity.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PreprocessorDefinitions>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
