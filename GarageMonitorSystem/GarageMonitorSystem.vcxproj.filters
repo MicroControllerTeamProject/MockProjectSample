@@ -16,6 +16,7 @@
     <ClCompile Include="src\sensor.cpp">
       <Filter>base</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Libraries\LSG_Utils\MySim900.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.MockSampleVSMicro.vsarduino.h" />
@@ -35,6 +36,7 @@
     <ClInclude Include="src\sensor.h">
       <Filter>base</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Libraries\LSG_Utils\MySim900.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GarageMonitorSystem.ino" />

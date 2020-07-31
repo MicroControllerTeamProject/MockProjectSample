@@ -2,11 +2,14 @@
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 
-microInterface::microInterface() {}
+SoftwareSerial* s;
 
+microInterface::microInterface() {}
 
 microInterface::microInterface(uint8_t analogPin, uint8_t digitalPin)
 {
+	s = new  SoftwareSerial(8, 7,true);
+
 	if (analogPin != 0)
 	{
 		_analogPin = analogPin;
