@@ -4,9 +4,10 @@
  Author:	luigi.santagada
 */
 
+#include "microInterfaceGarageSystem.h"
 #include "src/waterSensorActivity.h"
 
-microInterface micrInterface(A0,0);
+microInterfaceGarageSystem micrInterface(A0,0);
 
 programStates ps;
 

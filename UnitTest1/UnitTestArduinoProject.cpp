@@ -20,6 +20,8 @@ namespace UnitTestGarageMonitorSystem
 		{
 			Mock<microInterfaceGarageSystem> mock;
 
+			When(Method(mock, blink)).AlwaysReturn(false);
+
 			When(Method(mock, analogicRead)).AlwaysReturn(50);
 
 			When(OverloadedMethod(mock, print, bool(const char*, bool))).AlwaysReturn(false);
@@ -46,6 +48,8 @@ namespace UnitTestGarageMonitorSystem
 			Mock<microInterfaceGarageSystem> mock;
 
 			When(Method(mock, analogicRead)).AlwaysReturn(1000);
+
+			When(Method(mock, blink)).AlwaysReturn(false);
 
 			When(OverloadedMethod(mock, print, bool(const char*, bool))).AlwaysReturn(false);
 

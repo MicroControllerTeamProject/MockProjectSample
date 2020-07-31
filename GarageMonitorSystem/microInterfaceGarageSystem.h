@@ -4,7 +4,8 @@
 class microInterfaceGarageSystem : public microInterface
 {
 public:
-	microInterfaceGarageSystem();
+	microInterfaceGarageSystem(uint8_t analogPin, uint8_t digitalPin);
+	virtual bool blink();
 private:
 
 };
