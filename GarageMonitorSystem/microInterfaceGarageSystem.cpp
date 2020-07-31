@@ -3,8 +3,7 @@
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 
-microInterfaceGarageSystem::microInterfaceGarageSystem(uint8_t analogPin, uint8_t digitalPin) : microInterface(analogPin, digitalPin)
-{
+microInterfaceGarageSystem::microInterfaceGarageSystem(uint8_t analogPin, uint8_t digitalPin) : microInterface(analogPin, digitalPin){
 
 }
 

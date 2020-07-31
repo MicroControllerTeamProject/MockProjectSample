@@ -10,6 +10,7 @@
 microInterfaceGarageSystem micrInterface(A0,0);
 
 programStates ps;
+//sensor* a = new sensor(5, "", 2, 5);
 
 waterSensorActivity _waterSensorActivity;
 

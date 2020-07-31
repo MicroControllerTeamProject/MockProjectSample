@@ -4,7 +4,7 @@ class sensor
 {
 public:
 	sensor(float vref, const char* uid, float analogMinValue, float analogMaxValue);
-	bool isSensorWorking(microInterface& sr);
+	virtual bool isSensorWorking(microInterface& sr);
 	float analogVrefRead(microInterface& sr);
 	float getAnalogMinValue();
 	float getAnalogMaxValue();

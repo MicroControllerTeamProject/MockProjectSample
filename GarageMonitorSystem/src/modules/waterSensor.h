@@ -7,7 +7,7 @@ class waterSensor : public sensor
 {
 public:
 	waterSensor(float vref,const char* uid,float analogMinValue, float analogMaxValue);
-	bool isThereWater(microInterface& sr);
+	virtual bool isThereWater(microInterface& sr);
 	/*bool isSensorWorking(microInterface& sr);
 	float analogVrefRead(microInterface& sr);
 	float getAnalogMinValue();
