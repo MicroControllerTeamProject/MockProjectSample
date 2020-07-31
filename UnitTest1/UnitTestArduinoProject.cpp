@@ -2,6 +2,7 @@
 #include "CppUnitTest.h"
 #include "..\GarageMonitorSystem\src\modules\waterSensor.h"
 #include "..\GarageMonitorSystem\src\modules\microInterface.h"
+#include "..\GarageMonitorSystem\microInterfaceGarageSystem.h"
 #include "..\GarageMonitorSystem\src\waterSensorActivity.h"
 #include "..\GarageMonitorSystem\src\programStates.h"
 #include "src\extend.h"
@@ -17,7 +18,7 @@ namespace UnitTestGarageMonitorSystem
 	public:
 		TEST_METHOD(TestMethod_WaterInGarage)
 		{
-			Mock<microInterface> mock;
+			Mock<microInterfaceGarageSystem> mock;
 
 			When(Method(mock, analogicRead)).AlwaysReturn(50);
 
@@ -29,7 +30,7 @@ namespace UnitTestGarageMonitorSystem
 
 			When(OverloadedMethod(mock, print,bool(const char*, bool))).AlwaysReturn(true);
 
-			microInterface& microInterface = mock.get();
+			microInterfaceGarageSystem& microInterface = mock.get();
 
 			programStates programStates;
 
@@ -42,7 +43,7 @@ namespace UnitTestGarageMonitorSystem
 
 		TEST_METHOD(TestMethod_NoWaterInGarage)
 		{
-			Mock<microInterface> mock;
+			Mock<microInterfaceGarageSystem> mock;
 
 			When(Method(mock, analogicRead)).AlwaysReturn(1000);
 
@@ -54,7 +55,7 @@ namespace UnitTestGarageMonitorSystem
 
 			When(OverloadedMethod(mock, print, bool(const char*, bool))).AlwaysReturn(true);
 
-			microInterface& microInterface = mock.get();
+			microInterfaceGarageSystem& microInterface = mock.get();
 
 			programStates programStates;
 

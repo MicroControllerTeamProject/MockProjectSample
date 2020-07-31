@@ -1,5 +1,6 @@
 #pragma once
-#include "modules/microInterface.h"
+//#include "modules/microInterface.h"
+#include "../microInterfaceGarageSystem.h"
 #include "modules/waterSensor.h"
 #include "programStates.h"
 
@@ -7,7 +8,7 @@ class waterSensorActivity
 {
 public:
 	waterSensorActivity();
-	void start(microInterface& microInterface, programStates& programStates);
+	void start(microInterfaceGarageSystem& microInterface, programStates& programStates);
 private:
 };
 

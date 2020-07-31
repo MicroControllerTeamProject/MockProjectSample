@@ -4,7 +4,7 @@
 waterSensorActivity::waterSensorActivity(){
 }
 
-void waterSensorActivity::start(microInterface& microInterface, programStates& programStates)
+void waterSensorActivity::start(microInterfaceGarageSystem& microInterface, programStates& programStates)
 {
 	waterSensor waterSensor(5.00, "x01", 2, 5);
 	microInterface.print(waterSensor.analogVrefRead(microInterface), true);
