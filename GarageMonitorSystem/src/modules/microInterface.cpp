@@ -2,11 +2,16 @@
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 
-SoftwareSerial* s;
+SoftwareSerial* softwareSerial = NULL;
 
-microInterface::microInterface(uint8_t analogPin, uint8_t digitalPin)
+microInterface::microInterface(uint8_t analogPin, uint8_t digitalPin,uint8_t rx, uint8_t tx)
 {
-	s = new  SoftwareSerial(8, 7,true);
+	if (rx != 255 || tx != 255)
+	{
+		Serial.begin(9600);
+		//Serial.println("Entrato");
+		softwareSerial = new  SoftwareSerial(rx, tx, true);
+	}
 
 	if (analogPin != 0)
 	{

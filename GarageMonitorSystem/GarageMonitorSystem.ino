@@ -7,7 +7,7 @@
 #include "microInterfaceGarageSystem.h"
 #include "src/waterSensorActivity.h"
 
-microInterfaceGarageSystem micrInterface(A0,0);
+microInterfaceGarageSystem micrInterfaceGarageSystem(A0,0,8);
 
 programStates ps;
 //sensor* a = new sensor(5, "", 2, 5);
@@ -19,7 +19,7 @@ void setup() {
 }
 
 void loop() {
-    _waterSensorActivity.start(micrInterface, ps);
+    _waterSensorActivity.start(micrInterfaceGarageSystem, ps);
 
 }
 

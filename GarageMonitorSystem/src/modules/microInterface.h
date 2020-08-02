@@ -6,7 +6,7 @@ class microInterface
 {
 public:
 
-	microInterface(uint8_t analSignalPin, uint8_t digitalSegnalPinIn);
+	microInterface(uint8_t analSignalPin, uint8_t digitalSegnalPinIn,uint8_t rx = 255, uint8_t tx = 255);
 	
 	~microInterface();
 	
