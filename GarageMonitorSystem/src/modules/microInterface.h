@@ -36,6 +36,8 @@ public:
 
 	virtual bool println(float data);
 
+	virtual bool delay_m(unsigned long);
+
 private :
 	int _analogPin;
 

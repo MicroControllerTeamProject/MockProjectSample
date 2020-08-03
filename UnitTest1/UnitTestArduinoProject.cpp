@@ -20,7 +20,7 @@ namespace UnitTestGarageMonitorSystem
 		{
 			Mock<microInterfaceGarageSystem> mock;
 
-			When(Method(mock, serialBegin)).AlwaysReturn(false);
+			When(Method(mock, serial_begin)).AlwaysReturn(false);
 
 			When(Method(mock, blink)).AlwaysReturn(false);
 
@@ -46,7 +46,7 @@ namespace UnitTestGarageMonitorSystem
 		{
 			Mock<microInterfaceGarageSystem> mock;
 
-			When(Method(mock, serialBegin)).AlwaysReturn(false);
+			When(Method(mock, serial_begin)).AlwaysReturn(false);
 
 			When(Method(mock, analogicRead)).AlwaysReturn(1000);
 

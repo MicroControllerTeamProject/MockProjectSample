@@ -138,6 +138,10 @@ bool microInterface::serial_available()
 	return false;
 }
 
+bool microInterface::delay_m(unsigned long millisencond) {
+	delay(millisencond);
+}
+
 
 
 

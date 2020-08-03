@@ -4,14 +4,8 @@
     <ClCompile Include="src\programStates.cpp">
       <Filter>dto</Filter>
     </ClCompile>
-    <ClCompile Include="src\waterSensorActivity.cpp">
-      <Filter>activity</Filter>
-    </ClCompile>
     <ClCompile Include="src\modules\waterSensor.cpp">
       <Filter>sensors</Filter>
-    </ClCompile>
-    <ClCompile Include="src\modules\microInterface.cpp">
-      <Filter>connectors</Filter>
     </ClCompile>
     <ClCompile Include="src\sensor.cpp">
       <Filter>base</Filter>
@@ -20,20 +14,20 @@
     <ClCompile Include="microInterfaceGarageSystem.cpp">
       <Filter>connectors</Filter>
     </ClCompile>
+    <ClCompile Include="src\waterSensorActivity.cpp">
+      <Filter>activity\waterSensor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\microInterface.cpp">
+      <Filter>connectors\base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.MockSampleVSMicro.vsarduino.h" />
     <ClInclude Include="src\programStates.h">
       <Filter>dto</Filter>
     </ClInclude>
-    <ClInclude Include="src\waterSensorActivity.h">
-      <Filter>activity</Filter>
-    </ClInclude>
     <ClInclude Include="src\modules\waterSensor.h">
       <Filter>sensors</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\microInterface.h">
-      <Filter>connectors</Filter>
     </ClInclude>
     <ClInclude Include="__vm\.GarageMonitorSystem.vsarduino.h" />
     <ClInclude Include="src\sensor.h">
@@ -42,6 +36,12 @@
     <ClInclude Include="..\..\Libraries\LSG_Utils\MySim900.h" />
     <ClInclude Include="microInterfaceGarageSystem.h">
       <Filter>connectors</Filter>
+    </ClInclude>
+    <ClInclude Include="src\waterSensorActivity.h">
+      <Filter>activity\waterSensor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\microInterface.h">
+      <Filter>connectors\base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +63,15 @@
     </Filter>
     <Filter Include="base">
       <UniqueIdentifier>{d06bf669-3438-45d2-afa5-1d1bcc1be25d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="activity\waterSensor">
+      <UniqueIdentifier>{f0b8e8da-54e1-4629-a2f9-7a26edbaaa21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="connectors\base">
+      <UniqueIdentifier>{ecb1347b-26bf-44e0-b234-406f3ba677ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="activity\sim">
+      <UniqueIdentifier>{c6a3a041-7893-4fda-8fae-75501a448efd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
