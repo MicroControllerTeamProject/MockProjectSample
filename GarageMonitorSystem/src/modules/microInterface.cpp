@@ -106,6 +106,19 @@ bool microInterface::println(float data)
 	return true;
 }
 
+bool microInterface::serialBegin(unsigned long baud)
+{
+	if (softwareSerial != NULL)
+	{
+		softwareSerial->begin(baud);
+	}
+	else
+	{
+		Serial.begin(baud);
+	}
+	return true;
+}
+
 
 
 

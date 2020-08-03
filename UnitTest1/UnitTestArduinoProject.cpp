@@ -20,17 +20,16 @@ namespace UnitTestGarageMonitorSystem
 		{
 			Mock<microInterfaceGarageSystem> mock;
 
+			When(Method(mock, serialBegin)).AlwaysReturn(false);
+
 			When(Method(mock, blink)).AlwaysReturn(false);
 
 			When(Method(mock, analogicRead)).AlwaysReturn(50);
 
-			When(OverloadedMethod(mock, print, bool(const char*, bool))).AlwaysReturn(false);
+			When(OverloadedMethod(mock, print, bool(const char*))).AlwaysReturn(false);
 
-			When(OverloadedMethod(mock, print, bool(float,bool))).AlwaysReturn(false);
+			When(OverloadedMethod(mock, print, bool(float))).AlwaysReturn(false);
 
-			When(OverloadedMethod(mock, print, bool(float, bool,uint8_t,uint8_t))).AlwaysReturn(false);
-
-			When(OverloadedMethod(mock, print,bool(const char*, bool))).AlwaysReturn(true);
 
 			microInterfaceGarageSystem& microInterface = mock.get();
 
@@ -47,17 +46,15 @@ namespace UnitTestGarageMonitorSystem
 		{
 			Mock<microInterfaceGarageSystem> mock;
 
+			When(Method(mock, serialBegin)).AlwaysReturn(false);
+
 			When(Method(mock, analogicRead)).AlwaysReturn(1000);
 
 			When(Method(mock, blink)).AlwaysReturn(false);
 
-			When(OverloadedMethod(mock, print, bool(const char*, bool))).AlwaysReturn(false);
+			When(OverloadedMethod(mock, print, bool(const char*))).AlwaysReturn(false);
 
-			When(OverloadedMethod(mock, print, bool(float, bool))).AlwaysReturn(false);
-
-			When(OverloadedMethod(mock, print, bool(float, bool, uint8_t, uint8_t))).AlwaysReturn(false);
-
-			When(OverloadedMethod(mock, print, bool(const char*, bool))).AlwaysReturn(true);
+			When(OverloadedMethod(mock, print, bool(float))).AlwaysReturn(false);
 
 			microInterfaceGarageSystem& microInterface = mock.get();
 

@@ -14,7 +14,7 @@ programStates ps;
 waterSensorActivity _waterSensorActivity;
 
 void setup() {
-    Serial.begin(9600);
+    
 }
 
 void loop() {
