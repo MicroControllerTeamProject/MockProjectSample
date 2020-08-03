@@ -18,7 +18,7 @@
       <Filter>connectors\base</Filter>
     </ClCompile>
     <ClCompile Include="microInterfaceWaterSensor.cpp">
-      <Filter>connectors</Filter>
+      <Filter>connectors\microInterfaceWaterSensor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -41,7 +41,7 @@
       <Filter>connectors\base</Filter>
     </ClInclude>
     <ClInclude Include="microInterfaceWaterSensor.h">
-      <Filter>connectors</Filter>
+      <Filter>connectors\microInterfaceWaterSensor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +72,12 @@
     </Filter>
     <Filter Include="activity\sim">
       <UniqueIdentifier>{c6a3a041-7893-4fda-8fae-75501a448efd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="connectors\microInterfaceWaterSensor">
+      <UniqueIdentifier>{119ba314-7b42-490d-ae73-68aabd324bc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="connectors\microInterfaceSim">
+      <UniqueIdentifier>{d3b875b9-44e2-40ab-b6f2-e575b86e3d50}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

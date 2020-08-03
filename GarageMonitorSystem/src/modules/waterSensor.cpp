@@ -6,7 +6,7 @@ waterSensor::waterSensor(float vref,const char* uid,float analogMinValue, float 
 
 }
 
-bool waterSensor::isThereWater(microInterface& sr)
+bool waterSensor::isThereWater(microInterfaceWaterSensor& sr)
 {
 	if (analogVrefRead(sr) < _analogMinValue)
 	{

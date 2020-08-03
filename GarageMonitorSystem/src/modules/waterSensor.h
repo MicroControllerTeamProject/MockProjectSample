@@ -1,13 +1,13 @@
 #pragma once
 
-#include "microInterface.h"
+#include "..\..\microInterfaceWaterSensor.h"
 #include "..\sensor.h"
 
 class waterSensor : public sensor
 {
 public:
 	waterSensor(float vref,const char* uid,float analogMinValue, float analogMaxValue);
-	virtual bool isThereWater(microInterface& sr);
+	virtual bool isThereWater(microInterfaceWaterSensor& sr);
 	/*bool isSensorWorking(microInterface& sr);
 	float analogVrefRead(microInterface& sr);
 	float getAnalogMinValue();
