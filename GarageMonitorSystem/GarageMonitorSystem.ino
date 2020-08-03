@@ -19,7 +19,6 @@ void setup() {
 
 void loop() {
     _waterSensorActivity.start(micrInterfaceGarageSystem, ps);
-
 }
 
 

@@ -24,7 +24,9 @@ public:
 
 	virtual bool isDigitalSignalPinOn();
 
-	virtual bool serialBegin(unsigned long baud);
+	virtual bool serial_begin(unsigned long baud);
+
+	virtual bool serial_available();
 
 	virtual bool print(const char* data);
 
