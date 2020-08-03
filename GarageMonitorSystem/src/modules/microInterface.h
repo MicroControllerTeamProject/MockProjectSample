@@ -24,11 +24,13 @@ public:
 
 	virtual bool isDigitalSignalPinOn();
 
-	virtual bool print(const char* data, bool isCR);
+	virtual bool print(const char* data);
 
-	virtual bool print(float data, bool isCR);
+	virtual bool print(float data);
 
-	virtual bool print(float data, bool isCR, uint8_t tx, uint8_t rx);
+	virtual bool println(const char* data);
+
+	virtual bool println(float data);
 
 private :
 	int _analogPin;

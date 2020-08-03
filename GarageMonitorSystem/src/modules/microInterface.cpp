@@ -4,15 +4,12 @@
 
 SoftwareSerial* softwareSerial = NULL;
 
-microInterface::microInterface(uint8_t analogPin, uint8_t digitalPin,uint8_t rx, uint8_t tx)
+microInterface::microInterface(uint8_t analogPin, uint8_t digitalPin, uint8_t rx, uint8_t tx)
 {
 	if (rx != 255 || tx != 255)
 	{
-		Serial.begin(9600);
-		//Serial.println("Entrato");
 		softwareSerial = new  SoftwareSerial(rx, tx, true);
 	}
-
 	if (analogPin != 0)
 	{
 		_analogPin = analogPin;
@@ -57,22 +54,24 @@ int microInterface::analogicRead() {
 	return analogRead(_analogPin);
 }
 
-bool microInterface::print(const char* data, bool isCR)
+bool microInterface::print(const char* data)
 {
-	if (isCR) {
-		Serial.println(data);
+	if (softwareSerial != NULL)
+	{
+			softwareSerial->print(data);
 	}
 	else
 	{
-		Serial.print(data);
+			Serial.print(data);
 	}
-	return data;
+	return true;
 }
 
-bool microInterface::print(float data, bool isCR)
+bool microInterface::print(float data)
 {
-	if (isCR) {
-		Serial.println(data);
+	if (softwareSerial != NULL)
+	{
+		softwareSerial->print(data);
 	}
 	else
 	{
@@ -81,18 +80,33 @@ bool microInterface::print(float data, bool isCR)
 	return true;
 }
 
-bool microInterface::print(float data, bool isCR, uint8_t tx, uint8_t rx)
+bool microInterface::println(const char* data)
 {
-	SoftwareSerial s(rx, tx);
-	if (isCR) {
-		s.println(data);
+	if (softwareSerial != NULL)
+	{
+		softwareSerial->println(data);
 	}
 	else
 	{
-		s.print(data);
+		Serial.println(data);
 	}
 	return true;
 }
+
+bool microInterface::println(float data)
+{
+	if (softwareSerial != NULL)
+	{
+		softwareSerial->println(data);
+	}
+	else
+	{
+		Serial.println(data);
+	}
+	return true;
+}
+
+
 
 
 

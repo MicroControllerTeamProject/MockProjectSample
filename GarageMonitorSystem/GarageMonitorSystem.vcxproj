@@ -152,7 +152,7 @@
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties arduino.upload.port="COM17" config.Debug.customdebug_nano_atmega328_debugger_type="none" debug.local.portname="COM17" debug.local.portspeed="9600" debug.remote.portname="Serial" debug.remote.portspeed="9600" />
+      <UserProperties arduino.upload.port="COM19" config.Debug.customdebug_nano_atmega328_debugger_type="none" debug.local.portname="COM17" debug.local.portspeed="9600" debug.remote.portname="Serial" debug.remote.portspeed="9600" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
