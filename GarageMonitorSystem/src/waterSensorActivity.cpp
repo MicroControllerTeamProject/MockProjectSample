@@ -4,7 +4,7 @@
 waterSensorActivity::waterSensorActivity(){
 }
 
-void waterSensorActivity::start(microInterfaceGarageSystem& microInterface, programStates& programStates)
+void waterSensorActivity::start(microInterfaceWaterSensor& microInterface, programStates& programStates)
 {
 	waterSensor waterSensor(5.00, "x01", 2, 5);
 	microInterface.blink();

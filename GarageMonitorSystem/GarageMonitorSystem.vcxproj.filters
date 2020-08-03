@@ -11,14 +11,14 @@
       <Filter>base</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Libraries\LSG_Utils\MySim900.cpp" />
-    <ClCompile Include="microInterfaceGarageSystem.cpp">
-      <Filter>connectors</Filter>
-    </ClCompile>
     <ClCompile Include="src\waterSensorActivity.cpp">
       <Filter>activity\waterSensor</Filter>
     </ClCompile>
     <ClCompile Include="src\modules\microInterface.cpp">
       <Filter>connectors\base</Filter>
+    </ClCompile>
+    <ClCompile Include="microInterfaceWaterSensor.cpp">
+      <Filter>connectors</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -34,14 +34,14 @@
       <Filter>base</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Libraries\LSG_Utils\MySim900.h" />
-    <ClInclude Include="microInterfaceGarageSystem.h">
-      <Filter>connectors</Filter>
-    </ClInclude>
     <ClInclude Include="src\waterSensorActivity.h">
       <Filter>activity\waterSensor</Filter>
     </ClInclude>
     <ClInclude Include="src\modules\microInterface.h">
       <Filter>connectors\base</Filter>
+    </ClInclude>
+    <ClInclude Include="microInterfaceWaterSensor.h">
+      <Filter>connectors</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -117,7 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Libraries\LSG_Utils\MySim900.h" />
-    <ClInclude Include="microInterfaceGarageSystem.h" />
+    <ClInclude Include="microInterfaceWaterSensor.h" />
     <ClInclude Include="src\modules\microInterface.h" />
     <ClInclude Include="src\modules\waterSensor.h" />
     <ClInclude Include="src\programStates.h" />
@@ -128,7 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Libraries\LSG_Utils\MySim900.cpp" />
-    <ClCompile Include="microInterfaceGarageSystem.cpp" />
+    <ClCompile Include="microInterfaceWaterSensor.cpp" />
     <ClCompile Include="src\modules\microInterface.cpp" />
     <ClCompile Include="src\modules\waterSensor.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
