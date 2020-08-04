@@ -7,9 +7,6 @@
     <ClCompile Include="src\modules\waterSensor.cpp">
       <Filter>sensors</Filter>
     </ClCompile>
-    <ClCompile Include="src\sensor.cpp">
-      <Filter>base</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Libraries\LSG_Utils\MySim900.cpp" />
     <ClCompile Include="src\waterSensorActivity.cpp">
       <Filter>activity\waterSensor</Filter>
@@ -19,6 +16,12 @@
     </ClCompile>
     <ClCompile Include="microInterfaceWaterSensor.cpp">
       <Filter>connectors\microInterfaceWaterSensor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sensor.cpp">
+      <Filter>base\sensor</Filter>
+    </ClCompile>
+    <ClCompile Include="SerialDevice.cpp">
+      <Filter>base\device</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -30,9 +33,6 @@
       <Filter>sensors</Filter>
     </ClInclude>
     <ClInclude Include="__vm\.GarageMonitorSystem.vsarduino.h" />
-    <ClInclude Include="src\sensor.h">
-      <Filter>base</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Libraries\LSG_Utils\MySim900.h" />
     <ClInclude Include="src\waterSensorActivity.h">
       <Filter>activity\waterSensor</Filter>
@@ -42,6 +42,12 @@
     </ClInclude>
     <ClInclude Include="microInterfaceWaterSensor.h">
       <Filter>connectors\microInterfaceWaterSensor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sensor.h">
+      <Filter>base\sensor</Filter>
+    </ClInclude>
+    <ClInclude Include="SerialDevice.h">
+      <Filter>base\device</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +84,15 @@
     </Filter>
     <Filter Include="connectors\microInterfaceSim">
       <UniqueIdentifier>{d3b875b9-44e2-40ab-b6f2-e575b86e3d50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="base\sensor">
+      <UniqueIdentifier>{6d0c0543-5ba6-4c38-acc6-e102662ca243}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="base\device">
+      <UniqueIdentifier>{2491c3e8-cbe6-46d2-be49-d6168c4ff22b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="devices">
+      <UniqueIdentifier>{6c18c07e-39ac-411a-af59-4822afce3452}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
