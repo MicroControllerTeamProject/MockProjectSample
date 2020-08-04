@@ -38,6 +38,8 @@ public:
 
 	virtual bool delay_m(unsigned long);
 
+	virtual int microInterface::read();
+
 private :
 	int _analogPin;
 

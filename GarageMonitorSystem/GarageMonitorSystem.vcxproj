@@ -131,8 +131,14 @@
   <ItemGroup>
     <ClCompile Include="..\..\Libraries\LSG_Utils\MySim900.cpp" />
     <ClCompile Include="microInterfaceWaterSensor.cpp" />
-    <ClCompile Include="SerialDevice.cpp" />
-    <ClCompile Include="SimDevice.cpp" />
+    <ClCompile Include="SerialDevice.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="SimDevice.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PreprocessorDefinitions>
+    </ClCompile>
     <ClCompile Include="src\modules\microInterface.cpp" />
     <ClCompile Include="src\modules\waterSensor.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

@@ -142,6 +142,17 @@ bool microInterface::delay_m(unsigned long millisencond) {
 	delay(millisencond);
 }
 
+int microInterface::read() {
+	if (softwareSerial != NULL)
+	{
+		return softwareSerial->read();
+	}
+	else
+	{
+		return Serial.read();
+	}
+}
+
 
 
 

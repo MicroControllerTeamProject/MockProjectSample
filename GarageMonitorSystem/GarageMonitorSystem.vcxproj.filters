@@ -12,10 +12,10 @@
       <Filter>activity\waterSensor</Filter>
     </ClCompile>
     <ClCompile Include="src\modules\microInterface.cpp">
-      <Filter>connectors\base</Filter>
+      <Filter>connectors%28repository%29\base</Filter>
     </ClCompile>
     <ClCompile Include="microInterfaceWaterSensor.cpp">
-      <Filter>connectors\microInterfaceWaterSensor</Filter>
+      <Filter>connectors%28repository%29\microInterfaceWaterSensor</Filter>
     </ClCompile>
     <ClCompile Include="src\sensor.cpp">
       <Filter>base\sensor</Filter>
@@ -41,10 +41,10 @@
       <Filter>activity\waterSensor</Filter>
     </ClInclude>
     <ClInclude Include="src\modules\microInterface.h">
-      <Filter>connectors\base</Filter>
+      <Filter>connectors%28repository%29\base</Filter>
     </ClInclude>
     <ClInclude Include="microInterfaceWaterSensor.h">
-      <Filter>connectors\microInterfaceWaterSensor</Filter>
+      <Filter>connectors%28repository%29\microInterfaceWaterSensor</Filter>
     </ClInclude>
     <ClInclude Include="src\sensor.h">
       <Filter>base\sensor</Filter>
@@ -70,26 +70,14 @@
     <Filter Include="sensors">
       <UniqueIdentifier>{9610ac3c-a553-454c-9434-ddb7f3b92ab1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="connectors">
-      <UniqueIdentifier>{0976663d-2a45-4b4a-849b-51eae28af497}</UniqueIdentifier>
-    </Filter>
     <Filter Include="base">
       <UniqueIdentifier>{d06bf669-3438-45d2-afa5-1d1bcc1be25d}</UniqueIdentifier>
     </Filter>
     <Filter Include="activity\waterSensor">
       <UniqueIdentifier>{f0b8e8da-54e1-4629-a2f9-7a26edbaaa21}</UniqueIdentifier>
     </Filter>
-    <Filter Include="connectors\base">
-      <UniqueIdentifier>{ecb1347b-26bf-44e0-b234-406f3ba677ab}</UniqueIdentifier>
-    </Filter>
     <Filter Include="activity\sim">
       <UniqueIdentifier>{c6a3a041-7893-4fda-8fae-75501a448efd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="connectors\microInterfaceWaterSensor">
-      <UniqueIdentifier>{119ba314-7b42-490d-ae73-68aabd324bc7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="connectors\microInterfaceSim">
-      <UniqueIdentifier>{d3b875b9-44e2-40ab-b6f2-e575b86e3d50}</UniqueIdentifier>
     </Filter>
     <Filter Include="base\sensor">
       <UniqueIdentifier>{6d0c0543-5ba6-4c38-acc6-e102662ca243}</UniqueIdentifier>
@@ -99,6 +87,18 @@
     </Filter>
     <Filter Include="devices">
       <UniqueIdentifier>{6c18c07e-39ac-411a-af59-4822afce3452}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="connectors%28repository%29">
+      <UniqueIdentifier>{0976663d-2a45-4b4a-849b-51eae28af497}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="connectors%28repository%29\base">
+      <UniqueIdentifier>{ecb1347b-26bf-44e0-b234-406f3ba677ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="connectors%28repository%29\microInterfaceWaterSensor">
+      <UniqueIdentifier>{119ba314-7b42-490d-ae73-68aabd324bc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="connectors%28repository%29\microInterfaceSim">
+      <UniqueIdentifier>{d3b875b9-44e2-40ab-b6f2-e575b86e3d50}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
