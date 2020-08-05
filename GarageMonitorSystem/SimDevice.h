@@ -7,7 +7,6 @@ class SimDevice : public SerialDevice
 {
 public:
 	SimDevice(const char* uid);
-
 };
 
 

@@ -146,7 +146,33 @@ int microInterface::read() {
 		return softwareSerial->read();
 	}
 		return Serial.read();
+}
 
+char* microInterface::readBuffer()
+{
+	String response = "";
+	if (softwareSerial != NULL)
+	{
+		if (softwareSerial->available() > 0)
+		{
+			while (softwareSerial->available() > 0) {
+				response.concat((char)softwareSerial->read());
+			}
+		}
+	}
+	else
+	{
+		if (Serial.available() > 0)
+		{
+			while (Serial.available() > 0) {
+				response.concat((char)Serial.read());
+			}
+			
+		}
+	}
+	char* responseReturn;
+	response.toCharArray(responseReturn,response.length());
+	return responseReturn;
 }
 
 

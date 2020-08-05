@@ -44,6 +44,8 @@ public:
 
 	virtual int read();
 
+	virtual char* readBuffer();
+
 private :
 	int _analogPin;
 

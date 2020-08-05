@@ -1,7 +1,6 @@
 #include "SimDevice.h"
 
 
-SimDevice::SimDevice(const char* uid) : SerialDevice(uid)
-{
+SimDevice::SimDevice(const char* uid) : SerialDevice(uid){
 
 }
