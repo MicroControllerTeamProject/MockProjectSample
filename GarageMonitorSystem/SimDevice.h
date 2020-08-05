@@ -6,7 +6,7 @@
 class SimDevice : public SerialDevice
 {
 public:
-	SimDevice(const char* data,uint8_t rx, uint8_t tx, bool invers_logic);
+	SimDevice(const char* uid);
 
 };
 
