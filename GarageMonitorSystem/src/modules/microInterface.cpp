@@ -4,21 +4,19 @@
 
 SoftwareSerial* softwareSerial = NULL;
 
-microInterface::microInterface(uint8_t analogPin, uint8_t digitalPin, uint8_t rx, uint8_t tx)
+microInterface::microInterface(){
+}
+
+microInterface::microInterface(uint8_t rx, uint8_t tx, bool invers_logic)
 {
-	if (rx != 255 || tx != 255)
-	{
-		softwareSerial = new  SoftwareSerial(rx, tx, true);
-	}
-	if (analogPin != 0)
-	{
-		_analogPin = analogPin;
-	}
-	if (digitalPin != 0)
-	{
-		_digitalPin = digitalPin;
-		pinMode(digitalPin, INPUT);
-	}
+	softwareSerial = new  SoftwareSerial(rx, tx, invers_logic);
+}
+
+microInterface::microInterface(char analogPin, uint8_t digitalPin)
+{
+	_analogPin = analogPin;
+	_digitalPin = digitalPin;
+	pinMode(digitalPin, INPUT);
 }
 
 microInterface::~microInterface() {}
@@ -58,11 +56,11 @@ bool microInterface::print(const char* data)
 {
 	if (softwareSerial != NULL)
 	{
-			softwareSerial->print(data);
+		softwareSerial->print(data);
 	}
 	else
 	{
-			Serial.print(data);
+		Serial.print(data);
 	}
 	return true;
 }
@@ -147,10 +145,8 @@ int microInterface::read() {
 	{
 		return softwareSerial->read();
 	}
-	else
-	{
 		return Serial.read();
-	}
+
 }
 
 

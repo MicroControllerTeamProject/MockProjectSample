@@ -26,6 +26,9 @@
     <ClCompile Include="SimDevice.cpp">
       <Filter>devices</Filter>
     </ClCompile>
+    <ClCompile Include="microInterfaceSimDevice.cpp">
+      <Filter>connectors%28repository%29\microInterfaceSim</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.MockSampleVSMicro.vsarduino.h" />
@@ -54,6 +57,9 @@
     </ClInclude>
     <ClInclude Include="SimDevice.h">
       <Filter>devices</Filter>
+    </ClInclude>
+    <ClInclude Include="microInterfaceSimDevice.h">
+      <Filter>connectors%28repository%29\microInterfaceSim</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

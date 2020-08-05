@@ -4,7 +4,7 @@
 class microInterfaceWaterSensor : public microInterface
 {
 public:
-	microInterfaceWaterSensor(uint8_t analogPin, uint8_t digitalPin,uint8_t rx = 255,  uint8_t tx = 255);
+	microInterfaceWaterSensor(char analogPin, uint8_t digitalPin);
 	virtual bool blink();
 private:
 

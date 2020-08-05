@@ -3,8 +3,10 @@
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 
-microInterfaceWaterSensor::microInterfaceWaterSensor(uint8_t analogPin, uint8_t digitalPin, uint8_t rx, uint8_t tx) : microInterface(analogPin, digitalPin,rx,tx){
+microInterfaceWaterSensor::microInterfaceWaterSensor(char analogPin, uint8_t digitalPin) : microInterface(analogPin, digitalPin){
 }
+
+
 
 bool microInterfaceWaterSensor::blink(){
 	digitalWrite(13, HIGH);

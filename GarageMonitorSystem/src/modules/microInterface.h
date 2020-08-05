@@ -6,7 +6,11 @@ class microInterface
 {
 public:
 
-	microInterface(uint8_t analSignalPin, uint8_t digitalSegnalPinIn,uint8_t rx = 255, uint8_t tx = 255);
+	microInterface();
+
+	microInterface(char analSignalPin, uint8_t digitalSegnalPinIn);
+
+	microInterface(uint8_t rx, uint8_t tx, bool invers_logic);
 	
 	~microInterface();
 	
@@ -38,7 +42,7 @@ public:
 
 	virtual bool delay_m(unsigned long);
 
-	virtual int microInterface::read();
+	virtual int read();
 
 private :
 	int _analogPin;
