@@ -6,6 +6,7 @@
 
 #include "microInterfaceWaterSensor.h"
 #include "src/waterSensorActivity.h"
+#include <string.h>
 
 microInterfaceWaterSensor micrInterfaceGarageSystem(A0,0);
 
@@ -14,7 +15,15 @@ programStates ps;
 waterSensorActivity _waterSensorActivity;
 
 void setup() {
-    
+    //Serial.begin(9600);
+    //char* pch;
+    //pch = strstr(str, "simple");
+    //strcmp(str, "simple");
+
+    //strncpy(pch, "sample", 6);
+    //Serial.println(strcmp(str, "simple"));
+    /*strncpy(pch, "sample", 6);
+    stack::push(str);*/
 }
 
 void loop() {

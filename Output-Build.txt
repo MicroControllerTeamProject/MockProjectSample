@@ -1,7 +1,7 @@
-﻿1>------ Build started: Project: MockTestFakeItProject, Configuration: Debug x64 ------
-1>MockTestFakeItProject.cpp
-1>C:\Repos\MicroControllerTeamProject\MockProjectSample\MockTestFakeItProject\src\extend.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-1>C:\Repos\MicroControllerTeamProject\MockProjectSample\MockTestFakeItProject\src\extend.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-1>MockTestFakeItProject.vcxproj -> C:\Repos\MicroControllerTeamProject\MockProjectSample\x64\Debug\MockTestFakeItProject.exe
-1>Done building project "MockTestFakeItProject.vcxproj".
+﻿1>------ Build started: Project: GarageMonitorSystem_Test, Configuration: Debug x64 ------
+1>C:\Users\luigi.santagada\Downloads\VS2019\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1850,5): warning : The referenced project '..\MockSampleVSMicro\MockSampleVSMicro.vcxproj' does not exist.
+1>C:\Users\luigi.santagada\Downloads\VS2019\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(467,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (UnitTestArduinoProject.vcxproj, UnitTest1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+1>waterSensor.cpp
+1>UnitTest1.vcxproj -> C:\Repos\MicroControllerTeamProject\MockProjectSample\x64\Debug\GarageMonitorSystem_Test.dll
+1>Done building project "UnitTest1.vcxproj".
 ========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========

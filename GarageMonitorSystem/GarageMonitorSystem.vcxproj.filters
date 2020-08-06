@@ -107,4 +107,7 @@
       <UniqueIdentifier>{d3b875b9-44e2-40ab-b6f2-e575b86e3d50}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="stringFunctions.txt" />
+  </ItemGroup>
 </Project>

@@ -1,0 +1,10 @@
+-----------IndexOf
+
+char * source = "test string";         /* assume source address is */
+                                       /* 0x10 for example */
+char * found = strstr( source, "in" ); /* should return 0x18 */
+if (found != NULL)                     /* strstr returns NULL if item not found */
+{
+  int index = found - source;          /* index is 8 */
+                                       /* source[8] gets you "i" */
+}
