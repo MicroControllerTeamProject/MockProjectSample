@@ -114,6 +114,7 @@ bool microInterface::println(float data)
 	return true;
 }
 
+//Only used for software serial,initialize Serial in setup program.
 bool microInterface::serial_begin(unsigned long baud)
 {
 	if (softwareSerial != NULL)
@@ -159,7 +160,12 @@ char* microInterface::readString() {
 	String c;
 	if (softwareSerial != NULL)
 	{
-		c = softwareSerial->readString();
+
+		while (softwareSerial->available() > 0) {
+			c.concat((char)softwareSerial->read());
+		}
+
+		//c = softwareSerial->readString();
 		c.toCharArray(a, c.length());
 		strcpy(b, a);
 		return b;
