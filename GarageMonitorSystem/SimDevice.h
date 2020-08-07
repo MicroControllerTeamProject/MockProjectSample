@@ -8,7 +8,7 @@ class SimDevice : public SerialDevice
 {
 public:
 	SimDevice(const char* uid);
-	char* dialPhone(char* phoneNumber, microInterfaceSimDevice microInterfaceSimDevice);
+	char* dialPhone(char* phoneNumber, microInterfaceSimDevice& microInterfaceSimDevice);
 };
 
 

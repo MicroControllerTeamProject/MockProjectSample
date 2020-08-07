@@ -1,7 +1,7 @@
 #include "programStates.h"
 
 programStates::programStates(){
-	_isSensorWorking = true;
-	_isWaterDetected = false;
+	_isWaterSensor01Working = true;
+	_isWaterSensor01Detected = false;
 }
 

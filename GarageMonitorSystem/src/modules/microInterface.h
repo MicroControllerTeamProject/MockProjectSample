@@ -40,9 +40,13 @@ public:
 
 	virtual bool println(float data);
 
+	virtual bool consoleWrite(const char* data);
+
 	virtual bool delay_m(unsigned long);
 
 	virtual int read();
+
+	virtual char* readString();
 
 	virtual char* readBuffer();
 

@@ -121,6 +121,7 @@
     <ClInclude Include="microInterfaceSimDevice.h" />
     <ClInclude Include="microInterfaceWaterSensor.h" />
     <ClInclude Include="SerialDevice.h" />
+    <ClInclude Include="simActivity.h" />
     <ClInclude Include="SimDevice.h" />
     <ClInclude Include="src\modules\microInterface.h" />
     <ClInclude Include="src\modules\waterSensor.h" />
@@ -138,6 +139,7 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PreprocessorDefinitions>
     </ClCompile>
+    <ClCompile Include="simActivity.cpp" />
     <ClCompile Include="SimDevice.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PreprocessorDefinitions>

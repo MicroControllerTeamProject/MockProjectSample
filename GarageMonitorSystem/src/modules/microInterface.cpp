@@ -2,9 +2,10 @@
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 
-SoftwareSerial* softwareSerial = NULL;
+SoftwareSerial* softwareSerial;
 
 microInterface::microInterface(){
+	softwareSerial = NULL;
 }
 
 microInterface::microInterface(uint8_t rx, uint8_t tx, bool invers_logic)
@@ -17,9 +18,13 @@ microInterface::microInterface(char analogPin, uint8_t digitalPin)
 	_analogPin = analogPin;
 	_digitalPin = digitalPin;
 	pinMode(digitalPin, INPUT);
+	softwareSerial = NULL;
 }
 
-microInterface::~microInterface() {}
+microInterface::~microInterface() 
+{
+	delete softwareSerial;
+}
 
 bool microInterface::isDigitalSignalPinOn() {
 	return digitalRead(_digitalPin);
@@ -91,6 +96,11 @@ bool microInterface::println(const char* data)
 	return true;
 }
 
+bool microInterface::consoleWrite(const char* data)
+{
+	Serial.println(data);
+}
+
 bool microInterface::println(float data)
 {
 	if (softwareSerial != NULL)
@@ -148,31 +158,45 @@ int microInterface::read() {
 		return Serial.read();
 }
 
-char* microInterface::readBuffer()
-{
-	String response = "";
+char* microInterface::readString() {
+	char a[250];
+	char b[500];
+	String c;
 	if (softwareSerial != NULL)
 	{
-		if (softwareSerial->available() > 0)
-		{
-			while (softwareSerial->available() > 0) {
-				response.concat((char)softwareSerial->read());
-			}
-		}
+		c = softwareSerial->readString();
+		c.toCharArray(a, c.length());
+		strcpy(b, a);
+		return b;
 	}
 	else
 	{
-		if (Serial.available() > 0)
-		{
-			while (Serial.available() > 0) {
-				response.concat((char)Serial.read());
-			}
-			
-		}
+		String c = Serial.readString();
+		c.toCharArray(a, c.length());
+		strcpy(b, a);
+		return b;
 	}
-	char* responseReturn;
-	response.toCharArray(responseReturn,response.length());
-	return responseReturn;
+}
+
+char* microInterface::readBuffer()
+{
+	char a[250];
+	char b[500];
+	String c;
+	if (softwareSerial != NULL)
+	{
+		c = softwareSerial->readString();
+		c.toCharArray(a, c.length());
+		strcpy(b, a);
+		return b;
+	}
+	else
+	{
+		String c = Serial.readString();
+		c.toCharArray(a, c.length());
+		strcpy(b, a);
+		return b;
+	}
 }
 
 

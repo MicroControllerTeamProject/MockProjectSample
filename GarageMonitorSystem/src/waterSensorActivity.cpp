@@ -9,8 +9,8 @@ void waterSensorActivity::start(microInterfaceWaterSensor& microInterfaceWaterSe
 	waterSensor waterSensor(5.00, "x01", 2, 5);
 	microInterfaceWaterSensor.serial_begin(9600);
 	microInterfaceWaterSensor.print(waterSensor.analogVrefRead(microInterfaceWaterSensor));
-	programStates._isWaterDetected = waterSensor.isThereWater(microInterfaceWaterSensor);
-	if (programStates._isWaterDetected){
+	programStates._isWaterSensor01Detected = waterSensor.isThereWater(microInterfaceWaterSensor);
+	if (programStates._isWaterSensor01Detected){
 		microInterfaceWaterSensor.print("water is detected");
 		int a = 5;
 	}

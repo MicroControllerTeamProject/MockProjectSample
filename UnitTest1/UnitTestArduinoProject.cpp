@@ -39,7 +39,7 @@ namespace UnitTestGarageMonitorSystem
 
 			wsActivity->start(microInterface, programStates);
 
-			Assert::AreEqual(true, programStates._isWaterDetected);
+			Assert::AreEqual(true, programStates._isWaterSensor01Detected);
 		}
 
 		TEST_METHOD(TestMethod_NoWaterInGarage)
@@ -64,7 +64,7 @@ namespace UnitTestGarageMonitorSystem
 
 			wsActivity->start(microInterface, programStates);
 
-			Assert::AreEqual(false, programStates._isWaterDetected);
+			Assert::AreEqual(false, programStates._isWaterSensor01Detected);
 		}
 	};
 }

@@ -3,7 +3,7 @@ class programStates
 {
 public:
 	programStates();
-	bool _isWaterDetected;
-	bool _isSensorWorking;
+	bool _isWaterSensor01Detected;
+	bool _isWaterSensor01Working;
 };
 
