@@ -120,11 +120,6 @@ bool microInterface::serial_begin(unsigned long baud)
 	{
 		softwareSerial->begin(baud);
 	}
-	else
-	{
-		Serial.begin(baud);
-	}
-	return true;
 }
 
 bool microInterface::serial_available()
