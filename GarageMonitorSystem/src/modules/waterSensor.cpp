@@ -2,7 +2,7 @@
 #include <string.h>
 
 waterSensor::waterSensor(float vref,const char* uid,float analogMinValue, float analogMaxValue) 
-	: sensor(vref, uid, analogMinValue, analogMaxValue){	
+	: analogSensor(vref, uid, analogMinValue, analogMaxValue){	
 }
 
 bool waterSensor::isThereWater(microInterfaceWaterSensor& sr)

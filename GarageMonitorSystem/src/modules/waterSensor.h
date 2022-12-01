@@ -3,7 +3,7 @@
 #include "..\..\microInterfaceWaterSensor.h"
 #include "..\sensor.h"
 
-class waterSensor : public sensor
+class waterSensor : public analogSensor
 {
 public:
 	waterSensor(float vref,const char* uid,float analogMinValue, float analogMaxValue);

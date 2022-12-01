@@ -1,11 +1,11 @@
 #include "modules/microInterface.h"
 
-class sensor
+class analogSensor
 {
 public:
-	sensor(float vref, const char* uid, float analogMinValue, float analogMaxValue);
+	analogSensor(float vref, const char* uid, float analogMinValue, float analogMaxValue);
 	virtual bool isSensorWorking(microInterface& sr);
-	float analogVrefRead(microInterface& sr);
+	uint16_t analogVrefRead(microInterface& sr);
 	float getAnalogMinValue();
 	float getAnalogMaxValue();
 	float getVref();
@@ -17,3 +17,4 @@ protected:
 	float _analogMinValue;
 	float _analogMaxValue;
 };
+

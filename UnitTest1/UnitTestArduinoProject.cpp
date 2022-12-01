@@ -22,10 +22,6 @@ namespace UnitTestGarageMonitorSystem
 		{
 			Mock<microInterfaceWaterSensor> mock;
 
-			When(Method(mock, serial_begin)).AlwaysReturn(false);
-
-			When(Method(mock, blink)).AlwaysReturn(false);
-
 			When(Method(mock, analogicRead)).AlwaysReturn(50);
 
 		/*	When(OverloadedMethod(mock, print, bool(const char*))).AlwaysReturn(false);
@@ -43,6 +39,8 @@ namespace UnitTestGarageMonitorSystem
 
 			Assert::AreEqual(true, programStates._isWaterSensor01Detected);
 		}
+
+
 
 		//TEST_METHOD(TestMethod_NoWaterInGarage)
 		//{

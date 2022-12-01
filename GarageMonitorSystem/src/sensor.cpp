@@ -1,27 +1,27 @@
 #include "sensor.h"
 
-sensor::sensor(float vref, const char* uid, float analogMinValue, float analogMaxValue) {
+analogSensor::analogSensor(float vref, const char* uid, float analogMinValue, float analogMaxValue) {
 	_vref = vref;
 	_uid = uid;
 	_analogMinValue = analogMinValue;
 	_analogMaxValue = analogMaxValue;
 }
 
-float sensor::getVref()
+float analogSensor::getVref()
 {
 	return _vref;
 }
 
-const char* sensor::getUid() {
+const char* analogSensor::getUid() {
 	return _uid;
 }
 
-float sensor::analogVrefRead(microInterface& sr)
+uint16_t analogSensor::analogVrefRead(microInterface& sr)
 {
 	return (_vref / 1024) * sr.analogicRead();
 }
 
-bool sensor::isSensorWorking(microInterface& sr)
+bool analogSensor::isSensorWorking(microInterface& sr)
 {
 	if (analogVrefRead(sr) < _analogMaxValue)
 	{
@@ -33,12 +33,12 @@ bool sensor::isSensorWorking(microInterface& sr)
 	}
 }
 
-float sensor::getAnalogMinValue()
+float analogSensor::getAnalogMinValue()
 {
 	return _analogMinValue;
 }
 
-float sensor::getAnalogMaxValue()
+float analogSensor::getAnalogMaxValue()
 {
 	return _analogMaxValue;
 }
