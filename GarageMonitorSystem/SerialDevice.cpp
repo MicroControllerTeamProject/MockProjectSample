@@ -15,6 +15,6 @@ int SerialDevice::read(microInterface& m) {
 	m.read();
 }
 
-bool SerialDevice::println(microInterface& m, const char* data) {
-	return m.println(data);
-}
+//bool SerialDevice::println(microInterface& m, const char* data) {
+//	return m.println(data);
+//}

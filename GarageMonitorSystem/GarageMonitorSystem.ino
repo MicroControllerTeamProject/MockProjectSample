@@ -14,19 +14,19 @@ microInterfaceWaterSensor micrInterfaceGarageSystem(A0,0);
 microInterfaceSimDevice micrInterfaceSimDevice(7, 8,false);
 programStates ps;
 waterSensorActivity _waterSensorActivity;
-simActivity _simActivity;
+//simActivity _simActivity;
 
 void setup() {
     Serial.begin(9600);
-    Serial.println("start");
+ /*   Serial.println("start");
     SimDevice s("sim");
     micrInterfaceSimDevice.serial_begin(19200);
-    s.waitSMSComing(micrInterfaceSimDevice);
+    s.waitSMSComing(micrInterfaceSimDevice);*/
 }
 
 void loop() {
-    //_waterSensorActivity.start(micrInterfaceGarageSystem, ps);
-    _simActivity.start(micrInterfaceSimDevice, ps);
+   /* _waterSensorActivity.start(micrInterfaceGarageSystem, ps);*/
+   /* _simActivity.start(micrInterfaceSimDevice, ps);*/
     Serial.println("Giro");
     delay(5000);
 }

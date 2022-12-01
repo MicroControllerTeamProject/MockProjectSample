@@ -47,8 +47,5 @@
     <ClInclude Include="src\fakeit.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\GarageMonitorSystem\src\sensor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

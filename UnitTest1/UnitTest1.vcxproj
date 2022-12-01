@@ -120,7 +120,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -178,15 +178,9 @@
     <ClCompile Include="UnitTestArduinoProject.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\GarageMonitorSystem\src\sensor.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="src\extend.h" />
     <ClInclude Include="src\fakeit.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MockSampleVSMicro\MockSampleVSMicro.vcxproj">
-      <Project>{c5f80730-f44f-4478-bdae-6634efc2ca88}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

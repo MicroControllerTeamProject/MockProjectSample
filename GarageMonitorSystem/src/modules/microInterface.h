@@ -32,13 +32,13 @@ public:
 
 	virtual bool serial_available();
 
-	virtual bool print(const char* data);
+	/*virtual bool print(const char* data);
 
 	virtual bool print(float data);
 
 	virtual bool println(const char* data);
 
-	virtual bool println(float data);
+	virtual bool println(float data);*/
 
 	virtual bool consoleWrite(const char* data);
 

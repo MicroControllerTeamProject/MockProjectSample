@@ -57,62 +57,62 @@ int microInterface::analogicRead() {
 	return analogRead(_analogPin);
 }
 
-bool microInterface::print(const char* data)
-{
-	if (softwareSerial != NULL)
-	{
-		softwareSerial->print(data);
-	}
-	else
-	{
-		Serial.print(data);
-	}
-	return true;
-}
-
-bool microInterface::print(float data)
-{
-	if (softwareSerial != NULL)
-	{
-		softwareSerial->print(data);
-	}
-	else
-	{
-		Serial.print(data);
-	}
-	return true;
-}
-
-bool microInterface::println(const char* data)
-{
-	if (softwareSerial != NULL)
-	{
-		softwareSerial->println(data);
-	}
-	else
-	{
-		Serial.println(data);
-	}
-	return true;
-}
+//bool microInterface::print(const char* data)
+//{
+//	if (softwareSerial != NULL)
+//	{
+//		softwareSerial->print(data);
+//	}
+//	else
+//	{
+//		Serial.print(data);
+//	}
+//	return true;
+//}
+//
+//bool microInterface::print(float data)
+//{
+//	if (softwareSerial != NULL)
+//	{
+//		softwareSerial->print(data);
+//	}
+//	else
+//	{
+//		Serial.print(data);
+//	}
+//	return true;
+//}
+//
+//bool microInterface::println(const char* data)
+//{
+//	if (softwareSerial != NULL)
+//	{
+//		softwareSerial->println(data);
+//	}
+//	else
+//	{
+//		Serial.println(data);
+//	}
+//	return true;
+//}
 
 bool microInterface::consoleWrite(const char* data)
 {
 	Serial.println(data);
 }
 
-bool microInterface::println(float data)
-{
-	if (softwareSerial != NULL)
-	{
-		softwareSerial->println(data);
-	}
-	else
-	{
-		Serial.println(data);
-	}
-	return true;
-}
+//bool microInterface::println(float data)
+//{
+//	if (softwareSerial != NULL)
+//	{
+//		softwareSerial->println(data);
+//	}
+//	else
+//	{
+//		Serial.println(data);
+//	}
+//	return true;
+//}
 
 //Only used for software serial,initialize Serial in setup program.
 bool microInterface::serial_begin(unsigned long baud)
