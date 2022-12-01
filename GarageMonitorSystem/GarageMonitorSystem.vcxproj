@@ -93,7 +93,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>__AVR_atmega328p__;__AVR_ATmega328P__;__AVR_ATmega328p__;F_CPU=16000000L;ARDUINO=10805;ARDUINO_AVR_NANO;ARDUINO_ARCH_AVR;__cplusplus=201103L;_VMICRO_INTELLISENSE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\GarageMonitorSystem;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\arduino\avr\libraries\SoftwareSerial\src;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\arduino\avr\cores\arduino;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\arduino\avr\variants\eightanaloginputs;$(ProjectDir)..\..\Libraries\LSG_Utils;$(ProjectDir)..\..\..\MICROC~1\MOCKPR~1\GARAGE~1;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\avr\include;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\avr\include-fixed;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\avr\include\avr;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\lib\gcc\avr\4.8.1\include;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\lib\gcc\avr\4.9.2\include;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\lib\gcc\avr\4.9.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\GarageMonitorSystem;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\arduino\avr\libraries\SoftwareSerial\src;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\arduino\avr\cores\arduino;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\arduino\avr\variants\eightanaloginputs;$(ProjectDir)..\..\..\MICROC~1\MOCKPR~1\GARAGE~1;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\avr\include;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\avr\include-fixed;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\avr\include\avr;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\lib\gcc\avr\4.8.1\include;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\lib\gcc\avr\4.9.2\include;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\lib\gcc\avr\4.9.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ProjectDir)__vm\.GarageMonitorSystem.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
@@ -118,24 +118,23 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Libraries\LSG_Utils\MySim900.h" />
     <ClInclude Include="microInterfaceSimDevice.h" />
-    <ClInclude Include="microInterfaceWaterSensor.h" />
+    <ClInclude Include="WatherSensorRepository.h" />
     <ClInclude Include="SerialDevice.h" />
     <ClInclude Include="simActivity.h" />
     <ClInclude Include="SimDevice.h" />
-    <ClInclude Include="src\modules\microInterface.h" />
-    <ClInclude Include="src\modules\waterSensor.h" />
+    <ClInclude Include="src\modules\MainRepository.h" />
+    <ClInclude Include="src\modules\WatherSensor.h" />
     <ClInclude Include="src\programStates.h" />
     <ClInclude Include="src\sensor.h" />
-    <ClInclude Include="src\waterSensorActivity.h" />
+    <ClInclude Include="src\WatherSensorActivity.h" />
     <ClInclude Include="__vm\.GarageMonitorSystem.vsarduino.h" />
     <ClInclude Include="__vm\.MockSampleVSMicro.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Libraries\LSG_Utils\MySim900.cpp" />
     <ClCompile Include="microInterfaceSimDevice.cpp" />
-    <ClCompile Include="microInterfaceWaterSensor.cpp" />
+    <ClCompile Include="src\modules\WatherSensor.cpp" />
+    <ClCompile Include="WatherSensorRepository.cpp" />
     <ClCompile Include="SerialDevice.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PreprocessorDefinitions>
@@ -145,26 +144,15 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="src\modules\microInterface.cpp" />
-    <ClCompile Include="src\modules\waterSensor.cpp">
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PreprocessorDefinitions>
-    </ClCompile>
+    <ClCompile Include="src\modules\MainRepository.cpp" />
     <ClCompile Include="src\programStates.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="src\sensor.cpp">
+    <ClCompile Include="src\WatherSensorActivity.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="src\waterSensorActivity.cpp">
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PreprocessorDefinitions>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="stringFunctions.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

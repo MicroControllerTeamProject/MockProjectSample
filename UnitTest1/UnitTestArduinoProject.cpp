@@ -1,9 +1,8 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-#include "..\GarageMonitorSystem\src\modules\waterSensor.h"
-#include "..\GarageMonitorSystem\src\modules\microInterface.h"
-#include "..\GarageMonitorSystem\microInterfaceWaterSensor.h"
-#include "..\GarageMonitorSystem\src\waterSensorActivity.h"
+#include "..\GarageMonitorSystem\src\modules\WatherSensor.h"
+#include "..\GarageMonitorSystem\WatherSensorRepository.h"
+#include "..\GarageMonitorSystem\src\WatherSensorActivity.h"
 #include "..\GarageMonitorSystem\src\programStates.h"
 
 
@@ -18,24 +17,22 @@ namespace UnitTestGarageMonitorSystem
 	TEST_CLASS(UnitTestGarageMonitorSystem)
 	{
 	public:
-		TEST_METHOD(TestMethod_WaterInGarage)
+		TEST_METHOD(TestMethod_WatherInGarage)
 		{
-			Mock<microInterfaceWaterSensor> mock;
+			Mock<WatherSensorRepository> mock;
 
 			When(Method(mock, analogicRead)).AlwaysReturn(50);
 
-		/*	When(OverloadedMethod(mock, print, bool(const char*))).AlwaysReturn(false);
-
-			When(OverloadedMethod(mock, print, bool(float))).AlwaysReturn(false);*/
-
-
-			microInterfaceWaterSensor& microInterface = mock.get();
+	
+			WatherSensorRepository& watherSensorRepository = mock.get();
 
 			programStates programStates;
 
-			waterSensorActivity* wsActivity = new waterSensorActivity();
+			//WaterSensor* a = new WaterSensor(5, "", 1, 0);
 
-			wsActivity->start(microInterface, programStates);
+			WatherSensorActivity* wsActivity = new WatherSensorActivity();
+
+			wsActivity->start(watherSensorRepository, programStates);
 
 			Assert::AreEqual(true, programStates._isWaterSensor01Detected);
 		}

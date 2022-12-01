@@ -16,12 +16,12 @@ const char* analogSensor::getUid() {
 	return _uid;
 }
 
-uint16_t analogSensor::analogVrefRead(microInterface& sr)
+uint16_t analogSensor::analogVrefRead(MainRepository& sr)
 {
 	return (_vref / 1024) * sr.analogicRead();
 }
 
-bool analogSensor::isSensorWorking(microInterface& sr)
+bool analogSensor::isSensorWorking(MainRepository& sr)
 {
 	if (analogVrefRead(sr) < _analogMaxValue)
 	{

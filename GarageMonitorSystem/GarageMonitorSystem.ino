@@ -4,16 +4,16 @@
  Author:	luigi.santagada
 */
 
-#include "microInterfaceWaterSensor.h"
+#include "WatherSensorRepository.h"
 #include "microInterfaceSimDevice.h"
-#include "src/waterSensorActivity.h"
+#include "src/WatherSensorActivity.h"
 #include "simActivity.h"
 #include <string.h>
 
-microInterfaceWaterSensor micrInterfaceGarageSystem(A0,0);
-microInterfaceSimDevice micrInterfaceSimDevice(7, 8,false);
-programStates ps;
-waterSensorActivity _waterSensorActivity;
+WatherSensorRepository micrInterfaceGarageSystem(A0,0);
+//microInterfaceSimDevice micrInterfaceSimDevice(7, 8,false);
+//programStates ps;
+WatherSensorActivity _waterSensorActivity;
 //simActivity _simActivity;
 
 void setup() {

@@ -1,11 +1,11 @@
-#include "modules/microInterface.h"
+#include "modules/MainRepository.h"
 
 class analogSensor
 {
 public:
 	analogSensor(float vref, const char* uid, float analogMinValue, float analogMaxValue);
-	virtual bool isSensorWorking(microInterface& sr);
-	uint16_t analogVrefRead(microInterface& sr);
+	virtual bool isSensorWorking(MainRepository& sr);
+	uint16_t analogVrefRead(MainRepository& sr);
 	float getAnalogMinValue();
 	float getAnalogMaxValue();
 	float getVref();
