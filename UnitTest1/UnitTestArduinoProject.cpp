@@ -29,9 +29,9 @@ namespace UnitTestGarageMonitorSystem
 
 			WaterSensor waterSensor(5, "", 1, 0);
 
-			GarageDoorActivity* garageDoorActivity = new GarageDoorActivity();
+			GarageDoorActivity* garageDoorActivity = new GarageDoorActivity(programStates);
 
-			Assert::AreEqual(true, garageDoorActivity->isGarageDoorOpening(garageDoorRepository, waterSensor, programStates));
+			Assert::AreEqual(true, garageDoorActivity->isGarageDoorToOpen(garageDoorRepository, waterSensor));
 		}
 
 

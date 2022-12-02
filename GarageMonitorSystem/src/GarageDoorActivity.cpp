@@ -6,7 +6,7 @@ GarageDoorActivity::GarageDoorActivity(programStates& programStates){
 
 bool GarageDoorActivity::isGarageDoorToOpen(GarageDoorRepository& WatherSensorRepository, WaterSensor& waterSensor)
 {
-	
+	return false;
 }
 
 //bool GarageDoorActivity::isThereWather(GarageDoorRepository& garageDoorRepository)
