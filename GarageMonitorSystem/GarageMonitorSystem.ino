@@ -4,16 +4,16 @@
  Author:	luigi.santagada
 */
 
-#include "WatherSensorRepository.h"
+#include "GarageDoorRepository.h"
 #include "microInterfaceSimDevice.h"
-#include "src/WatherSensorActivity.h"
+#include "src/GarageDoorActivity.h"
 #include "simActivity.h"
 #include <string.h>
 
-WatherSensorRepository micrInterfaceGarageSystem(A0,0);
+GarageDoorRepository micrInterfaceGarageSystem(A0,0);
 //microInterfaceSimDevice micrInterfaceSimDevice(7, 8,false);
 //programStates ps;
-WatherSensorActivity _waterSensorActivity;
+GarageDoorActivity _waterSensorActivity;
 //simActivity _simActivity;
 
 void setup() {

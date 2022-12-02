@@ -1,8 +1,8 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 #include "..\GarageMonitorSystem\src\modules\WatherSensor.h"
-#include "..\GarageMonitorSystem\WatherSensorRepository.h"
-#include "..\GarageMonitorSystem\src\WatherSensorActivity.h"
+#include "..\GarageMonitorSystem\GarageDoorRepository.h"
+#include "..\GarageMonitorSystem\src\GarageDoorActivity.h"
 #include "..\GarageMonitorSystem\src\programStates.h"
 
 
@@ -19,22 +19,19 @@ namespace UnitTestGarageMonitorSystem
 	public:
 		TEST_METHOD(TestMethod_WatherInGarage)
 		{
-			Mock<WatherSensorRepository> mock;
+			Mock<GarageDoorRepository> mock;
 
 			When(Method(mock, analogicRead)).AlwaysReturn(50);
 
-	
-			WatherSensorRepository& watherSensorRepository = mock.get();
+			GarageDoorRepository& garageDoorRepository = mock.get();
 
 			programStates programStates;
 
-			//WaterSensor* a = new WaterSensor(5, "", 1, 0);
+			WaterSensor waterSensor(5, "", 1, 0);
 
-			WatherSensorActivity* wsActivity = new WatherSensorActivity();
+			GarageDoorActivity* garageDoorActivity = new GarageDoorActivity();
 
-			wsActivity->start(watherSensorRepository, programStates);
-
-			Assert::AreEqual(true, programStates._isWaterSensor01Detected);
+			Assert::AreEqual(true, garageDoorActivity->isGarageDoorOpening(garageDoorRepository, waterSensor, programStates));
 		}
 
 
