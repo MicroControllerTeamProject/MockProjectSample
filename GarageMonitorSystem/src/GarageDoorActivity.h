@@ -7,8 +7,8 @@
 class GarageDoorActivity
 {
 public:
-	GarageDoorActivity();
-	bool isGarageDoorOpening(GarageDoorRepository& MainRepository, WaterSensor& waterSensor, programStates& programStates);
+	GarageDoorActivity(programStates& programStates);
+	bool isGarageDoorToOpen(GarageDoorRepository& MainRepository, WaterSensor& waterSensor);
 private:
 };
 

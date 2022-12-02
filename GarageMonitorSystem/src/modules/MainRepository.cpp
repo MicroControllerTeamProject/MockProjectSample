@@ -171,21 +171,6 @@ char* MainRepository::readBuffer()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //void sensor::setLastComunication(char* lastComunication)
 //{
 //	char message[100];   // array to hold the result.

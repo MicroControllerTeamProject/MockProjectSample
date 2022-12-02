@@ -1,15 +1,23 @@
 #include "GarageDoorActivity.h"
 #include "modules/WatherSensor.h"
 
-GarageDoorActivity::GarageDoorActivity(){
+GarageDoorActivity::GarageDoorActivity(programStates& programStates){
 }
 
-bool GarageDoorActivity::isGarageDoorOpening(GarageDoorRepository& WatherSensorRepository, WaterSensor& waterSensor,
-	programStates& programStates)
+bool GarageDoorActivity::isGarageDoorToOpen(GarageDoorRepository& WatherSensorRepository, WaterSensor& waterSensor)
 {
-	return waterSensor.isThereWather(WatherSensorRepository);
+	
 }
 
-
+//bool GarageDoorActivity::isThereWather(GarageDoorRepository& garageDoorRepository)
+//{
+//	if (analogVrefRead(garageDoorRepository) < _analogMinValue){
+//		
+//		return true;
+//	}
+//	else{
+//		return false;
+//	}
+//}
 
 

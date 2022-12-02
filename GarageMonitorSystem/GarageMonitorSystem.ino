@@ -10,10 +10,10 @@
 #include "simActivity.h"
 #include <string.h>
 
-GarageDoorRepository micrInterfaceGarageSystem(A0,0);
+GarageDoorRepository garageDoorRepository(A0,0);
 //microInterfaceSimDevice micrInterfaceSimDevice(7, 8,false);
-//programStates ps;
-GarageDoorActivity _waterSensorActivity;
+programStates ps;
+GarageDoorActivity _waterSensorActivity(ps);
 //simActivity _simActivity;
 
 void setup() {

@@ -16,9 +16,9 @@ const char* analogSensor::getUid() {
 	return _uid;
 }
 
-uint16_t analogSensor::analogVrefRead(MainRepository& sr)
+uint16_t analogSensor::analogVrefRead(MainRepository& mainRepository)
 {
-	return (_vref / 1024) * sr.analogicRead();
+	return (_vref / 1024) * mainRepository.analogicRead();
 }
 
 bool analogSensor::isSensorWorking(MainRepository& sr)
@@ -33,12 +33,12 @@ bool analogSensor::isSensorWorking(MainRepository& sr)
 	}
 }
 
-float analogSensor::getAnalogMinValue()
+uint16_t analogSensor::getAnalogMinValue()
 {
 	return _analogMinValue;
 }
 
-float analogSensor::getAnalogMaxValue()
+uint16_t analogSensor::getAnalogMaxValue()
 {
 	return _analogMaxValue;
 }

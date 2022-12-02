@@ -5,16 +5,7 @@ WaterSensor::WaterSensor(float vref,const char* uid,uint16_t analogMinValue, uin
 	: analogSensor(vref, uid, analogMinValue, analogMaxValue){	
 }
 
-bool WaterSensor::isThereWather(GarageDoorRepository& sr)
-{
-	if (analogVrefRead(sr) < _analogMinValue){
-		
-		return true;
-	}
-	else{
-		return false;
-	}
-}
+
 
 
 
