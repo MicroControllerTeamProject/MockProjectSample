@@ -6,19 +6,25 @@ class MainRepository
 {
 public:
 
-	MainRepository();
-
-	MainRepository(char analSignalPin, uint8_t digitalSegnalPinIn);
+	MainRepository(float vref, uint8_t referenceMod);
 
 	MainRepository(uint8_t rx, uint8_t tx, bool invers_logic);
 	
 	~MainRepository();
+
+	virtual void analogReferencem(uint8_t mode);
 	
-	virtual void setDigitalAlarmPinOut(int alarmPin);
+	virtual uint16_t analogReadm(uint8_t analogPin);
 
-	virtual int analogicRead();
+	virtual float analogVrefRead(uint8_t analogPin);
 
-	virtual void switchAlarmPin_On_Off(unsigned long time);
+	virtual bool print(const char* data);
+
+	virtual bool print(float data);
+
+	virtual bool println(const char* data);
+
+	virtual bool println(float data);
 
 	virtual bool serial_available();
 
@@ -29,11 +35,7 @@ public:
 	virtual char* readBuffer();
 
 private :
-	int _analogPin;
-
-	uint8_t _digitalPin;
-
-	int _alarmPin;
-
+	float _vref;
+	uint8_t _referenceMode;
 };
 

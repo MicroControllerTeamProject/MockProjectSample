@@ -3,8 +3,7 @@
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 
-GarageDoorRepository::GarageDoorRepository(char analogPin, uint8_t digitalPin) : 
-	MainRepository(analogPin, digitalPin){
+GarageDoorRepository::GarageDoorRepository() /*: MainRepository()*/{
 }
 
 

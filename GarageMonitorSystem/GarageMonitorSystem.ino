@@ -10,14 +10,19 @@
 #include "simActivity.h"
 #include <string.h>
 
-GarageDoorRepository garageDoorRepository(A0,0);
-//microInterfaceSimDevice micrInterfaceSimDevice(7, 8,false);
 programStates ps;
-GarageDoorActivity _waterSensorActivity(ps);
+
+GarageDoorActivity garageDoorActivity(ps);
+
+
+
 //simActivity _simActivity;
 
 void setup() {
     Serial.begin(9600);
+    MainRepository m(5,DEFAULT);
+    WaterSensor w(5,"",1,0);
+    garageDoorActivity.isGarageDoorToOpen(m, w);
  /*   Serial.println("start");
     SimDevice s("sim");
     micrInterfaceSimDevice.serial_begin(19200);
@@ -27,8 +32,8 @@ void setup() {
 void loop() {
    /* _waterSensorActivity.start(micrInterfaceGarageSystem, ps);*/
    /* _simActivity.start(micrInterfaceSimDevice, ps);*/
-    Serial.println("Giro");
-    delay(5000);
+   /* Serial.println("Giro");
+    delay(5000);*/
 }
 
 

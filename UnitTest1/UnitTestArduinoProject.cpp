@@ -19,11 +19,11 @@ namespace UnitTestGarageMonitorSystem
 	public:
 		TEST_METHOD(TestMethod_WatherInGarage)
 		{
-			Mock<GarageDoorRepository> mock;
+			Mock<MainRepository> mock;
 
-			When(Method(mock, analogicRead)).AlwaysReturn(50);
+			When(Method(mock, analogVrefRead)).AlwaysReturn(3.27);
 
-			GarageDoorRepository& garageDoorRepository = mock.get();
+			MainRepository& mainRepository = mock.get();
 
 			programStates programStates;
 
@@ -31,7 +31,7 @@ namespace UnitTestGarageMonitorSystem
 
 			GarageDoorActivity* garageDoorActivity = new GarageDoorActivity(programStates);
 
-			Assert::AreEqual(true, garageDoorActivity->isGarageDoorToOpen(garageDoorRepository, waterSensor));
+			Assert::AreEqual("[    ]o", garageDoorActivity->getBatteryGrafBarLevel(mainRepository, 0));
 		}
 
 

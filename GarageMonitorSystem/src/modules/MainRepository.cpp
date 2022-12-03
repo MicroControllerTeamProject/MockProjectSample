@@ -4,7 +4,9 @@
 
 SoftwareSerial* softwareSerial;
 
-MainRepository::MainRepository(){
+MainRepository::MainRepository(float vref,uint8_t referenceMode){
+	this->_vref = _vref;
+	this->_referenceMode;
 	softwareSerial = NULL;
 }
 
@@ -13,88 +15,75 @@ MainRepository::MainRepository(uint8_t rx, uint8_t tx, bool invers_logic)
 	softwareSerial = new  SoftwareSerial(rx, tx, invers_logic);
 }
 
-MainRepository::MainRepository(char analogPin, uint8_t digitalPin)
-{
-	_analogPin = analogPin;
-	_digitalPin = digitalPin;
-	pinMode(digitalPin, INPUT);
-	softwareSerial = NULL;
-}
-
 MainRepository::~MainRepository() 
 {
 	delete softwareSerial;
 }
 
-void MainRepository::setDigitalAlarmPinOut(int alarmPin) {
-	pinMode(alarmPin, OUTPUT);
-	_alarmPin = alarmPin;
+void MainRepository::analogReferencem(uint8_t mode)
+{
+	analogReference(mode);
 }
 
-void MainRepository::switchAlarmPin_On_Off(unsigned long time) {
-	digitalWrite(_alarmPin, HIGH);
-	delay(time);
-	digitalWrite(_alarmPin, LOW);
+float MainRepository::analogVrefRead(uint8_t analogPin) {
+	return (_vref / 1024) * analogRead(analogPin);
 }
 
-
-int MainRepository::analogicRead() {
-	return analogRead(_analogPin);
+uint16_t MainRepository::analogReadm(uint8_t analogPin) {
+	return analogRead(analogPin);
 }
 
-//bool microInterface::print(const char* data)
-//{
-//	if (softwareSerial != NULL)
-//	{
-//		softwareSerial->print(data);
-//	}
-//	else
-//	{
-//		Serial.print(data);
-//	}
-//	return true;
-//}
-//
-//bool microInterface::print(float data)
-//{
-//	if (softwareSerial != NULL)
-//	{
-//		softwareSerial->print(data);
-//	}
-//	else
-//	{
-//		Serial.print(data);
-//	}
-//	return true;
-//}
-//
-//bool microInterface::println(const char* data)
-//{
-//	if (softwareSerial != NULL)
-//	{
-//		softwareSerial->println(data);
-//	}
-//	else
-//	{
-//		Serial.println(data);
-//	}
-//	return true;
-//}
+bool MainRepository::print(const char* data)
+{
+	if (softwareSerial != NULL)
+	{
+		softwareSerial->print(data);
+	}
+	else
+	{
+		Serial.print(data);
+	}
+	return true;
+}
 
+bool MainRepository::print(float data)
+{
+	if (softwareSerial != NULL)
+	{
+		softwareSerial->print(data);
+	}
+	else
+	{
+		Serial.print(data);
+	}
+	return true;
+}
 
-//bool microInterface::println(float data)
-//{
-//	if (softwareSerial != NULL)
-//	{
-//		softwareSerial->println(data);
-//	}
-//	else
-//	{
-//		Serial.println(data);
-//	}
-//	return true;
-//}
+bool MainRepository::println(const char* data)
+{
+	if (softwareSerial != NULL)
+	{
+		softwareSerial->println(data);
+	}
+	else
+	{
+		Serial.println(data);
+	}
+	return true;
+}
 
+bool MainRepository::println(float data)
+{
+	if (softwareSerial != NULL)
+	{
+		softwareSerial->println(data);
+	}
+	else
+	{
+		Serial.println(data);
+	}
+	return true;
+}
 
 bool MainRepository::serial_available()
 {
@@ -168,6 +157,7 @@ char* MainRepository::readBuffer()
 		return b;
 	}
 }
+
 
 
 

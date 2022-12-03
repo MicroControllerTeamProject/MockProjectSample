@@ -3,18 +3,18 @@
 SerialDevice::SerialDevice(const char* uid){
 }
 
-bool SerialDevice::begin(microInterface& m,unsigned long baud){
-	m.serial_begin(baud);
-}
+//bool SerialDevice::begin(MainRepository& m,unsigned long baud){
+//	m.serial_begin(baud);
+//}
 
-bool SerialDevice::available(microInterface& m) {
+bool SerialDevice::available(MainRepository& m) {
 	m.serial_available();
 }
 
-int SerialDevice::read(microInterface& m) {
+int SerialDevice::read(MainRepository& m) {
 	m.read();
 }
 
-//bool SerialDevice::println(microInterface& m, const char* data) {
-//	return m.println(data);
-//}
+bool SerialDevice::println(MainRepository& m, const char* data) {
+	return m.println(data);
+}

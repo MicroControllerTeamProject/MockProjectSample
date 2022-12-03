@@ -18,7 +18,7 @@ const char* analogSensor::getUid() {
 
 uint16_t analogSensor::analogVrefRead(MainRepository& mainRepository)
 {
-	return (_vref / 1024) * mainRepository.analogicRead();
+	return (_vref / 1024) * mainRepository.analogReadm(0);
 }
 
 bool analogSensor::isSensorWorking(MainRepository& sr)

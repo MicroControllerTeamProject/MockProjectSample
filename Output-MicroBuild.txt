@@ -1,4 +1,15 @@
 ﻿Compiling 'GarageMonitorSystem' for 'ATmega328P (Arduino Nano)'
-Program size: 5,314 bytes (used 17% of a 30,720 byte maximum) (3.40 secs)
-Minimum Memory Usage: 413 bytes (20% of a 2048 byte maximum)
+ccFUx88F.ltrans0.ltrans.o*: (.rodata+0x3a): undefined reference to microInterface::print(char const*)
+ccFUx88F.ltrans0.ltrans.o*: (.rodata+0x3c): undefined reference to microInterface::print(float)
+
+Error linking for board ATmega328P (Arduino Nano)
+ccFUx88F.ltrans0.ltrans.o*: (.rodata+0x3e): undefined reference to microInterface::println(char const*)
+Build failed for project 'GarageMonitorSystem'
+ccFUx88F.ltrans0.ltrans.o*: (.rodata+0x62): undefined reference to microInterface::print(char const*)
+ccFUx88F.ltrans0.ltrans.o*: (.rodata+0x64): undefined reference to microInterface::print(float)
+ccFUx88F.ltrans0.ltrans.o*: (.rodata+0x66): undefined reference to microInterface::println(char const*)
+ccFUx88F.ltrans0.ltrans.o*: (.rodata+0x8a): undefined reference to microInterface::print(char const*)
+ccFUx88F.ltrans0.ltrans.o*: (.rodata+0x8c): undefined reference to microInterface::print(float)
+ccFUx88F.ltrans0.ltrans.o*: (.rodata+0x8e): undefined reference to microInterface::println(char const*)
  
+collect2.exe*: error: ld returned 1 exit status

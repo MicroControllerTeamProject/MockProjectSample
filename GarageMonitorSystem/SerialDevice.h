@@ -1,16 +1,16 @@
 #pragma once
 #include "stdint.h"
-#include "src\modules\microInterface.h"
+#include "src\modules\MainRepository.h"
 
 
 class SerialDevice
 {
 public:
 	SerialDevice(const char* uid);
-	virtual bool begin(microInterface& m,unsigned long baud);
-	virtual bool SerialDevice::available(microInterface& m);
-	virtual int SerialDevice::read(microInterface& m);
-	virtual bool SerialDevice::println(microInterface& m, const char* data);
+	virtual bool begin(MainRepository& m,unsigned long baud);
+	virtual bool SerialDevice::available(MainRepository& m);
+	virtual int SerialDevice::read(MainRepository& m);
+	virtual bool SerialDevice::println(MainRepository& m, const char* data);
 private:
 };
 
