@@ -5,7 +5,10 @@ WaterSensor::WaterSensor(float vref,const char* uid,uint16_t analogMinValue, uin
 	: analogSensor(vref, uid, analogMinValue, analogMaxValue){	
 }
 
-
+uint16_t WaterSensor::getAnalogMinValue()
+{
+	return this->_analogMinValue;
+}
 
 
 

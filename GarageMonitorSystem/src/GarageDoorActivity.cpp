@@ -6,8 +6,15 @@ GarageDoorActivity::GarageDoorActivity(programStates& programStates) {
 
 bool GarageDoorActivity::isGarageDoorToOpen(MainRepository& mainRepository, WaterSensor& waterSensor)
 {
+
+
+	if((mainRepository.analogReadm(0) == 500) && (mainRepository.analogReadm(1) == 600))
+	{
+		return true;
+	}
 	return false;
 }
+
 
 char* GarageDoorActivity::getBatteryGrafBarLevel(MainRepository& mainRepository, uint8_t portNumber)
 {

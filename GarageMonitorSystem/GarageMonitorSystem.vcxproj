@@ -120,6 +120,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GarageDoorRepository.h" />
+    <ClInclude Include="library\AnalogPort.h" />
+    <ClInclude Include="library\DeviceActivity.h" />
+    <ClInclude Include="library\SmokeActivity.h" />
     <ClInclude Include="SerialDevice.h" />
     <ClInclude Include="simActivity.h" />
     <ClInclude Include="src\modules\MainRepository.h" />
@@ -131,6 +134,9 @@
     <ClInclude Include="__vm\.MockSampleVSMicro.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="library\AnalogPort.cpp" />
+    <ClCompile Include="library\DeviceActivity.cpp" />
+    <ClCompile Include="library\SmokeActivity.cpp" />
     <ClCompile Include="SerialDevice.cpp" />
     <ClCompile Include="src\modules\WatherSensor.cpp" />
     <ClCompile Include="src\sensor.cpp" />

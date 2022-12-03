@@ -157,6 +157,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\GarageMonitorSystem\library\AnalogPort.cpp" />
+    <ClCompile Include="..\GarageMonitorSystem\library\DeviceActivity.cpp" />
+    <ClCompile Include="..\GarageMonitorSystem\library\SmokeActivity.cpp" />
     <ClCompile Include="..\GarageMonitorSystem\src\GarageDoorActivity.cpp" />
     <ClCompile Include="..\GarageMonitorSystem\src\modules\WatherSensor.cpp" />
     <ClCompile Include="..\GarageMonitorSystem\src\programStates.cpp">
