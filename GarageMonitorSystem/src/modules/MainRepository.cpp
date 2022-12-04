@@ -158,6 +158,11 @@ char* MainRepository::readBuffer()
 	}
 }
 
+void MainRepository::pinMode(uint8_t pin, uint8_t mode)
+{
+	pinMode(pin, mode);
+}
+
 
 
 

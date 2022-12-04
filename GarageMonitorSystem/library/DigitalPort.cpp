@@ -2,13 +2,13 @@
 
 #include "DigitalPort.h"
 
-DigitalPort::DigitalPort(String uid, uint8_t pin)
+DigitalPort::DigitalPort(char* uid, uint8_t pin)
 {
 	this->_uid = uid;
 	this->_pin = pin;
 }
 
-String DigitalPort::getUid()
+char* DigitalPort::getUid()
 {
 	return _uid;
 }

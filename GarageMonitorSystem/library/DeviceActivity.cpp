@@ -1,38 +1,37 @@
 #include "DeviceActivity.h"
 #include "..\src\modules\MainRepository.h"
+#include <string.h>
 
 
-//DeviceActivity::DeviceActivity(DigitalPort** digitalPort,  uint8_t digitalPortsNumber,MainRepository& mainRepository)
-//{
-//	this->digitalPort = digitalPort;
-//	this->digitalPortsNumber = digitalPortsNumber;
-//	this->_mainRepository = mainRepository;
-//
-//	for (int i = 0; i < this->digitalPortsNumber; i++)
-//	{
-//		if (this->digitalPort[i]->direction == output)
-//		{
-//			pinMode(this->digitalPort[i]->getPin(), OUTPUT);
-//		}
-//		else
-//		{
-//			if (this->digitalPort[i]->isOnPullUp) {
-//				pinMode(this->digitalPort[i]->getPin(), INPUT_PULLUP);
-//			}
-//			else
-//			{
-//				pinMode(this->digitalPort[i]->getPin(), INPUT);
-//			}
-//		}
-//	}
-//}
+DeviceActivity::DeviceActivity(DigitalPort** digitalPort,  uint8_t digitalPortsNumber, MainRepository& mainRepository)
+{
+	this->digitalPort = digitalPort;
+	this->digitalPortsNumber = digitalPortsNumber;
+	
+	for (int i = 0; i < this->digitalPortsNumber; i++)
+	{
+		if (this->digitalPort[i]->direction == output)
+		{
+			mainRepository.pinMode(this->digitalPort[i]->getPin(), 1/*OUTPUT*/);
+		}
+		else
+		{
+			if (this->digitalPort[i]->isOnPullUp) {
+				mainRepository.pinMode(this->digitalPort[i]->getPin(), 2/*INPUT_PULLUP*/);
+			}
+			else
+			{
+				mainRepository.pinMode(this->digitalPort[i]->getPin(), 0/*INPUT*/);
+			}
+		}
+	}
+}
 
 DeviceActivity::DeviceActivity(AnalogPort** analogPort,float vref, uint8_t analogPortsNumber)
 {
 	this->analogPort = analogPort;
-	this->analogPortsNumber = analogPortsNumber;
+	this->_analogPortsNumber = analogPortsNumber;
 	this->vref = vref;
-	//this->_mainRepository = mainRepository;
 
 	//for (int i = 0; i < this->analogPortsNumer; i++)
 	//{
@@ -103,47 +102,46 @@ DeviceActivity::DeviceActivity(AnalogPort** analogPort,float vref, uint8_t analo
 
 bool DeviceActivity::isThereAnyAnalogPortOnAlarm(MainRepository& mainRepository)
 {
-	//for (int i = 0; i < this->analogPortsNumber; i++)
-	//{
+	for (int i = 0; i < this->_analogPortsNumber; i++)
+	{
+		if (this->analogPort[i]->isEnable && this->analogPort[i]->maxVoltageAlarmValueIn != 0)
+		{
+			if (((this->vref / 1024) * mainRepository.analogReadm(this->analogPort[i]->getPin())) > this->analogPort[i]->maxVoltageAlarmValueIn)
+			{
+				strcpy(this->_lastAlarmDescription, "levMax");
+				return true;
+			}
 
-	//	if (this->analogPort[i]->isEnable && this->analogPort[i]->maxVoltageAlarmValueIn != 0)
-	//	{
-	//		if (this->analogPort[i]->maxVoltageAlarmValueIn < (this->vref / 1023) * _mainRepository.analogReadm(this->analogPort[i]->getPin()))
-	//		{
-	//			//this->lastAlarmDescription = analogPort[i]->getUid() + " level HIGH";
-	//			return true;
-	//		}
+			if (((this->vref / 1024) * mainRepository.analogReadm(this->analogPort[i]->getPin())) < this->analogPort[i]->minVoltageAlarmValueIn)
+			{
+				strcpy(this->_lastAlarmDescription, "levMin");
+				//this->lastAlarmDescription = analogPort[i]->getUid() + " level LOW";
+				return true;
+			} 
+		}
+	}
+	for (int i = 0; i < this->_analogPortsNumber; i++)
+	{
+		//Serial.print("------------------------"); Serial.println(this->analogPort[i]->maxAlarmValueIn);
+		if (this->analogPort[i]->isEnable && this->analogPort[i]->maxAlarmValueIn != 0)
+		{
+			
+			//Serial.println("Entrato3");
+			//Serial.println("Entrato2");
+			if ((mainRepository.analogReadm(this->analogPort[i]->getPin())) > this->analogPort[i]->maxAlarmValueIn )
+			{
+				//this->lastAlarmDescription = analogPort[i]->getUid() + " level HIGH:" + _mainRepository.analogReadm(this->analogPort[i]->getPin());
+				return true;
+			}
+			if ((mainRepository.analogReadm(this->analogPort[i]->getPin())) < this->analogPort[i]->minAlarmValueIn )
+			{
+				//this->lastAlarmDescription = analogPort[i]->getUid() + " level LOW";
+				return true;
+			}
+		}
+	}
 
-	//		if (this->analogPort[i]->minVoltageAlarmValueIn > (this->vref / 1023) * _mainRepository.analogReadm(this->analogPort[i]->getPin()))
-	//		{
-	//			//this->lastAlarmDescription = analogPort[i]->getUid() + " level LOW";
-	//			return true;
-	//		}
-	//	}
-	//}
-
-	//for (int i = 0; i < this->analogPortsNumber; i++)
-	//{
-	//	//Serial.print("------------------------"); Serial.println(this->analogPort[i]->maxAlarmValueIn);
-	//	if (this->analogPort[i]->isEnable && this->analogPort[i]->maxAlarmValueIn != 0)
-	//	{
-	//		//Serial.println("Entrato3");
-	//		//Serial.println("Entrato2");
-
-	//		if (this->analogPort[i]->maxAlarmValueIn < (_mainRepository.analogReadm(this->analogPort[i]->getPin())))
-	//		{
-	//			//this->lastAlarmDescription = analogPort[i]->getUid() + " level HIGH:" + _mainRepository.analogReadm(this->analogPort[i]->getPin());
-	//			return true;
-	//		}
-
-	//		if (this->analogPort[i]->minAlarmValueIn > (_mainRepository.analogReadm(this->analogPort[i]->getPin())))
-	//		{
-	//			//this->lastAlarmDescription = analogPort[i]->getUid() + " level LOW";
-	//			return true;
-	//		}
-	//	}
-	//}
-	return true;
+	return false;
 }
 
 //bool DeviceActivity::isThereAnyPortOnAlarm()
@@ -275,16 +273,16 @@ bool DeviceActivity::isThereAnyAnalogPortOnAlarm(MainRepository& mainRepository)
 ////	}
 ////}
 ////
-////uint8_t DeviceActivity::digitalReadByName(String digitalPortName)
-////{
-////	for (int i = 0; i < this->digitalPortsNumber; i++)
-////	{
-////		if (this->digitalPort[i]->getUid() == digitalPortName && this->digitalPort[i]->direction == input)
-////		{
-////			return digitalRead(this->digitalPort[i]->getPin());
-////		}
-////	}
-////}
+//uint8_t DeviceActivity::digitalReadByName(String digitalPortName)
+//{
+//	for (int i = 0; i < this->digitalPortsNumber; i++)
+//	{
+//		if (this->digitalPort[i]->getUid() == digitalPortName && this->digitalPort[i]->direction == input)
+//		{
+//			return digitalRead(this->digitalPort[i]->getPin());
+//		}
+//	}
+//}
 //
 //float DeviceActivity::getUnitOfMisureValue(String analogPortName)
 //{

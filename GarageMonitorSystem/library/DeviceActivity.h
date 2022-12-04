@@ -1,14 +1,15 @@
 #pragma once
 //#include "DigitalPort.h"
 #include "AnalogPort.h"
+#include "DigitalPort.h"
 #include "..\src\modules\MainRepository.h"
 
 
 class DeviceActivity
 {
 public:
-	/*DeviceActivity(DigitalPort** digitalPort, uint8_t digitalPortsNumber, MainRepository& mainRepository);*/
-	DeviceActivity(AnalogPort** analogPort,float vref, uint8_t digitalPortsNumber);
+	DeviceActivity(DigitalPort** digitalPort, uint8_t digitalPortsNumber, MainRepository& mainRepository);
+	DeviceActivity(AnalogPort** analogPort,float vref, uint8_t analogPortsNumber);
 	//virtual bool isThereAnyPortOnAlarm();
 	//virtual String getLastAlarmDescription();
 	//bool digitalWriteByName(String portName, uint8_t pinLevel);
@@ -20,10 +21,11 @@ public:
 	bool isThereAnyAnalogPortOnAlarm(MainRepository& mainRepository);
 	
 private:
-	//DigitalPort** digitalPort;
+	DigitalPort** digitalPort;
 	AnalogPort** analogPort;
 	uint8_t digitalPortsNumber = 0;
-	uint8_t analogPortsNumber = 0;
+	uint8_t _analogPortsNumber = 0;
+	char _lastAlarmDescription[10];
 	/*String lastAlarmDescription = "";
 	String lastErrorDescription = "";*/
 	char lastAlarmCode;

@@ -8,8 +8,6 @@
 #include "..\GarageMonitorSystem\library\SmokeActivity.h"
 #include "..\GarageMonitorSystem\library\DeviceActivity.h"
 
-
-
 #include "src\extend.h"
 
 //https://docs.microsoft.com/it-it/visualstudio/test/writing-unit-tests-for-c-cpp?view=vs-2019
@@ -21,37 +19,28 @@ namespace UnitTestGarageMonitorSystem
 	TEST_CLASS(UnitTestGarageMonitorSystem)
 	{
 	public:
-		TEST_METHOD(TestMethod_WatherInGarage)
+		TEST_METHOD(TestMethod_isThereSmoke)
 		{
 			Mock<MainRepository> mock;
-
-			When(Method(mock, analogReadm)).Return(500,600);
+			
+			When(Method(mock, analogReadm)).AlwaysReturn(500);
 
 			MainRepository& mainRepository = mock.get();
 
-			AnalogPort** analogPort = new AnalogPort * [2];
-			analogPort[0] = new AnalogPort("Smoke left", 14);
+
+			AnalogPort** analogPort = new AnalogPort*[1];
+
+			analogPort[0] = new AnalogPort("Smoke01", 14);
 			analogPort[0]->isEnable = true;
-			analogPort[0]->maxAlarmValueIn = 200;
-			analogPort[1] = new AnalogPort("Smoke right", 15);
-			analogPort[1]->isEnable = true;
-			analogPort[1]->maxAlarmValueIn = 200;
+			analogPort[0]->maxAlarmValueIn = 150;
+			analogPort[0]->minAlarmValueIn = 1;
 
-			SmokeActivity* smokeActivity = new SmokeActivity(analogPort, 5, 2);
+			SmokeActivity* smokeActivity = new SmokeActivity(analogPort, 5, 1);
 
-			programStates programStates;
-
-			WaterSensor waterSensor(5, "", 1, 0);
-
-			GarageDoorActivity* garageDoorActivity = new GarageDoorActivity(programStates);
-
-			Assert::AreEqual(true, garageDoorActivity->isGarageDoorToOpen(mainRepository, waterSensor));
-
-			Assert::AreEqual(false, smokeActivity->isThereSmoke(mainRepository));
+			Assert::AreEqual(true, smokeActivity->isThereSmoke(mainRepository));
 
 			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(mainRepository, 0));*/
 		}
-
 
 
 		//TEST_METHOD(TestMethod_NoWaterInGarage)

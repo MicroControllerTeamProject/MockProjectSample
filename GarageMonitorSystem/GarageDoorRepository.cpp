@@ -3,7 +3,8 @@
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 
-GarageDoorRepository::GarageDoorRepository() /*: MainRepository()*/{
+GarageDoorRepository::GarageDoorRepository()// : MainRepository() {
+{
 }
 
 

@@ -121,7 +121,10 @@
   <ItemGroup>
     <ClInclude Include="GarageDoorRepository.h" />
     <ClInclude Include="library\AnalogPort.h" />
+    <ClInclude Include="library\Commons.h" />
     <ClInclude Include="library\DeviceActivity.h" />
+    <ClInclude Include="library\DigitalPort.h" />
+    <ClInclude Include="library\PirActivity.h" />
     <ClInclude Include="library\SmokeActivity.h" />
     <ClInclude Include="SerialDevice.h" />
     <ClInclude Include="simActivity.h" />
@@ -136,10 +139,11 @@
   <ItemGroup>
     <ClCompile Include="library\AnalogPort.cpp" />
     <ClCompile Include="library\DeviceActivity.cpp" />
+    <ClCompile Include="library\DigitalPort.cpp" />
+    <ClCompile Include="library\PirActivity.cpp" />
     <ClCompile Include="library\SmokeActivity.cpp" />
     <ClCompile Include="SerialDevice.cpp" />
     <ClCompile Include="src\modules\WatherSensor.cpp" />
-    <ClCompile Include="src\sensor.cpp" />
     <ClCompile Include="GarageDoorRepository.cpp" />
     <ClCompile Include="simActivity.cpp" />
     <ClCompile Include="src\modules\MainRepository.cpp" />
@@ -151,6 +155,7 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PreprocessorDefinitions>
     </ClCompile>
+    <ClCompile Include="src\sensor.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

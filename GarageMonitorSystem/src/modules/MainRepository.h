@@ -34,6 +34,8 @@ public:
 
 	virtual char* readBuffer();
 
+	virtual void pinMode(uint8_t pin,uint8_t mode);
+
 private :
 	float _vref;
 	uint8_t _referenceMode;

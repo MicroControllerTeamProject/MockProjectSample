@@ -14,8 +14,6 @@ programStates ps;
 
 GarageDoorActivity garageDoorActivity(ps);
 
-
-
 //simActivity _simActivity;
 
 void setup() {

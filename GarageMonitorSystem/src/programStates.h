@@ -1,9 +1,10 @@
 #pragma once
-class programStates
+
+class programStates 
 {
 public:
 	programStates();
-	bool _isWaterSensor01Detected;
-	bool _isWaterSensor01Working;
+	bool _isWaterSensor01Detected = false;
+	bool _isWaterSensor01Working  = false;
 };
 

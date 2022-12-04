@@ -1,7 +1,6 @@
 #pragma once
-#include <arduino.h>
-#include <pins_arduino.h>
 #include "Commons.h"
+#include"..\src\modules\MainRepository.h"
 
 class DigitalPort
 {
@@ -11,8 +10,7 @@ public:
         low,
         high
     };
-
-    DigitalPort(String uid, uint8_t pin);
+    DigitalPort(char* uid, uint8_t pin);
     bool isEnable = true;
     PortDirection direction = output;
     /// <summary>
@@ -22,11 +20,11 @@ public:
     bool isOnPullUp = false;
     float minCustomMisureValue = 0.00f;
     float maxCustomMisureValue = 0.00f;
-    String customMisureValueDescription = "";
-    String getUid();
+    /*String customMisureValueDescription = "";*/
+    char* getUid();
     uint8_t getPin();
 private:
-    String _uid;
+    char* _uid;
     uint8_t _pin;
 };
 
