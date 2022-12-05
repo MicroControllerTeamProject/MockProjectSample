@@ -1,11 +1,11 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-#include "..\GarageMonitorSystem\library\AnalogPort.h"
-#include "..\GarageMonitorSystem\library\DigitalPort.h"
-#include "..\GarageMonitorSystem\library\SmokeActivity.h"
-#include "..\GarageMonitorSystem\library\PirActivity.h"
-#include "..\GarageMonitorSystem\library\DeviceActivity.h"
-#include "..\GarageMonitorSystem\src\GarageBusinessLayer.h"
+#include "..\GarageMonitorSystem\model\AnalogPort.h"
+#include "..\GarageMonitorSystem\model\DigitalPort.h"
+#include "..\GarageMonitorSystem\activity\SmokeActivity.h"
+#include "..\GarageMonitorSystem\activity\PirActivity.h"
+#include "..\GarageMonitorSystem\activity\DeviceActivity.h"
+#include "..\GarageMonitorSystem\business\GarageBusinessLayer.h"
 
 #include "src\extend.h"
 

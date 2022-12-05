@@ -1,5 +1,5 @@
 #include "PirActivity.h"
-#include "..\src\modules\MainRepository.h"
+#include "..\repository\MainRepository.h"
 
 PirActivity::PirActivity(DigitalPort** digitalPirPorts, uint8_t digitalPirPortsNumber) : DeviceActivity(digitalPirPorts, digitalPirPortsNumber)
 {

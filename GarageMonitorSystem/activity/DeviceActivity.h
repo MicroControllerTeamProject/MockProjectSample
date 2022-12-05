@@ -1,8 +1,8 @@
 #pragma once
 //#include "DigitalPort.h"
-#include "AnalogPort.h"
-#include "DigitalPort.h"
-#include "..\src\modules\MainRepository.h"
+#include "..\model\AnalogPort.h"
+#include "..\model\DigitalPort.h"
+#include "..\repository\MainRepository.h"
 
 
 class DeviceActivity

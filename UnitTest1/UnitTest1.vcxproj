@@ -157,12 +157,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\GarageMonitorSystem\library\AnalogPort.cpp" />
-    <ClCompile Include="..\GarageMonitorSystem\library\DeviceActivity.cpp" />
-    <ClCompile Include="..\GarageMonitorSystem\library\DigitalPort.cpp" />
-    <ClCompile Include="..\GarageMonitorSystem\library\PirActivity.cpp" />
-    <ClCompile Include="..\GarageMonitorSystem\library\SmokeActivity.cpp" />
-    <ClCompile Include="..\GarageMonitorSystem\src\GarageBusinessLayer.cpp" />
+    <ClCompile Include="..\GarageMonitorSystem\activity\DeviceActivity.cpp" />
+    <ClCompile Include="..\GarageMonitorSystem\activity\PirActivity.cpp" />
+    <ClCompile Include="..\GarageMonitorSystem\activity\SmokeActivity.cpp" />
+    <ClCompile Include="..\GarageMonitorSystem\business\GarageBusinessLayer.cpp" />
+    <ClCompile Include="..\GarageMonitorSystem\model\AnalogPort.cpp" />
+    <ClCompile Include="..\GarageMonitorSystem\model\DigitalPort.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

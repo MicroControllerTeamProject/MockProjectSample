@@ -1,5 +1,5 @@
 #include "SmokeActivity.h"
-#include "..\src\modules\MainRepository.h"
+#include "..\repository\MainRepository.h"
 
 SmokeActivity::SmokeActivity(AnalogPort** analogPort,float vref,uint8_t analogPortsNumber)  : DeviceActivity(analogPort,vref,analogPortsNumber){
 }

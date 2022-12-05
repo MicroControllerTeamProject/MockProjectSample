@@ -1,8 +1,8 @@
 #pragma once
 
-#include "modules\MainRepository.h"
-#include "..\library\SmokeActivity.h"
-#include "..\library\PirActivity.h"
+#include "..\repository\MainRepository.h"
+#include "..\activity\SmokeActivity.h"
+#include "..\activity\PirActivity.h"
 
 class GarageBusinessLayer
 {
