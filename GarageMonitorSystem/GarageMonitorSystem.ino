@@ -14,8 +14,6 @@ void setup() {
 }
 
 void loop() {
-
-
    /* _waterSensorActivity.start(micrInterfaceGarageSystem, ps);*/
    /* _simActivity.start(micrInterfaceSimDevice, ps);*/
    /* Serial.println("Giro");
