@@ -41,49 +41,16 @@ namespace UnitTestGarageMonitorSystem
 			PirActivity* pirActivity = new PirActivity(digitalPirPorts, 1);
 
 #pragma region mocked methods 
-			When(Method(mockedRepository, analogReadm)).AlwaysReturn(500);
+			When(Method(mockedRepository, analogReadm)).AlwaysReturn(100);
 			When(Method(mockedRepository, digitalReadm)).AlwaysReturn(1);
 #pragma endregion mocked methods 
 
 #pragma region Asserts 
-
 			GarageBusinessLayer* b = new GarageBusinessLayer();
 
 			Assert::AreEqual(true, b->canOpenTheDoor(mainRepository,smokeActivity,pirActivity));
-			
-
 #pragma endregion Asserts
-
-			
-
 			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(mainRepository, 0));*/
 		}
-
-
-		//TEST_METHOD(TestMethod_NoWaterInGarage)
-		//{
-		//	Mock<microInterfaceWaterSensor> mock;
-
-		//	When(Method(mock, serial_begin)).AlwaysReturn(false);
-
-		//	When(Method(mock, analogiReadm)).AlwaysReturn(1000);
-
-		//	When(Method(mock, blink)).AlwaysReturn(false);
-
-		//	//When(OverloadedMethod(mock, print, bool(const char*))).AlwaysReturn(false);
-
-		//	//When(OverloadedMethod(mock, print, bool(float))).AlwaysReturn(false);
-
-		//	microInterfaceWaterSensor& microInterface = mock.get();
-
-		//	programStates programStates;
-
-		//	waterSensorActivity* wsActivity = new waterSensorActivity();
-
-		//	wsActivity->start(microInterface, programStates);
-
-		//	Assert::AreEqual(false, programStates._isWaterSensor01Detected);
-		//}
-
 	};
 }
