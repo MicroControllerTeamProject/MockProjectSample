@@ -16,6 +16,8 @@ public:
 	
 	virtual uint16_t analogReadm(uint8_t analogPin);
 
+	virtual uint8_t digitalReadm(uint8_t analogPin);
+
 	virtual float analogVrefRead(uint8_t analogPin);
 
 	virtual bool print(const char* data);
@@ -34,7 +36,7 @@ public:
 
 	virtual char* readBuffer();
 
-	virtual void pinMode(uint8_t pin,uint8_t mode);
+	virtual void pinModem(uint8_t pin,uint8_t mode);
 
 private :
 	float _vref;

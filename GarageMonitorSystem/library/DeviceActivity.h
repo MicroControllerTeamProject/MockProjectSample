@@ -8,7 +8,7 @@
 class DeviceActivity
 {
 public:
-	DeviceActivity(DigitalPort** digitalPort, uint8_t digitalPortsNumber, MainRepository& mainRepository);
+	DeviceActivity(DigitalPort** digitalPort, uint8_t digitalPortsNumber);
 	DeviceActivity(AnalogPort** analogPort,float vref, uint8_t analogPortsNumber);
 	//virtual bool isThereAnyPortOnAlarm();
 	//virtual String getLastAlarmDescription();
@@ -18,7 +18,7 @@ public:
 	int analogReadByName(String portName);*/
 	//String getLastErrorDescription();
 	/*MainRepository& _mainRepository;*/
-	bool isThereAnyAnalogPortOnAlarm(MainRepository& mainRepository);
+	
 	
 private:
 	DigitalPort** digitalPort;
@@ -36,7 +36,10 @@ private:
 	//bool isThereAnyCustomMisureOnAlarm();
 	//bool isThereAnyDigitalPortOnAlarm();
 	
+protected:
 
+	bool isThereAnyAnalogPortOnAlarm(MainRepository& mainRepository);
+	bool isThereAnyDigitalPortOnAlarm(MainRepository& mainRepository);
 	
 	
 };

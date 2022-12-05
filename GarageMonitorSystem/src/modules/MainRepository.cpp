@@ -33,6 +33,10 @@ uint16_t MainRepository::analogReadm(uint8_t analogPin) {
 	return analogRead(analogPin);
 }
 
+uint8_t MainRepository::digitalReadm(uint8_t analogPin) {
+	return digitalRead(analogPin);
+}
+
 bool MainRepository::print(const char* data)
 {
 	if (softwareSerial != NULL)
@@ -158,7 +162,7 @@ char* MainRepository::readBuffer()
 	}
 }
 
-void MainRepository::pinMode(uint8_t pin, uint8_t mode)
+void MainRepository::pinModem(uint8_t pin, uint8_t mode)
 {
 	pinMode(pin, mode);
 }

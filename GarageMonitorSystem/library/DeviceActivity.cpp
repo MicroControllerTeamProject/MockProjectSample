@@ -3,28 +3,28 @@
 #include <string.h>
 
 
-DeviceActivity::DeviceActivity(DigitalPort** digitalPort,  uint8_t digitalPortsNumber, MainRepository& mainRepository)
+DeviceActivity::DeviceActivity(DigitalPort** digitalPort,  uint8_t digitalPortsNumber)
 {
 	this->digitalPort = digitalPort;
 	this->digitalPortsNumber = digitalPortsNumber;
 	
-	for (int i = 0; i < this->digitalPortsNumber; i++)
-	{
-		if (this->digitalPort[i]->direction == output)
-		{
-			mainRepository.pinMode(this->digitalPort[i]->getPin(), 1/*OUTPUT*/);
-		}
-		else
-		{
-			if (this->digitalPort[i]->isOnPullUp) {
-				mainRepository.pinMode(this->digitalPort[i]->getPin(), 2/*INPUT_PULLUP*/);
-			}
-			else
-			{
-				mainRepository.pinMode(this->digitalPort[i]->getPin(), 0/*INPUT*/);
-			}
-		}
-	}
+	//for (int i = 0; i < this->digitalPortsNumber; i++)
+	//{
+	//	if (this->digitalPort[i]->direction == DigitalPort::output)
+	//	{
+	//		mainRepository.pinModem(this->digitalPort[i]->getPin(), (uint8_t)1/*OUTPUT*/);
+	//	}
+	//	else
+	//	{
+	//		if (this->digitalPort[i]->isOnPullUp) {
+	//			//mainRepository.pinModem(this->digitalPort[i]->getPin(), (uint8_t)2/*INPUT_PULLUP*/);
+	//		}
+	//		else
+	//		{
+	//			//mainRepository.pinModem(this->digitalPort[i]->getPin(), (uint8_t)0/*INPUT*/);
+	//		}
+	//	}
+	//}
 }
 
 DeviceActivity::DeviceActivity(AnalogPort** analogPort,float vref, uint8_t analogPortsNumber)
@@ -52,7 +52,6 @@ DeviceActivity::DeviceActivity(AnalogPort** analogPort,float vref, uint8_t analo
 	////	}
 	////}
 }
-
 
 //bool DeviceActivity::isThereAnyCustomMisureOnAlarm()
 //{
@@ -106,17 +105,17 @@ bool DeviceActivity::isThereAnyAnalogPortOnAlarm(MainRepository& mainRepository)
 	{
 		if (this->analogPort[i]->isEnable && this->analogPort[i]->maxVoltageAlarmValueIn != 0)
 		{
-			if (((this->vref / 1024) * mainRepository.analogReadm(this->analogPort[i]->getPin())) > this->analogPort[i]->maxVoltageAlarmValueIn)
+			if (((this->vref / 1024) * mainRepository.analogReadm(this->analogPort[i]->getPin())) < this->analogPort[i]->maxVoltageAlarmValueIn)
 			{
 				strcpy(this->_lastAlarmDescription, "levMax");
-				return true;
+				return false;
 			}
 
-			if (((this->vref / 1024) * mainRepository.analogReadm(this->analogPort[i]->getPin())) < this->analogPort[i]->minVoltageAlarmValueIn)
+			if (((this->vref / 1024) * mainRepository.analogReadm(this->analogPort[i]->getPin())) > this->analogPort[i]->minVoltageAlarmValueIn)
 			{
 				strcpy(this->_lastAlarmDescription, "levMin");
 				//this->lastAlarmDescription = analogPort[i]->getUid() + " level LOW";
-				return true;
+				return false;
 			} 
 		}
 	}
@@ -143,6 +142,30 @@ bool DeviceActivity::isThereAnyAnalogPortOnAlarm(MainRepository& mainRepository)
 
 	return false;
 }
+
+
+bool DeviceActivity::isThereAnyDigitalPortOnAlarm(MainRepository& mainRepository)
+{
+	//Serial.println("Entrato");
+	for (int i = 0; i < this->digitalPortsNumber; i++)
+	{
+		if (this->digitalPort[i]->isEnable && (this->digitalPort[i]->direction == DigitalPort::input))
+		{
+			if (this->digitalPort[i]->alarmTriggerOn == DigitalPort::AlarmOn::low && mainRepository.digitalReadm(this->digitalPort[i]->getPin()) == 1/*LOW*/)
+			{
+				/*this->lastAlarmDescription = digitalPort[i]->getUid() + " level LOW";*/
+				return false;
+
+			}
+			if (this->digitalPort[i]->alarmTriggerOn == DigitalPort::AlarmOn::high && mainRepository.digitalReadm(this->digitalPort[i]->getPin()) == 0/*HIGH*/)
+			{
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
 
 //bool DeviceActivity::isThereAnyPortOnAlarm()
 //{

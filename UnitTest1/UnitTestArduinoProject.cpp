@@ -1,12 +1,11 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-#include "..\GarageMonitorSystem\src\modules\WatherSensor.h"
-#include "..\GarageMonitorSystem\GarageDoorRepository.h"
-#include "..\GarageMonitorSystem\src\GarageDoorActivity.h"
-#include "..\GarageMonitorSystem\src\programStates.h"
 #include "..\GarageMonitorSystem\library\AnalogPort.h"
+#include "..\GarageMonitorSystem\library\DigitalPort.h"
 #include "..\GarageMonitorSystem\library\SmokeActivity.h"
+#include "..\GarageMonitorSystem\library\PirActivity.h"
 #include "..\GarageMonitorSystem\library\DeviceActivity.h"
+#include "..\GarageMonitorSystem\src\GarageBusinessLayer.h"
 
 #include "src\extend.h"
 
@@ -19,25 +18,55 @@ namespace UnitTestGarageMonitorSystem
 	TEST_CLASS(UnitTestGarageMonitorSystem)
 	{
 	public:
-		TEST_METHOD(TestMethod_isThereSmoke)
+		TEST_METHOD(TestMethod_openTheGarageDoor)
 		{
-			Mock<MainRepository> mock;
-			
-			When(Method(mock, analogReadm)).AlwaysReturn(500);
+#pragma region repository mocked
+			//Repository mocked
+			Mock<MainRepository> mockForSmoke;
+			MainRepository& mainRepositoryForSmoke = mockForSmoke.get();
+			Mock<MainRepository> mockForPir;
+			MainRepository& mainRepositoryForPir = mockForPir.get();
 
-			MainRepository& mainRepository = mock.get();
+#pragma endregion Repository mocked
 
-
+#pragma region objects for test 
 			AnalogPort** analogPort = new AnalogPort*[1];
-
 			analogPort[0] = new AnalogPort("Smoke01", 14);
-			analogPort[0]->isEnable = true;
 			analogPort[0]->maxAlarmValueIn = 150;
 			analogPort[0]->minAlarmValueIn = 1;
 
+			DigitalPort** digitalPort = new DigitalPort*[1];
+			digitalPort[0] = new DigitalPort("Pir01", 4);
+			digitalPort[0]->alarmTriggerOn = DigitalPort::AlarmOn::high;
+			digitalPort[0]->direction = DigitalPort::PortDirection::input;
+#pragma endregion objects for test 
+			
 			SmokeActivity* smokeActivity = new SmokeActivity(analogPort, 5, 1);
+			PirActivity* pirActivity = new PirActivity(digitalPort, 1);
 
-			Assert::AreEqual(true, smokeActivity->isThereSmoke(mainRepository));
+#pragma region mocked methods 
+			When(Method(mockForSmoke, analogReadm)).AlwaysReturn(500);
+
+			When(Method(mockForPir, digitalReadm)).AlwaysReturn(1);
+
+		/*	When(Method(mockForPir, digitalReadm)).AlwaysReturn(1);*/
+#pragma endregion mocked methods 
+
+#pragma region Asserts 
+
+			/*GarageBusinessLayer* b = new GarageBusinessLayer();
+
+			Assert::AreEqual(true, b->canOpenTheDoor(mainRepositoryForSmoke,smokeActivity,pirActivity));*/
+			
+		/*	Assert::AreEqual(false, smokeActivity->isThereSmoke(mainRepositoryForSmoke));
+			Assert::AreEqual(true, pirActivity->isThereAnyOne(mainRepositoryForPir));*/
+
+			Assert::AreEqual(false, smokeActivity->isThereSmoke(mainRepositoryForSmoke));
+
+			Assert::AreEqual(true, pirActivity->isThereAnyOne(mainRepositoryForPir));
+#pragma endregion Asserts
+
+			
 
 			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(mainRepository, 0));*/
 		}

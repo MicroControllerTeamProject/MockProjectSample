@@ -1,5 +1,4 @@
 #include "GarageDoorActivity.h"
-#include "modules/WatherSensor.h"
 
 GarageDoorActivity::GarageDoorActivity(programStates& programStates) {
 }

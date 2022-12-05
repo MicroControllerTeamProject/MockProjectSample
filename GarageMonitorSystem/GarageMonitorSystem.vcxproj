@@ -121,13 +121,13 @@
   <ItemGroup>
     <ClInclude Include="GarageDoorRepository.h" />
     <ClInclude Include="library\AnalogPort.h" />
-    <ClInclude Include="library\Commons.h" />
     <ClInclude Include="library\DeviceActivity.h" />
     <ClInclude Include="library\DigitalPort.h" />
     <ClInclude Include="library\PirActivity.h" />
     <ClInclude Include="library\SmokeActivity.h" />
     <ClInclude Include="SerialDevice.h" />
     <ClInclude Include="simActivity.h" />
+    <ClInclude Include="src\GarageBusinessLayer.h" />
     <ClInclude Include="src\modules\MainRepository.h" />
     <ClInclude Include="src\modules\WatherSensor.h" />
     <ClInclude Include="src\programStates.h" />
@@ -143,6 +143,7 @@
     <ClCompile Include="library\PirActivity.cpp" />
     <ClCompile Include="library\SmokeActivity.cpp" />
     <ClCompile Include="SerialDevice.cpp" />
+    <ClCompile Include="src\GarageBusinessLayer.cpp" />
     <ClCompile Include="src\modules\WatherSensor.cpp" />
     <ClCompile Include="GarageDoorRepository.cpp" />
     <ClCompile Include="simActivity.cpp" />

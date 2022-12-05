@@ -1,5 +1,4 @@
 #pragma once
-#include "Commons.h"
 #include"..\src\modules\MainRepository.h"
 
 class DigitalPort
@@ -10,13 +9,18 @@ public:
         low,
         high
     };
+    enum PortDirection
+    {
+        input,
+        output
+    };
     DigitalPort(char* uid, uint8_t pin);
     bool isEnable = true;
     PortDirection direction = output;
     /// <summary>
     /// Set low for trigger alarm on low level or high.
     /// </summary>
-    AlarmOn alarmOn = low;
+    AlarmOn alarmTriggerOn = low;
     bool isOnPullUp = false;
     float minCustomMisureValue = 0.00f;
     float maxCustomMisureValue = 0.00f;
