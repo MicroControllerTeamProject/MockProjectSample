@@ -18,16 +18,11 @@ GarageDoorActivity garageDoorActivity(ps);
 
 void setup() {
     Serial.begin(9600);
-    MainRepository m(5,DEFAULT);
-    WaterSensor w(5,"",1,0);
-    garageDoorActivity.isGarageDoorToOpen(m, w);
- /*   Serial.println("start");
-    SimDevice s("sim");
-    micrInterfaceSimDevice.serial_begin(19200);
-    s.waitSMSComing(micrInterfaceSimDevice);*/
 }
 
 void loop() {
+
+
    /* _waterSensorActivity.start(micrInterfaceGarageSystem, ps);*/
    /* _simActivity.start(micrInterfaceSimDevice, ps);*/
    /* Serial.println("Giro");

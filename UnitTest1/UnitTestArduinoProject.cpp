@@ -21,49 +21,37 @@ namespace UnitTestGarageMonitorSystem
 		TEST_METHOD(TestMethod_openTheGarageDoor)
 		{
 #pragma region repository mocked
-			//Repository mocked
-			Mock<MainRepository> mockForSmoke;
-			MainRepository& mainRepositoryForSmoke = mockForSmoke.get();
-			Mock<MainRepository> mockForPir;
-			MainRepository& mainRepositoryForPir = mockForPir.get();
-
+			Mock<MainRepository> mockedRepository;
+			MainRepository& mainRepository = mockedRepository.get();
 #pragma endregion Repository mocked
 
 #pragma region objects for test 
-			AnalogPort** analogPort = new AnalogPort*[1];
-			analogPort[0] = new AnalogPort("Smoke01", 14);
-			analogPort[0]->maxAlarmValueIn = 150;
-			analogPort[0]->minAlarmValueIn = 1;
+			AnalogPort** analogSmokePorts = new AnalogPort*[1];
+			analogSmokePorts[0] = new AnalogPort("Smoke01", 14);
+			analogSmokePorts[0]->maxAlarmValueIn = 150;
+			analogSmokePorts[0]->minAlarmValueIn = 1;
 
-			DigitalPort** digitalPort = new DigitalPort*[1];
-			digitalPort[0] = new DigitalPort("Pir01", 4);
-			digitalPort[0]->alarmTriggerOn = DigitalPort::AlarmOn::high;
-			digitalPort[0]->direction = DigitalPort::PortDirection::input;
+			DigitalPort** digitalPirPorts = new DigitalPort*[1];
+			digitalPirPorts[0] = new DigitalPort("Pir01", 4);
+			digitalPirPorts[0]->alarmTriggerOn = DigitalPort::AlarmOn::high;
+			digitalPirPorts[0]->direction = DigitalPort::PortDirection::input;
 #pragma endregion objects for test 
 			
-			SmokeActivity* smokeActivity = new SmokeActivity(analogPort, 5, 1);
-			PirActivity* pirActivity = new PirActivity(digitalPort, 1);
+			SmokeActivity* smokeActivity = new SmokeActivity(analogSmokePorts, 5, 1);
+			PirActivity* pirActivity = new PirActivity(digitalPirPorts, 1);
 
 #pragma region mocked methods 
-			When(Method(mockForSmoke, analogReadm)).AlwaysReturn(500);
-
-			When(Method(mockForPir, digitalReadm)).AlwaysReturn(1);
-
-		/*	When(Method(mockForPir, digitalReadm)).AlwaysReturn(1);*/
+			When(Method(mockedRepository, analogReadm)).AlwaysReturn(500);
+			When(Method(mockedRepository, digitalReadm)).AlwaysReturn(1);
 #pragma endregion mocked methods 
 
 #pragma region Asserts 
 
-			/*GarageBusinessLayer* b = new GarageBusinessLayer();
+			GarageBusinessLayer* b = new GarageBusinessLayer();
 
-			Assert::AreEqual(true, b->canOpenTheDoor(mainRepositoryForSmoke,smokeActivity,pirActivity));*/
+			Assert::AreEqual(true, b->canOpenTheDoor(mainRepository,smokeActivity,pirActivity));
 			
-		/*	Assert::AreEqual(false, smokeActivity->isThereSmoke(mainRepositoryForSmoke));
-			Assert::AreEqual(true, pirActivity->isThereAnyOne(mainRepositoryForPir));*/
 
-			Assert::AreEqual(false, smokeActivity->isThereSmoke(mainRepositoryForSmoke));
-
-			Assert::AreEqual(true, pirActivity->isThereAnyOne(mainRepositoryForPir));
 #pragma endregion Asserts
 
 			
