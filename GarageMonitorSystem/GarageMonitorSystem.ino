@@ -4,15 +4,8 @@
  Author:	luigi.santagada
 */
 
-#include "GarageDoorRepository.h"
-#include "microInterfaceSimDevice.h"
-#include "src/GarageDoorActivity.h"
-#include "simActivity.h"
 #include <string.h>
 
-programStates ps;
-
-GarageDoorActivity garageDoorActivity(ps);
 
 //simActivity _simActivity;
 

@@ -94,7 +94,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_VMICRO_INTELLISENSE;__AVR_atmega328p__;__AVR_ATmega328P__;__AVR_ATmega328p__;F_CPU=16000000L;ARDUINO=10805;ARDUINO_AVR_NANO;ARDUINO_ARCH_AVR;__cplusplus=201103L;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\arduino\avr\cores\arduino;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\arduino\avr\variants\eightanaloginputs;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\arduino\avr\libraries\SoftwareSerial\src;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\avr\include;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\avr\include-fixed;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\avr\include\avr;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\lib\gcc\avr\4.8.1\include;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\lib\gcc\avr\4.9.2\include;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\lib\gcc\avr\4.9.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\GarageMonitorSystem;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\arduino\avr\cores\arduino;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\arduino\avr\variants\eightanaloginputs;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\arduino\avr\libraries\SoftwareSerial\src;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\avr\include;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\avr\include-fixed;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\avr\include\avr;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\lib\gcc\avr\4.8.1\include;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\lib\gcc\avr\4.9.2\include;$(ProjectDir)..\..\..\..\Program Files (x86)\arduino-1.8.5\hardware\tools\avr\lib\gcc\avr\4.9.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ProjectDir)__vm\.GarageMonitorSystem.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
@@ -119,20 +119,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GarageDoorRepository.h" />
     <ClInclude Include="library\AnalogPort.h" />
     <ClInclude Include="library\DeviceActivity.h" />
     <ClInclude Include="library\DigitalPort.h" />
     <ClInclude Include="library\PirActivity.h" />
     <ClInclude Include="library\SmokeActivity.h" />
-    <ClInclude Include="SerialDevice.h" />
-    <ClInclude Include="simActivity.h" />
     <ClInclude Include="src\GarageBusinessLayer.h" />
     <ClInclude Include="src\modules\MainRepository.h" />
-    <ClInclude Include="src\modules\WatherSensor.h" />
-    <ClInclude Include="src\programStates.h" />
-    <ClInclude Include="src\sensor.h" />
-    <ClInclude Include="src\GarageDoorActivity.h" />
     <ClInclude Include="__vm\.GarageMonitorSystem.vsarduino.h" />
     <ClInclude Include="__vm\.MockSampleVSMicro.vsarduino.h" />
   </ItemGroup>
@@ -142,21 +135,8 @@
     <ClCompile Include="library\DigitalPort.cpp" />
     <ClCompile Include="library\PirActivity.cpp" />
     <ClCompile Include="library\SmokeActivity.cpp" />
-    <ClCompile Include="SerialDevice.cpp" />
     <ClCompile Include="src\GarageBusinessLayer.cpp" />
-    <ClCompile Include="src\modules\WatherSensor.cpp" />
-    <ClCompile Include="GarageDoorRepository.cpp" />
-    <ClCompile Include="simActivity.cpp" />
     <ClCompile Include="src\modules\MainRepository.cpp" />
-    <ClCompile Include="src\programStates.cpp">
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="src\GarageDoorActivity.cpp">
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="src\sensor.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

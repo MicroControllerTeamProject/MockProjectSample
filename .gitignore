@@ -341,3 +341,14 @@ healthchecksdb
 /UnitTest1/UnitTest1.vcxproj.filters
 /UnitTest1/UnitTest1.vcxproj.filters
 /GarageMonitorSystem/GarageMonitorSystem.vcxproj.filters
+GarageMonitorSystem/src/microInterfaceSimDevice.cpp
+GarageMonitorSystem/src/microInterfaceSimDevice.h
+GarageMonitorSystem/src/MockSampleVSMicro.vcxproj.filters
+GarageMonitorSystem/src/SerialDevice.cpp
+GarageMonitorSystem/src/SerialDevice.h
+GarageMonitorSystem/src/simActivity.cpp
+GarageMonitorSystem/src/simActivity.h
+GarageMonitorSystem/src/SimDevice.cpp
+GarageMonitorSystem/src/SimDevice.h
+GarageMonitorSystem/src/stringFunctions.txt
+GarageMonitorSystem/src/modules/WatherSensor.h
