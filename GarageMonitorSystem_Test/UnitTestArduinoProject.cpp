@@ -100,10 +100,10 @@ namespace UnitTestGarageMonitorSystem
 
 #pragma endregion objects for test 
 
-			VoltageActivity* voltageActivity = new VoltageActivity(analogPowerBatteryPorts, 5.0f, 1);
+			VoltageActivity* voltageActivity = new VoltageActivity(analogPowerBatteryPorts, 4.2f, 1);
 
 #pragma region mocked methods 
-			When(Method(mockedRepository, analogVrefRead)).AlwaysReturn(5.0f);
+			When(Method(mockedRepository, analogReadm)).AlwaysReturn(800);
 #pragma endregion mocked methods 
 
 #pragma region Asserts 

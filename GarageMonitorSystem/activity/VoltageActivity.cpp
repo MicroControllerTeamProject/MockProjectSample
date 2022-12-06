@@ -10,6 +10,10 @@ bool VoltageActivity::isVoltageOutOfRange(MainRepository& mainRepository) {
 	return true;
 }
 
+float  VoltageActivity::getAnalogPortVrefVoltage(MainRepository& mainRepository, uint8_t analogPin)
+{
+	return (this->getVref() / 1024) * mainRepository.analogReadm(analogPin);
+}
 
 char* VoltageActivity::getLipoBatteryGrafBarLevel(MainRepository& mainRepository, uint8_t analogPortPin)
 {
@@ -17,7 +21,7 @@ char* VoltageActivity::getLipoBatteryGrafBarLevel(MainRepository& mainRepository
 	{
 		if (this->analogPort[i]->getPin() == analogPortPin)
 		{
-			float batteryVoltageLevel = mainRepository.analogVrefRead(this->getVref(), analogPortPin);
+			float batteryVoltageLevel = getAnalogPortVrefVoltage(mainRepository, analogPortPin);
 			if (batteryVoltageLevel <= 3.25f)
 				return "[    ]o";
 			if (batteryVoltageLevel <= 3.30f)

@@ -16,7 +16,7 @@ public:
 
 	virtual uint8_t digitalReadm(uint8_t analogPin);
 
-	virtual float analogVrefRead(float vref,uint8_t analogPin);
+	/*virtual float analogVrefRead(float vref,uint8_t analogPin);*/
 
 	virtual bool print(const char* data);
 

@@ -25,9 +25,9 @@ void MainRepository::analogReferencem(uint8_t mode)
 	analogReference(mode);
 }
 
-float MainRepository::analogVrefRead(float vref,uint8_t analogPin) {
-	return (vref / 1024) * analogRead(analogPin);
-}
+//float MainRepository::analogVrefRead(float vref,uint8_t analogPin) {
+//	return (vref / 1024) * analogRead(analogPin);
+//}
 
 uint16_t MainRepository::analogReadm(uint8_t analogPin) {
 	return analogRead(analogPin);
