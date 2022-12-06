@@ -9,7 +9,7 @@ class DeviceActivity
 {
 public:
 	DeviceActivity(DigitalPort** digitalPort, uint8_t digitalPortsNumber);
-	DeviceActivity(AnalogPort** analogPort,float vref, uint8_t analogPortsNumber);
+	DeviceActivity(AnalogPort** analogPort,float _vref, uint8_t analogPortsNumber);
 	//virtual bool isThereAnyPortOnAlarm();
 	//virtual String getLastAlarmDescription();
 	//bool digitalWriteByName(String portName, uint8_t pinLevel);
@@ -30,7 +30,7 @@ private:
 	String lastErrorDescription = "";*/
 	char lastAlarmCode;
 	char lastErrorCode;
-	float vref = 5;
+	float _vref = 5;
 	//virtual float getUnitOfMisureValue(String portName);
 	//virtual  float  getCustomMisureValue();
 	//bool isThereAnyCustomMisureOnAlarm();
@@ -42,7 +42,6 @@ protected:
 	DigitalPort** digitalPort;
 	bool isThereAnyAnalogPortOnAlarm(MainRepository& mainRepository);
 	bool isThereAnyDigitalPortOnAlarm(MainRepository& mainRepository);
-	
-	
+	float getVref();
 };
 

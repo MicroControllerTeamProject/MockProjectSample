@@ -31,7 +31,7 @@ DeviceActivity::DeviceActivity(AnalogPort** analogPort,float vref, uint8_t analo
 {
 	this->analogPort = analogPort;
 	this->_analogPortsNumber = analogPortsNumber;
-	this->vref = vref;
+	this->_vref = vref;
 
 	//for (int i = 0; i < this->analogPortsNumer; i++)
 	//{
@@ -105,13 +105,13 @@ bool DeviceActivity::isThereAnyAnalogPortOnAlarm(MainRepository& mainRepository)
 	{
 		if (this->analogPort[i]->isEnable && this->analogPort[i]->maxVoltageAlarmValueIn != 0)
 		{
-			if (((this->vref / 1024) * mainRepository.analogReadm(this->analogPort[i]->getPin())) < this->analogPort[i]->maxVoltageAlarmValueIn)
+			if (((this->_vref / 1024) * mainRepository.analogReadm(this->analogPort[i]->getPin())) < this->analogPort[i]->maxVoltageAlarmValueIn)
 			{
 				strcpy(this->_lastAlarmDescription, "levMax");
 				return false;
 			}
 
-			if (((this->vref / 1024) * mainRepository.analogReadm(this->analogPort[i]->getPin())) > this->analogPort[i]->minVoltageAlarmValueIn)
+			if (((this->_vref / 1024) * mainRepository.analogReadm(this->analogPort[i]->getPin())) > this->analogPort[i]->minVoltageAlarmValueIn)
 			{
 				strcpy(this->_lastAlarmDescription, "levMin");
 				//this->lastAlarmDescription = analogPort[i]->getUid() + " level LOW";
@@ -329,6 +329,11 @@ bool DeviceActivity::isThereAnyDigitalPortOnAlarm(MainRepository& mainRepository
 //float  DeviceActivity::getCustomMisureValue() {
 //}
 
+
+float  DeviceActivity::getVref()
+{
+	return _vref;
+}
 
 
 

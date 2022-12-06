@@ -6,9 +6,7 @@ class MainRepository
 {
 public:
 
-	MainRepository(float vref, uint8_t referenceMod);
-
-	MainRepository(uint8_t rx, uint8_t tx, bool invers_logic);
+	MainRepository();
 	
 	~MainRepository();
 
@@ -18,7 +16,7 @@ public:
 
 	virtual uint8_t digitalReadm(uint8_t analogPin);
 
-	virtual float analogVrefRead(uint8_t analogPin);
+	virtual float analogVrefRead(float vref,uint8_t analogPin);
 
 	virtual bool print(const char* data);
 
@@ -39,7 +37,7 @@ public:
 	virtual void pinModem(uint8_t pin,uint8_t mode);
 
 private :
-	float _vref;
-	uint8_t _referenceMode;
+	/*float _vref;
+	uint8_t _referenceMode;*/
 };
 

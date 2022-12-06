@@ -354,3 +354,5 @@ GarageMonitorSystem/src/stringFunctions.txt
 GarageMonitorSystem/src/modules/WatherSensor.h
 /GarageMonitorSystem/src(old)
 /GarageMonitorSystem/library(old)
+/GarageMonitorSystem/__vm/Upload.vmps.xml
+/GarageMonitorSystem/__vm/Compile.vmps.xml

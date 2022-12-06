@@ -6,6 +6,7 @@
 #include "..\GarageMonitorSystem\activity\PirActivity.h"
 #include "..\GarageMonitorSystem\activity\DeviceActivity.h"
 #include "..\GarageMonitorSystem\business\GarageBusinessLayer.h"
+#include "..\GarageMonitorSystem\activity\VoltageActivity.h"
 
 #include "src\extend.h"
 
@@ -81,6 +82,33 @@ namespace UnitTestGarageMonitorSystem
 #pragma region Asserts 
 			GarageBusinessLayer* b = new GarageBusinessLayer();
 			Assert::AreEqual(false, b->canOpenTheDoor(mainRepository, smokeActivity, pirActivity));
+#pragma endregion Asserts
+			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(mainRepository, 0));*/
+		}
+		TEST_METHOD(TestMethod_batteryGrapfIsFull)
+		{
+#pragma region repository mocked
+			Mock<MainRepository> mockedRepository;
+			MainRepository& mainRepository = mockedRepository.get();
+#pragma endregion Repository mocked
+
+#pragma region objects for test 
+			AnalogPort** analogPowerBatteryPorts = new AnalogPort*[1];
+			analogPowerBatteryPorts[0] = new AnalogPort("batt01", 14);
+			analogPowerBatteryPorts[0]->maxVoltageAlarmValueIn = 5.0f;
+			analogPowerBatteryPorts[0]->minVoltageAlarmValueIn = 3.3f;
+
+#pragma endregion objects for test 
+
+			VoltageActivity* voltageActivity = new VoltageActivity(analogPowerBatteryPorts, 5.0f, 1);
+
+#pragma region mocked methods 
+			When(Method(mockedRepository, analogVrefRead)).AlwaysReturn(5.0f);
+#pragma endregion mocked methods 
+
+#pragma region Asserts 
+			GarageBusinessLayer* b = new GarageBusinessLayer();
+			Assert::AreEqual("[||||]o", b->getBatteryGrapfLevel(mainRepository, voltageActivity, 14));
 #pragma endregion Asserts
 			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(mainRepository, 0));*/
 		}

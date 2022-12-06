@@ -4,16 +4,16 @@
 
 SoftwareSerial* softwareSerial;
 
-MainRepository::MainRepository(float vref,uint8_t referenceMode){
-	this->_vref = _vref;
-	this->_referenceMode;
+MainRepository::MainRepository(){
+	/*this->_vref = _vref;
+	this->_referenceMode;*/
 	softwareSerial = NULL;
 }
 
-MainRepository::MainRepository(uint8_t rx, uint8_t tx, bool invers_logic)
-{
-	softwareSerial = new  SoftwareSerial(rx, tx, invers_logic);
-}
+//MainRepository::MainRepository()
+//{
+//	softwareSerial = new  SoftwareSerial(rx, tx, invers_logic);
+//}
 
 MainRepository::~MainRepository() 
 {
@@ -25,8 +25,8 @@ void MainRepository::analogReferencem(uint8_t mode)
 	analogReference(mode);
 }
 
-float MainRepository::analogVrefRead(uint8_t analogPin) {
-	return (_vref / 1024) * analogRead(analogPin);
+float MainRepository::analogVrefRead(float vref,uint8_t analogPin) {
+	return (vref / 1024) * analogRead(analogPin);
 }
 
 uint16_t MainRepository::analogReadm(uint8_t analogPin) {
