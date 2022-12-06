@@ -168,8 +168,6 @@ void MainRepository::pinModem(uint8_t pin, uint8_t mode)
 }
 
 
-
-
 //void sensor::setLastComunication(char* lastComunication)
 //{
 //	char message[100];   // array to hold the result.

@@ -352,3 +352,5 @@ GarageMonitorSystem/src/SimDevice.cpp
 GarageMonitorSystem/src/SimDevice.h
 GarageMonitorSystem/src/stringFunctions.txt
 GarageMonitorSystem/src/modules/WatherSensor.h
+/GarageMonitorSystem/src(old)
+/GarageMonitorSystem/library(old)

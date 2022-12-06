@@ -21,10 +21,10 @@ public:
 	
 	
 private:
-	DigitalPort** digitalPort;
-	AnalogPort** analogPort;
+	/*DigitalPort** digitalPort;*/
+	/*AnalogPort** analogPort;*/
 	uint8_t digitalPortsNumber = 0;
-	uint8_t _analogPortsNumber = 0;
+	/*uint8_t _analogPortsNumber = 0;*/
 	char _lastAlarmDescription[10];
 	/*String lastAlarmDescription = "";
 	String lastErrorDescription = "";*/
@@ -37,7 +37,9 @@ private:
 	//bool isThereAnyDigitalPortOnAlarm();
 	
 protected:
-
+	uint8_t _analogPortsNumber = 0;
+	AnalogPort** analogPort;
+	DigitalPort** digitalPort;
 	bool isThereAnyAnalogPortOnAlarm(MainRepository& mainRepository);
 	bool isThereAnyDigitalPortOnAlarm(MainRepository& mainRepository);
 	

@@ -119,24 +119,26 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="library\AnalogPort.h" />
-    <ClInclude Include="library\DeviceActivity.h" />
-    <ClInclude Include="library\DigitalPort.h" />
-    <ClInclude Include="library\PirActivity.h" />
-    <ClInclude Include="library\SmokeActivity.h" />
-    <ClInclude Include="src\GarageBusinessLayer.h" />
-    <ClInclude Include="src\modules\MainRepository.h" />
+    <ClInclude Include="activity\DeviceActivity.h" />
+    <ClInclude Include="activity\PirActivity.h" />
+    <ClInclude Include="activity\SmokeActivity.h" />
+    <ClInclude Include="activity\VoltageActivity.h" />
+    <ClInclude Include="business\GarageBusinessLayer.h" />
+    <ClInclude Include="model\AnalogPort.h" />
+    <ClInclude Include="model\DigitalPort.h" />
+    <ClInclude Include="repository\MainRepository.h" />
     <ClInclude Include="__vm\.GarageMonitorSystem.vsarduino.h" />
     <ClInclude Include="__vm\.MockSampleVSMicro.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="library\AnalogPort.cpp" />
-    <ClCompile Include="library\DeviceActivity.cpp" />
-    <ClCompile Include="library\DigitalPort.cpp" />
-    <ClCompile Include="library\PirActivity.cpp" />
-    <ClCompile Include="library\SmokeActivity.cpp" />
-    <ClCompile Include="src\GarageBusinessLayer.cpp" />
-    <ClCompile Include="src\modules\MainRepository.cpp" />
+    <ClCompile Include="activity\DeviceActivity.cpp" />
+    <ClCompile Include="activity\PirActivity.cpp" />
+    <ClCompile Include="activity\SmokeActivity.cpp" />
+    <ClCompile Include="activity\VoltageActivity.cpp" />
+    <ClCompile Include="business\GarageBusinessLayer.cpp" />
+    <ClCompile Include="model\AnalogPort.cpp" />
+    <ClCompile Include="model\DigitalPort.cpp" />
+    <ClCompile Include="repository\MainRepository.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
