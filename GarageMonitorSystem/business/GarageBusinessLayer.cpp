@@ -3,12 +3,12 @@
 GarageBusinessLayer::GarageBusinessLayer(){
 }
 
-bool GarageBusinessLayer::canOpenTheDoor(MainRepository& mainRepository,SmokeActivity* smokeActivity,PirActivity* pirActivity){
-	if (!(smokeActivity->isThereSmoke(mainRepository)) && (pirActivity->isThereAnyOne(mainRepository))) return true;
+bool GarageBusinessLayer::canOpenTheDoor(AvrMicroRepository& avrMicroRepository,SmokeActivity* smokeActivity,PirActivity* pirActivity){
+	if (!(smokeActivity->isThereSmoke(avrMicroRepository)) && (pirActivity->isThereAnyOne(avrMicroRepository))) return true;
 	return false;
 }
 
-char* GarageBusinessLayer::getBatteryGrapfLevel(MainRepository& mainRepository, VoltageActivity* voltageActivity,uint8_t analogPortPin){
-		return voltageActivity->getLipoBatteryGrafBarLevel(mainRepository, analogPortPin);
+char* GarageBusinessLayer::getBatteryGrapfLevel(AvrMicroRepository& avrMicroRepository, VoltageActivity* voltageActivity,uint8_t analogPortPin){
+		return voltageActivity->getLipoBatteryGrafBarLevel(avrMicroRepository, analogPortPin);
 }
 

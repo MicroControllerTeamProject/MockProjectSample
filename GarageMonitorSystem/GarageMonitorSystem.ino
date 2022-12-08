@@ -16,7 +16,7 @@ void setup() {
 
     GarageBusinessLayer* garageBusinessLayer = new GarageBusinessLayer();
 
-    MainRepository mainRepository;
+    AvrMicroRepository avrMicroRepository;
 
 	AnalogPort** analogSmokePorts = new AnalogPort*[1];
 	analogSmokePorts[0] = new AnalogPort("Smoke01", 14);
@@ -31,7 +31,7 @@ void setup() {
 	SmokeActivity* smokeActivity = new SmokeActivity(analogSmokePorts, 5, 1);
 	PirActivity* pirActivity = new PirActivity(digitalPirPorts, 1);
    
-	garageBusinessLayer->canOpenTheDoor(mainRepository, smokeActivity, pirActivity);
+	garageBusinessLayer->canOpenTheDoor(avrMicroRepository, smokeActivity, pirActivity);
 }
 
 void loop() {

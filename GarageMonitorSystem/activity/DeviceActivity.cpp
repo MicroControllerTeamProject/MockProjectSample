@@ -99,7 +99,7 @@ DeviceActivity::DeviceActivity(AnalogPort** analogPort,float vref, uint8_t analo
 //	return false;
 //}
 
-bool DeviceActivity::isThereAnyAnalogPortOnAlarm(MainRepository& mainRepository)
+bool DeviceActivity::isThereAnyAnalogPortOnAlarm(AvrMicroRepository& mainRepository)
 {
 	for (int i = 0; i < this->_analogPortsNumber; i++)
 	{
@@ -144,7 +144,7 @@ bool DeviceActivity::isThereAnyAnalogPortOnAlarm(MainRepository& mainRepository)
 }
 
 
-bool DeviceActivity::isThereAnyDigitalPortOnAlarm(MainRepository& mainRepository)
+bool DeviceActivity::isThereAnyDigitalPortOnAlarm(AvrMicroRepository& mainRepository)
 {
 	//Serial.println("Entrato");
 	for (int i = 0; i < this->digitalPortsNumber; i++)

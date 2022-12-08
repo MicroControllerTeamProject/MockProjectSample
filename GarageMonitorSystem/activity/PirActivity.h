@@ -5,6 +5,6 @@ class PirActivity : public DeviceActivity
 {
 public:
 	PirActivity(DigitalPort** digitalPort, uint8_t digitalPortsNumber);
-	bool isThereAnyOne(MainRepository& mainRepository);
+	bool isThereAnyOne(AvrMicroRepository& avrMicroRepository);
 };
 

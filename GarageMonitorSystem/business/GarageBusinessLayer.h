@@ -8,8 +8,8 @@
 class GarageBusinessLayer{
 public:
 	GarageBusinessLayer();
-	bool canOpenTheDoor(MainRepository& mainRepository, SmokeActivity* smokeActivity, PirActivity* pirActivity);
-	char* getBatteryGrapfLevel(MainRepository& mainRepository,VoltageActivity* voltageActivity,uint8_t analogPortPin);
+	bool canOpenTheDoor(AvrMicroRepository& avrMicroRepository, SmokeActivity* smokeActivity, PirActivity* pirActivity);
+	char* getBatteryGrapfLevel(AvrMicroRepository& avrMicroRepository,VoltageActivity* voltageActivity,uint8_t analogPortPin);
 private:
 };
 

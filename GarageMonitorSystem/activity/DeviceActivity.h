@@ -17,7 +17,7 @@ public:
 	/*float analogReadVoltageByName(String portName);
 	int analogReadByName(String portName);*/
 	//String getLastErrorDescription();
-	/*MainRepository& _mainRepository;*/
+	/*AvrMicroRepository& _mainRepository;*/
 	
 	
 private:
@@ -40,8 +40,8 @@ protected:
 	uint8_t _analogPortsNumber = 0;
 	AnalogPort** analogPort;
 	DigitalPort** digitalPort;
-	bool isThereAnyAnalogPortOnAlarm(MainRepository& mainRepository);
-	bool isThereAnyDigitalPortOnAlarm(MainRepository& mainRepository);
+	bool isThereAnyAnalogPortOnAlarm(AvrMicroRepository& mainRepository);
+	bool isThereAnyDigitalPortOnAlarm(AvrMicroRepository& mainRepository);
 	float getVref();
 };
 

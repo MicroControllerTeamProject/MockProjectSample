@@ -5,17 +5,17 @@ VoltageActivity::VoltageActivity(AnalogPort** analogPort, float vref, uint8_t an
 }
 
 
-bool VoltageActivity::isVoltageOutOfRange(MainRepository& mainRepository) {
+bool VoltageActivity::isVoltageOutOfRange(AvrMicroRepository& mainRepository) {
 	if (!(this->isThereAnyAnalogPortOnAlarm(mainRepository))) return false;
 	return true;
 }
 
-float  VoltageActivity::getAnalogPortVrefVoltage(MainRepository& mainRepository, uint8_t analogPin)
+float  VoltageActivity::getAnalogPortVrefVoltage(AvrMicroRepository& mainRepository, uint8_t analogPin)
 {
 	return (this->getVref() / 1024) * mainRepository.analogReadm(analogPin);
 }
 
-char* VoltageActivity::getLipoBatteryGrafBarLevel(MainRepository& mainRepository, uint8_t analogPortPin)
+char* VoltageActivity::getLipoBatteryGrafBarLevel(AvrMicroRepository& mainRepository, uint8_t analogPortPin)
 {
 	for (int i = 0; i < this->_analogPortsNumber; i++)
 	{

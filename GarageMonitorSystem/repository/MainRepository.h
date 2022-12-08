@@ -2,13 +2,13 @@
 #include "stdint.h"
 
 
-class MainRepository
+class AvrMicroRepository
 {
 public:
 
-	MainRepository();
+	AvrMicroRepository();
 	
-	~MainRepository();
+	~AvrMicroRepository();
 
 	virtual void analogReferencem(uint8_t mode);
 	

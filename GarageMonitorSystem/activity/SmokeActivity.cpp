@@ -4,7 +4,7 @@
 SmokeActivity::SmokeActivity(AnalogPort** analogPort,float vref,uint8_t analogPortsNumber)  : DeviceActivity(analogPort,vref,analogPortsNumber){
 }
 
-bool SmokeActivity::isThereSmoke(MainRepository& mainRepository)
+bool SmokeActivity::isThereSmoke(AvrMicroRepository& avrMicroRepository)
 {
-	return this->isThereAnyAnalogPortOnAlarm(mainRepository);
+	return this->isThereAnyAnalogPortOnAlarm(avrMicroRepository);
 }

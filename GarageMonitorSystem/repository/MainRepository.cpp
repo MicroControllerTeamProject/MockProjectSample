@@ -4,40 +4,40 @@
 
 SoftwareSerial* softwareSerial;
 
-MainRepository::MainRepository(){
+AvrMicroRepository::AvrMicroRepository(){
 	/*this->_vref = _vref;
 	this->_referenceMode;*/
 	softwareSerial = NULL;
 }
 
-//MainRepository::MainRepository()
+//AvrMicroRepository::AvrMicroRepository()
 //{
 //	softwareSerial = new  SoftwareSerial(rx, tx, invers_logic);
 //}
 
-MainRepository::~MainRepository() 
+AvrMicroRepository::~AvrMicroRepository() 
 {
 	delete softwareSerial;
 }
 
-void MainRepository::analogReferencem(uint8_t mode)
+void AvrMicroRepository::analogReferencem(uint8_t mode)
 {
 	analogReference(mode);
 }
 
-//float MainRepository::analogVrefRead(float vref,uint8_t analogPin) {
+//float AvrMicroRepository::analogVrefRead(float vref,uint8_t analogPin) {
 //	return (vref / 1024) * analogRead(analogPin);
 //}
 
-uint16_t MainRepository::analogReadm(uint8_t analogPin) {
+uint16_t AvrMicroRepository::analogReadm(uint8_t analogPin) {
 	return analogRead(analogPin);
 }
 
-uint8_t MainRepository::digitalReadm(uint8_t analogPin) {
+uint8_t AvrMicroRepository::digitalReadm(uint8_t analogPin) {
 	return digitalRead(analogPin);
 }
 
-bool MainRepository::print(const char* data)
+bool AvrMicroRepository::print(const char* data)
 {
 	if (softwareSerial != NULL)
 	{
@@ -50,7 +50,7 @@ bool MainRepository::print(const char* data)
 	return true;
 }
 
-bool MainRepository::print(float data)
+bool AvrMicroRepository::print(float data)
 {
 	if (softwareSerial != NULL)
 	{
@@ -63,7 +63,7 @@ bool MainRepository::print(float data)
 	return true;
 }
 
-bool MainRepository::println(const char* data)
+bool AvrMicroRepository::println(const char* data)
 {
 	if (softwareSerial != NULL)
 	{
@@ -76,7 +76,7 @@ bool MainRepository::println(const char* data)
 	return true;
 }
 
-bool MainRepository::println(float data)
+bool AvrMicroRepository::println(float data)
 {
 	if (softwareSerial != NULL)
 	{
@@ -89,7 +89,7 @@ bool MainRepository::println(float data)
 	return true;
 }
 
-bool MainRepository::serial_available()
+bool AvrMicroRepository::serial_available()
 {
 	if (softwareSerial != NULL)
 	{
@@ -108,7 +108,7 @@ bool MainRepository::serial_available()
 	return false;
 }
 
-int MainRepository::read() {
+int AvrMicroRepository::read() {
 	if (softwareSerial != NULL)
 	{
 		return softwareSerial->read();
@@ -116,7 +116,7 @@ int MainRepository::read() {
 		return Serial.read();
 }
 
-char* MainRepository::readString() {
+char* AvrMicroRepository::readString() {
 	char a[250];
 	char b[500];
 	String c;
@@ -141,7 +141,7 @@ char* MainRepository::readString() {
 	}
 }
 
-char* MainRepository::readBuffer()
+char* AvrMicroRepository::readBuffer()
 {
 	char a[250];
 	char b[500];
@@ -162,7 +162,7 @@ char* MainRepository::readBuffer()
 	}
 }
 
-void MainRepository::pinModem(uint8_t pin, uint8_t mode)
+void AvrMicroRepository::pinModem(uint8_t pin, uint8_t mode)
 {
 	pinMode(pin, mode);
 }

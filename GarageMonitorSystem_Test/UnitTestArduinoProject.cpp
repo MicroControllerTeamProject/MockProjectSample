@@ -22,8 +22,8 @@ namespace UnitTestGarageMonitorSystem
 		TEST_METHOD(TestMethod_openTheGarageDoor)
 		{
 #pragma region repository mocked
-			Mock<MainRepository> mockedRepository;
-			MainRepository& mainRepository = mockedRepository.get();
+			Mock<AvrMicroRepository> mockedAvrMicroRepository;
+			AvrMicroRepository& mainRepository = mockedAvrMicroRepository.get();
 #pragma endregion Repository mocked
 
 #pragma region objects for test 
@@ -42,21 +42,21 @@ namespace UnitTestGarageMonitorSystem
 			PirActivity* pirActivity = new PirActivity(digitalPirPorts, 1);
 
 #pragma region mocked methods 
-			When(Method(mockedRepository, analogReadm)).AlwaysReturn(100);
-			When(Method(mockedRepository, digitalReadm)).AlwaysReturn(1);
+			When(Method(mockedAvrMicroRepository, analogReadm)).AlwaysReturn(100);
+			When(Method(mockedAvrMicroRepository, digitalReadm)).AlwaysReturn(1);
 #pragma endregion mocked methods 
 
 #pragma region Asserts 
 			GarageBusinessLayer* b = new GarageBusinessLayer();
 			Assert::AreEqual(true, b->canOpenTheDoor(mainRepository, smokeActivity, pirActivity));
 #pragma endregion Asserts
-			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(mainRepository, 0));*/
+			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(avrMicroRepository, 0));*/
 		}
 		TEST_METHOD(TestMethod_cantOpenTheGarageDoor)
 		{
 #pragma region repository mocked
-			Mock<MainRepository> mockedRepository;
-			MainRepository& mainRepository = mockedRepository.get();
+			Mock<AvrMicroRepository> mockedAvrMicroRepository;
+			AvrMicroRepository& avrMicroRepository = mockedAvrMicroRepository.get();
 #pragma endregion Repository mocked
 
 #pragma region objects for test 
@@ -75,21 +75,21 @@ namespace UnitTestGarageMonitorSystem
 			PirActivity* pirActivity = new PirActivity(digitalPirPorts, 1);
 
 #pragma region mocked methods 
-			When(Method(mockedRepository, analogReadm)).AlwaysReturn(500);
-			When(Method(mockedRepository, digitalReadm)).AlwaysReturn(1);
+			When(Method(mockedAvrMicroRepository, analogReadm)).AlwaysReturn(500);
+			When(Method(mockedAvrMicroRepository, digitalReadm)).AlwaysReturn(1);
 #pragma endregion mocked methods 
 
 #pragma region Asserts 
 			GarageBusinessLayer* b = new GarageBusinessLayer();
-			Assert::AreEqual(false, b->canOpenTheDoor(mainRepository, smokeActivity, pirActivity));
+			Assert::AreEqual(false, b->canOpenTheDoor(avrMicroRepository, smokeActivity, pirActivity));
 #pragma endregion Asserts
-			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(mainRepository, 0));*/
+			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(avrMicroRepository, 0));*/
 		}
 		TEST_METHOD(TestMethod_batteryGrapfIsFull)
 		{
 #pragma region repository mocked
-			Mock<MainRepository> mockedRepository;
-			MainRepository& mainRepository = mockedRepository.get();
+			Mock<AvrMicroRepository> mockedAvrMicroRepository;
+			AvrMicroRepository& avrMicroRepository = mockedAvrMicroRepository.get();
 #pragma endregion Repository mocked
 
 #pragma region objects for test 
@@ -103,14 +103,14 @@ namespace UnitTestGarageMonitorSystem
 			VoltageActivity* voltageActivity = new VoltageActivity(analogPowerBatteryPorts, 4.2f, 1);
 
 #pragma region mocked methods 
-			When(Method(mockedRepository, analogReadm)).AlwaysReturn(1024);
+			When(Method(mockedAvrMicroRepository, analogReadm)).AlwaysReturn(1024);
 #pragma endregion mocked methods 
 
 #pragma region Asserts 
 			GarageBusinessLayer* garageBusinessLayer = new GarageBusinessLayer();
-			Assert::AreEqual("[||||]o", garageBusinessLayer->getBatteryGrapfLevel(mainRepository, voltageActivity, 14));
+			Assert::AreEqual("[||||]o", garageBusinessLayer->getBatteryGrapfLevel(avrMicroRepository, voltageActivity, 14));
 #pragma endregion Asserts
-			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(mainRepository, 0));*/
+			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(avrMicroRepository, 0));*/
 		}
 	};
 }

@@ -5,7 +5,7 @@ PirActivity::PirActivity(DigitalPort** digitalPirPorts, uint8_t digitalPirPortsN
 {
 }
 
-bool PirActivity::isThereAnyOne(MainRepository& mainRepository)
+bool PirActivity::isThereAnyOne(AvrMicroRepository& avrMicroRepository)
 {
-	return this->isThereAnyDigitalPortOnAlarm(mainRepository);
+	return this->isThereAnyDigitalPortOnAlarm(avrMicroRepository);
 }
