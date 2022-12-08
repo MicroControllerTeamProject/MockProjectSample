@@ -1,5 +1,5 @@
 #include "VoltageActivity.h"
-#include "..\repository\MainRepository.h"
+#include "..\repository\AvrMicroRepository.h"
 
 VoltageActivity::VoltageActivity(AnalogPort** analogPort, float vref, uint8_t analogPortsNumber) : DeviceActivity(analogPort, vref, analogPortsNumber) {
 }

@@ -1,5 +1,5 @@
 #include "DeviceActivity.h"
-#include "..\repository\MainRepository.h"
+#include "..\repository\AvrMicroRepository.h"
 #include <string.h>
 
 

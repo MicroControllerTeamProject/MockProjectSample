@@ -2,7 +2,7 @@
 //#include "DigitalPort.h"
 #include "..\model\AnalogPort.h"
 #include "..\model\DigitalPort.h"
-#include "..\repository\MainRepository.h"
+#include "..\repository\AvrMicroRepository.h"
 
 
 class DeviceActivity

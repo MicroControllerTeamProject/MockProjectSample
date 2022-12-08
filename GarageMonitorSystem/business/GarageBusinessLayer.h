@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\repository\MainRepository.h"
+#include "..\repository\AvrMicroRepository.h"
 #include "..\activity\SmokeActivity.h"
 #include "..\activity\PirActivity.h"
 #include "..\activity\VoltageActivity.h"

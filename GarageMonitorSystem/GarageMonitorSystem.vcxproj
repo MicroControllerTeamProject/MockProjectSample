@@ -126,7 +126,7 @@
     <ClInclude Include="business\GarageBusinessLayer.h" />
     <ClInclude Include="model\AnalogPort.h" />
     <ClInclude Include="model\DigitalPort.h" />
-    <ClInclude Include="repository\MainRepository.h" />
+    <ClInclude Include="repository\AvrMicroRepository.h" />
     <ClInclude Include="__vm\.GarageMonitorSystem.vsarduino.h" />
     <ClInclude Include="__vm\.MockSampleVSMicro.vsarduino.h" />
   </ItemGroup>
@@ -138,7 +138,7 @@
     <ClCompile Include="business\GarageBusinessLayer.cpp" />
     <ClCompile Include="model\AnalogPort.cpp" />
     <ClCompile Include="model\DigitalPort.cpp" />
-    <ClCompile Include="repository\MainRepository.cpp" />
+    <ClCompile Include="repository\AvrMicroRepository.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
