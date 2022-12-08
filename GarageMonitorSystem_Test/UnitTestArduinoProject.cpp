@@ -103,16 +103,14 @@ namespace UnitTestGarageMonitorSystem
 			VoltageActivity* voltageActivity = new VoltageActivity(analogPowerBatteryPorts, 4.2f, 1);
 
 #pragma region mocked methods 
-			When(Method(mockedRepository, analogReadm)).AlwaysReturn(800);
+			When(Method(mockedRepository, analogReadm)).AlwaysReturn(1024);
 #pragma endregion mocked methods 
 
 #pragma region Asserts 
-			GarageBusinessLayer* b = new GarageBusinessLayer();
-			Assert::AreEqual("[||||]o", b->getBatteryGrapfLevel(mainRepository, voltageActivity, 14));
+			GarageBusinessLayer* garageBusinessLayer = new GarageBusinessLayer();
+			Assert::AreEqual("[||||]o", garageBusinessLayer->getBatteryGrapfLevel(mainRepository, voltageActivity, 14));
 #pragma endregion Asserts
 			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(mainRepository, 0));*/
 		}
-
-
 	};
 }

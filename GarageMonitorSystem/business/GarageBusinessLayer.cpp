@@ -1,18 +1,14 @@
 #include "GarageBusinessLayer.h"
 
-GarageBusinessLayer::GarageBusinessLayer()
-{
-	
+GarageBusinessLayer::GarageBusinessLayer(){
 }
 
-bool GarageBusinessLayer::canOpenTheDoor(MainRepository& mainRepository,SmokeActivity* s,PirActivity* p)
-{
-	if (!(s->isThereSmoke(mainRepository)) && (p->isThereAnyOne(mainRepository))) return true;
+bool GarageBusinessLayer::canOpenTheDoor(MainRepository& mainRepository,SmokeActivity* smokeActivity,PirActivity* pirActivity){
+	if (!(smokeActivity->isThereSmoke(mainRepository)) && (pirActivity->isThereAnyOne(mainRepository))) return true;
 	return false;
 }
 
-char* GarageBusinessLayer::getBatteryGrapfLevel(MainRepository& mainRepository, VoltageActivity* voltageActivity,uint8_t analogPortPin)
-{
+char* GarageBusinessLayer::getBatteryGrapfLevel(MainRepository& mainRepository, VoltageActivity* voltageActivity,uint8_t analogPortPin){
 		return voltageActivity->getLipoBatteryGrafBarLevel(mainRepository, analogPortPin);
 }
 
