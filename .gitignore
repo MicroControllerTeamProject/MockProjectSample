@@ -356,3 +356,4 @@ GarageMonitorSystem/src/modules/WatherSensor.h
 /GarageMonitorSystem/library(old)
 /GarageMonitorSystem/__vm/Upload.vmps.xml
 /GarageMonitorSystem/__vm/Compile.vmps.xml
+/GarageMonitorSystem_Test/UnitTest1.vcxproj.filters

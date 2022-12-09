@@ -7,6 +7,9 @@
 #include "..\GarageMonitorSystem\activity\DeviceActivity.h"
 #include "..\GarageMonitorSystem\business\GarageBusinessLayer.h"
 #include "..\GarageMonitorSystem\activity\VoltageActivity.h"
+#include "..\GarageMonitorSystem\repository\UltrasonicRepository.h"
+#include "..\GarageMonitorSystem\repository\AvrMicroRepository.h"
+#include "..\GarageMonitorSystem\activity\UltrasonicActivity.h"
 
 #include "src\extend.h"
 
@@ -50,7 +53,7 @@ namespace UnitTestGarageMonitorSystem
 			GarageBusinessLayer* b = new GarageBusinessLayer();
 			Assert::AreEqual(true, b->canOpenTheDoor(mainRepository, smokeActivity, pirActivity));
 #pragma endregion Asserts
-			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(avrMicroRepository, 0));*/
+			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(ultrasonicRepository, 0));*/
 		}
 		TEST_METHOD(TestMethod_cantOpenTheGarageDoor)
 		{
@@ -83,7 +86,7 @@ namespace UnitTestGarageMonitorSystem
 			GarageBusinessLayer* b = new GarageBusinessLayer();
 			Assert::AreEqual(false, b->canOpenTheDoor(avrMicroRepository, smokeActivity, pirActivity));
 #pragma endregion Asserts
-			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(avrMicroRepository, 0));*/
+			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(ultrasonicRepository, 0));*/
 		}
 		TEST_METHOD(TestMethod_batteryGrapfIsFull)
 		{
@@ -110,7 +113,34 @@ namespace UnitTestGarageMonitorSystem
 			GarageBusinessLayer* garageBusinessLayer = new GarageBusinessLayer();
 			Assert::AreEqual("[||||]o", garageBusinessLayer->getBatteryGrapfLevel(avrMicroRepository, voltageActivity, 14));
 #pragma endregion Asserts
-			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(avrMicroRepository, 0));*/
+			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(ultrasonicRepository, 0));*/
+		}
+		TEST_METHOD(TestMethod_test)
+		{
+#pragma region repository mocked
+			Mock<UltrasonicRepository> mockedAvrMicroRepository;
+			UltrasonicRepository& ultrasonicRepository = mockedAvrMicroRepository.get();
+#pragma endregion Repository mocked
+
+#pragma region objects for test 
+			AnalogPort** analogPowerBatteryPorts = new AnalogPort * [1];
+			analogPowerBatteryPorts[0] = new AnalogPort("batt01", 14);
+			analogPowerBatteryPorts[0]->maxVoltageAlarmValueIn = 5.0f;
+			analogPowerBatteryPorts[0]->minVoltageAlarmValueIn = 3.3f;
+
+#pragma endregion objects for test 
+
+			VoltageActivity* voltageActivity = new VoltageActivity(analogPowerBatteryPorts, 4.2f, 1);
+
+#pragma region mocked methods 
+			When(Method(mockedAvrMicroRepository, analogReadm)).AlwaysReturn(1024);
+#pragma endregion mocked methods 
+
+#pragma region Asserts 
+			GarageBusinessLayer* garageBusinessLayer = new GarageBusinessLayer();
+			Assert::AreEqual("[||||]o", garageBusinessLayer->getBatteryGrapfLevel(ultrasonicRepository, voltageActivity, 14));
+#pragma endregion Asserts
+			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(ultrasonicRepository, 0));*/
 		}
 	};
 }

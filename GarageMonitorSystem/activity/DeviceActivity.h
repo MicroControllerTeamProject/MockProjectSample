@@ -23,7 +23,7 @@ public:
 private:
 	/*DigitalPort** digitalPort;*/
 	/*AnalogPort** analogPort;*/
-	uint8_t digitalPortsNumber = 0;
+	
 	/*uint8_t _analogPortsNumber = 0;*/
 	char _lastAlarmDescription[10];
 	/*String lastAlarmDescription = "";
@@ -43,5 +43,6 @@ protected:
 	bool isThereAnyAnalogPortOnAlarm(AvrMicroRepository& mainRepository);
 	bool isThereAnyDigitalPortOnAlarm(AvrMicroRepository& mainRepository);
 	float getVref();
+	uint8_t digitalPortsNumber = 0;
 };
 

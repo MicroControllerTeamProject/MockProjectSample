@@ -4,6 +4,7 @@
  Author:	luigi.santagada
 */
 
+#include <Ultrasonic.h>
 #include <string.h>
 #include "business/GarageBusinessLayer.h"
 #include "repository/AvrMicroRepository.h"

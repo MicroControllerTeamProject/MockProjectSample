@@ -160,6 +160,7 @@
     <ClCompile Include="..\GarageMonitorSystem\activity\DeviceActivity.cpp" />
     <ClCompile Include="..\GarageMonitorSystem\activity\PirActivity.cpp" />
     <ClCompile Include="..\GarageMonitorSystem\activity\SmokeActivity.cpp" />
+    <ClCompile Include="..\GarageMonitorSystem\activity\UltrasonicActivity.cpp" />
     <ClCompile Include="..\GarageMonitorSystem\activity\VoltageActivity.cpp" />
     <ClCompile Include="..\GarageMonitorSystem\business\GarageBusinessLayer.cpp" />
     <ClCompile Include="..\GarageMonitorSystem\model\AnalogPort.cpp" />
