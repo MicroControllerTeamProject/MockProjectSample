@@ -41,18 +41,19 @@ UltrasonicActivity::UltrasonicActivity(DigitalPort** digitalPort,
 //	}
 //}
 unsigned int UltrasonicActivity::getDistance(UltrasonicRepository& ultrasonicRepository) {
-	uint8_t triggerPortPin;
+	uint8_t triggerPortPin = 0;
 
-	uint8_t echoPortPin;
+	uint8_t echoPortPin = 0;
 
 	for (int i = 0; i < this->digitalPortsNumber; i++)
 	{
-		if (strcmp(this->digitalPort[i]->getUid(), this->triggerPortName))
+		//if (strcmp(this->digitalPort[i]->getUid(), this->triggerPortName))// && this->digitalPort[i]->direction == DigitalPort::input)
+		if ((strcmp(this->digitalPort[i]->getUid(), this->triggerPortName) == 0) && this->digitalPort[i]->direction == DigitalPort::input)
 		{
 			triggerPortPin = this->digitalPort[i]->getPin();
 		}
 
-		if (this->digitalPort[i]->getUid() == this->echoPortName)
+		if ((strcmp(this->digitalPort[i]->getUid(), this->echoPortName) == 0) && this->digitalPort[i]->direction == DigitalPort::output)
 		{
 			echoPortPin = this->digitalPort[i]->getPin();
 		}

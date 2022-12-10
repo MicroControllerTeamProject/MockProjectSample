@@ -115,30 +115,33 @@ namespace UnitTestGarageMonitorSystem
 #pragma endregion Asserts
 			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(ultrasonicRepository, 0));*/
 		}
-		TEST_METHOD(TestMethod_test)
+		TEST_METHOD(TestMethod_UltrasonicTest)
 		{
 #pragma region repository mocked
-			Mock<UltrasonicRepository> mockedAvrMicroRepository;
-			UltrasonicRepository& ultrasonicRepository = mockedAvrMicroRepository.get();
+			Mock<UltrasonicRepository> mockedUltrasonicRepository;
+			UltrasonicRepository& ultrasonicRepository = mockedUltrasonicRepository.get();
 #pragma endregion Repository mocked
-
+			
 #pragma region objects for test 
-			AnalogPort** analogPowerBatteryPorts = new AnalogPort * [1];
-			analogPowerBatteryPorts[0] = new AnalogPort("batt01", 14);
-			analogPowerBatteryPorts[0]->maxVoltageAlarmValueIn = 5.0f;
-			analogPowerBatteryPorts[0]->minVoltageAlarmValueIn = 3.3f;
+			DigitalPort** digitalUltasonicPorts = new DigitalPort * [2];
+
+			digitalUltasonicPorts[0] = new DigitalPort("Trig", 4);
+			digitalUltasonicPorts[0]->direction = DigitalPort::PortDirection::input;
+			
+			
+			digitalUltasonicPorts[1] = new DigitalPort("Echo", 5);
+			digitalUltasonicPorts[1]->direction = DigitalPort::PortDirection::output;
 
 #pragma endregion objects for test 
-
-			VoltageActivity* voltageActivity = new VoltageActivity(analogPowerBatteryPorts, 4.2f, 1);
+			UltrasonicActivity* ultrasonicActivity = new UltrasonicActivity(digitalUltasonicPorts, 2, "Trig", "Echo");
 
 #pragma region mocked methods 
-			When(Method(mockedAvrMicroRepository, analogReadm)).AlwaysReturn(1024);
+			When(Method(mockedUltrasonicRepository, getDistance)).AlwaysReturn(500);
 #pragma endregion mocked methods 
 
 #pragma region Asserts 
 			GarageBusinessLayer* garageBusinessLayer = new GarageBusinessLayer();
-			Assert::AreEqual("[||||]o", garageBusinessLayer->getBatteryGrapfLevel(ultrasonicRepository, voltageActivity, 14));
+			Assert::AreEqual(500u, ultrasonicActivity->getDistance(ultrasonicRepository));
 #pragma endregion Asserts
 			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(ultrasonicRepository, 0));*/
 		}
