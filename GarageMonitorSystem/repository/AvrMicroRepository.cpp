@@ -1,33 +1,14 @@
 #include "AvrMicroRepository.h"
 #include <Arduino.h>
-#include <SoftwareSerial.h>
 
-SoftwareSerial* softwareSerial;
 
-AvrMicroRepository::AvrMicroRepository(){
-	/*this->_vref = _vref;
-	this->_referenceMode;*/
-	softwareSerial = NULL;
-}
-
-//AvrMicroRepository::AvrMicroRepository()
-//{
-//	softwareSerial = new  SoftwareSerial(rx, tx, invers_logic);
-//}
-
-AvrMicroRepository::~AvrMicroRepository() 
-{
-	delete softwareSerial;
+AvrMicroRepository::AvrMicroRepository() {
 }
 
 void AvrMicroRepository::analogReferencem(uint8_t mode)
 {
 	analogReference(mode);
 }
-
-//float AvrMicroRepository::analogVrefRead(float vref,uint8_t analogPin) {
-//	return (vref / 1024) * analogRead(analogPin);
-//}
 
 uint16_t AvrMicroRepository::analogReadm(uint8_t analogPin) {
 	return analogRead(analogPin);
@@ -37,135 +18,58 @@ uint8_t AvrMicroRepository::digitalReadm(uint8_t analogPin) {
 	return digitalRead(analogPin);
 }
 
-bool AvrMicroRepository::print(const char* data)
+void AvrMicroRepository::print(const char* data)
 {
-	if (softwareSerial != NULL)
-	{
-		softwareSerial->print(data);
-	}
-	else
-	{
-		Serial.print(data);
-	}
-	return true;
+	Serial.print(data);
 }
 
-bool AvrMicroRepository::print(float data)
+void AvrMicroRepository::print(float data)
 {
-	if (softwareSerial != NULL)
-	{
-		softwareSerial->print(data);
-	}
-	else
-	{
-		Serial.print(data);
-	}
-	return true;
+	Serial.print(data);
 }
 
-bool AvrMicroRepository::println(const char* data)
+void AvrMicroRepository::println(const char* data)
 {
-	if (softwareSerial != NULL)
-	{
-		softwareSerial->println(data);
-	}
-	else
-	{
-		Serial.println(data);
-	}
-	return true;
+	Serial.println(data);
 }
 
-bool AvrMicroRepository::println(float data)
+void AvrMicroRepository::println(float data)
 {
-	if (softwareSerial != NULL)
-	{
-		softwareSerial->println(data);
-	}
-	else
-	{
-		Serial.println(data);
-	}
-	return true;
+	Serial.println(data);
 }
 
 bool AvrMicroRepository::serial_available()
 {
-	if (softwareSerial != NULL)
-	{
-		if (softwareSerial->available() > 0)
-		{
-			return true;
-		}
-	}
-	else
-	{
-		if (Serial.available() > 0)
-		{
-			return true;
-		}
-	}
+	if (Serial.available() > 0) return true;
 	return false;
 }
 
-int AvrMicroRepository::read() {
-	if (softwareSerial != NULL)
-	{
-		return softwareSerial->read();
-	}
-		return Serial.read();
-}
-
-char* AvrMicroRepository::readString() {
-	char a[250];
-	char b[500];
-	String c;
-	if (softwareSerial != NULL)
-	{
-
-		while (softwareSerial->available() > 0) {
-			c.concat((char)softwareSerial->read());
-		}
-
-		//c = softwareSerial->readString();
-		c.toCharArray(a, c.length());
-		strcpy(b, a);
-		return b;
-	}
-	else
-	{
-		String c = Serial.readString();
-		c.toCharArray(a, c.length());
-		strcpy(b, a);
-		return b;
-	}
-}
-
-char* AvrMicroRepository::readBuffer()
+void AvrMicroRepository::serialBegin(unsigned long baud)
 {
-	char a[250];
-	char b[500];
-	String c;
-	if (softwareSerial != NULL)
-	{
-		c = softwareSerial->readString();
-		c.toCharArray(a, c.length());
-		strcpy(b, a);
-		return b;
-	}
-	else
-	{
-		String c = Serial.readString();
-		c.toCharArray(a, c.length());
-		strcpy(b, a);
-		return b;
-	}
+	Serial.begin(baud);
+}
+
+int AvrMicroRepository::read() {
+	return Serial.read();
+}
+
+void AvrMicroRepository::readStringm(char* &charsBufferByReference) {
+	
+	String bufferString = Serial.readString();
+	charsBufferByReference = (char*)calloc(bufferString.length(), sizeof(char));
+	bufferString.toCharArray(charsBufferByReference, bufferString.length());
 }
 
 void AvrMicroRepository::pinModem(uint8_t pin, uint8_t mode)
 {
 	pinMode(pin, mode);
 }
+
+void AvrMicroRepository::delaym(unsigned long delayTime)
+{
+	delay(delayTime);
+}
+
 
 
 //void sensor::setLastComunication(char* lastComunication)

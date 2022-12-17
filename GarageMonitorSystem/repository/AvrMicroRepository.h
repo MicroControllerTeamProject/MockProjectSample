@@ -8,7 +8,7 @@ public:
 
 	AvrMicroRepository();
 	
-	~AvrMicroRepository();
+	/*~AvrMicroRepository();*/
 
 	virtual void analogReferencem(uint8_t mode);
 	
@@ -18,23 +18,26 @@ public:
 
 	/*virtual float analogVrefRead(float vref,uint8_t analogPin);*/
 
-	virtual bool print(const char* data);
+	virtual void print(const char* data);
 
-	virtual bool print(float data);
+	virtual void print(float data);
 
-	virtual bool println(const char* data);
+	virtual void println(const char* data);
 
-	virtual bool println(float data);
+	virtual void println(float data);
 
 	virtual bool serial_available();
 
+	virtual void serialBegin(unsigned long baud);
+
 	virtual int read();
 
-	virtual char* readString();
-
-	virtual char* readBuffer();
+	virtual void readStringm(char* &charsBuffer);
 
 	virtual void pinModem(uint8_t pin,uint8_t mode);
+
+	virtual void delaym(unsigned long delayTime);
+
 
 private :
 	/*float _vref;
