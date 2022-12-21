@@ -7,7 +7,6 @@ public:
 	VoltageActivity(AnalogPort** analogPort, float vref, uint8_t analogPortsNumber);
 	bool isVoltageOutOfRange(AvrMicroRepository& mainRepository);
 	char* getLipoBatteryGrafBarLevel(AvrMicroRepository& mainRepository, uint8_t analogPortPin);
-
 	float  getAnalogPortVrefVoltage(AvrMicroRepository& mainRepository, uint8_t analogPin);
 };
 

@@ -10,8 +10,9 @@
 #include "..\GarageMonitorSystem\repository\UltrasonicRepository.h"
 #include "..\GarageMonitorSystem\repository\AvrMicroRepository.h"
 #include "..\GarageMonitorSystem\activity\UltrasonicActivity.h"
-
+#include "..\GarageMonitorSystem\activity\SimModuleActivity.h"
 #include "src\extend.h"
+
 
 //https://docs.microsoft.com/it-it/visualstudio/test/writing-unit-tests-for-c-cpp?view=vs-2019
 
@@ -144,6 +145,37 @@ namespace UnitTestGarageMonitorSystem
 			Assert::AreEqual(500u, ultrasonicActivity->getDistance(ultrasonicRepository));
 #pragma endregion Asserts
 			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(ultrasonicRepository, 0));*/
+		}
+
+		TEST_METHOD(TestMethod_SimModule)
+		{
+#pragma region repository mocked
+			Mock<AvrMicroRepository> mockedAvrMicroRepository;
+			AvrMicroRepository& avrMicroRepository = mockedAvrMicroRepository.get();
+#pragma endregion Repository mocked
+
+			SimModuleActivity* simModuleActivity = new SimModuleActivity();
+			simModuleActivity->setBaud(19200);
+			simModuleActivity->setPrefixAndphoneNumber("+393202445649");
+
+#pragma region mocked methods 
+			When(Method(mockedAvrMicroRepository, readString_m)).AlwaysReturn("ERROR");
+			When(Method(mockedAvrMicroRepository, begin_m)).AlwaysReturn();
+			When(Method(mockedAvrMicroRepository, clearBuffer_m)).AlwaysReturn();
+			When(OverloadedMethod(mockedAvrMicroRepository, print_chars, void(char*,bool))).AlwaysReturn();
+			When(Method(mockedAvrMicroRepository, free_m)).AlwaysReturn();
+			When(Method(mockedAvrMicroRepository, delaym)).AlwaysReturn();
+			When(Method(mockedAvrMicroRepository, serial_available)).AlwaysReturn(true);
+			
+#pragma endregion mocked methods 
+
+#pragma region Asserts 
+			GarageBusinessLayer* garageBusinessLayer = new GarageBusinessLayer();
+			/*garageBusinessLayer->checkSystem(avrMicroRepository, simModuleActivity);*/
+			bool check = simModuleActivity->makeCall(avrMicroRepository);
+			Assert::AreEqual(false, check);
+#pragma endregion Asserts
+			
 		}
 	};
 }

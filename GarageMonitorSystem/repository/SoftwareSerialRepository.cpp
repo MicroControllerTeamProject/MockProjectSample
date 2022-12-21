@@ -19,7 +19,7 @@ void SoftwareSerialRepository::init(uint8_t rx, uint8_t tx, bool inv_logic){
 	this->softwareSerial = new SoftwareSerial(rx, tx, inv_logic);
 }
 
-void SoftwareSerialRepository::print(const char* data)
+void SoftwareSerialRepository::print_chars(const char* data,bool isNewLine = false)
 {
 	if (this->softwareSerial != nullptr)
 	{
@@ -27,11 +27,11 @@ void SoftwareSerialRepository::print(const char* data)
 	}
 }
 
-void SoftwareSerialRepository::print(float data)
+void SoftwareSerialRepository::print_m(float data)
 {
 	if (this->softwareSerial != nullptr)
 	{
-		this->softwareSerial->print(data);
+		this->softwareSerial->print_m(data);
 	}
 }
 

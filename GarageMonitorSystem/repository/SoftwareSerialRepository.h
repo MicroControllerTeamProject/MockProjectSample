@@ -7,8 +7,8 @@ class SoftwareSerialRepository :public AvrMicroRepository
 public:
 	SoftwareSerialRepository();
 	virtual void init(uint8_t rx, uint8_t tx, bool inv_logic);
-	virtual void print(const char* data);
-	virtual void print(float data);
+	virtual void print_m(const char* data);
+	virtual void print_m(float data);
 	virtual void println(const char* data);
 	virtual void println(float data);
 	virtual bool serial_available();

@@ -10,6 +10,7 @@ class DeviceActivity
 public:
 	DeviceActivity(DigitalPort** digitalPort, uint8_t digitalPortsNumber);
 	DeviceActivity(AnalogPort** analogPort,float _vref, uint8_t analogPortsNumber);
+	DeviceActivity();
 	//virtual bool isThereAnyPortOnAlarm();
 	//virtual String getLastAlarmDescription();
 	//bool digitalWriteByName(String portName, uint8_t pinLevel);
@@ -18,6 +19,8 @@ public:
 	int analogReadByName(String portName);*/
 	//String getLastErrorDescription();
 	/*AvrMicroRepository& _mainRepository;*/
+
+	
 	
 	
 private:
@@ -28,8 +31,8 @@ private:
 	char _lastAlarmDescription[10];
 	/*String lastAlarmDescription = "";
 	String lastErrorDescription = "";*/
-	char lastAlarmCode;
-	char lastErrorCode;
+	char _lastAlarmCode;
+	char _lastErrorCode;
 	float _vref = 5;
 	//virtual float getUnitOfMisureValue(String portName);
 	//virtual  float  getCustomMisureValue();
@@ -44,5 +47,7 @@ protected:
 	bool isThereAnyDigitalPortOnAlarm(AvrMicroRepository& mainRepository);
 	float getVref();
 	uint8_t digitalPortsNumber = 0;
+	char getLastErrorCode();
+	void setLastErrorCode(char errorCode);
 };
 

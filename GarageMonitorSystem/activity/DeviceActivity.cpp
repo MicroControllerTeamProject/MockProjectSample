@@ -12,16 +12,16 @@ DeviceActivity::DeviceActivity(DigitalPort** digitalPort,  uint8_t digitalPortsN
 	//{
 	//	if (this->digitalPort[i]->direction == DigitalPort::output)
 	//	{
-	//		mainRepository.pinModem(this->digitalPort[i]->getPin(), (uint8_t)1/*OUTPUT*/);
+	//		mainRepository.pinMode_m(this->digitalPort[i]->getPin(), (uint8_t)1/*OUTPUT*/);
 	//	}
 	//	else
 	//	{
 	//		if (this->digitalPort[i]->isOnPullUp) {
-	//			//mainRepository.pinModem(this->digitalPort[i]->getPin(), (uint8_t)2/*INPUT_PULLUP*/);
+	//			//mainRepository.pinMode_m(this->digitalPort[i]->getPin(), (uint8_t)2/*INPUT_PULLUP*/);
 	//		}
 	//		else
 	//		{
-	//			//mainRepository.pinModem(this->digitalPort[i]->getPin(), (uint8_t)0/*INPUT*/);
+	//			//mainRepository.pinMode_m(this->digitalPort[i]->getPin(), (uint8_t)0/*INPUT*/);
 	//		}
 	//	}
 	//}
@@ -51,6 +51,9 @@ DeviceActivity::DeviceActivity(AnalogPort** analogPort,float vref, uint8_t analo
 	////		}
 	////	}
 	////}
+}
+
+DeviceActivity::DeviceActivity(){
 }
 
 //bool DeviceActivity::isThereAnyCustomMisureOnAlarm()
@@ -121,7 +124,7 @@ bool DeviceActivity::isThereAnyAnalogPortOnAlarm(AvrMicroRepository& mainReposit
 	}
 	for (int i = 0; i < this->_analogPortsNumber; i++)
 	{
-		//Serial.print("------------------------"); Serial.println(this->analogPort[i]->maxAlarmValueIn);
+		//Serial.print_m("------------------------"); Serial.println(this->analogPort[i]->maxAlarmValueIn);
 		if (this->analogPort[i]->isEnable && this->analogPort[i]->maxAlarmValueIn != 0)
 		{
 			
@@ -209,7 +212,7 @@ bool DeviceActivity::isThereAnyDigitalPortOnAlarm(AvrMicroRepository& mainReposi
 //
 //	for (int i = 0; i < this->analogPortsNumber; i++)
 //	{
-//		//Serial.print("------------------------"); Serial.println(this->analogPort[i]->maxAlarmValueIn);
+//		//Serial.print_m("------------------------"); Serial.println(this->analogPort[i]->maxAlarmValueIn);
 //		if (this->analogPort[i]->isEnable && this->analogPort[i]->maxAlarmValueIn != 0)
 //		{
 //			//Serial.println("Entrato3");
@@ -333,6 +336,15 @@ bool DeviceActivity::isThereAnyDigitalPortOnAlarm(AvrMicroRepository& mainReposi
 float  DeviceActivity::getVref()
 {
 	return _vref;
+}
+
+char DeviceActivity::getLastErrorCode()
+{
+	return this->_lastErrorCode;
+}
+
+void DeviceActivity::setLastErrorCode(char errorCode) {
+	this->_lastErrorCode = errorCode;
 }
 
 
