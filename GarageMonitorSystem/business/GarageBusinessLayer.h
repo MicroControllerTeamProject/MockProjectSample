@@ -13,7 +13,7 @@ public:
 	GarageBusinessLayer();
 	bool canOpenTheDoor(AvrMicroRepository& avrMicroRepository, SmokeActivity* smokeActivity, PirActivity* pirActivity);
 	char* getBatteryGrapfLevel(AvrMicroRepository& avrMicroRepository,VoltageActivity* voltageActivity,uint8_t analogPortPin);
-	void checkSystem(AvrMicroRepository& avrMicroRepository, /*SmokeActivity* smokeActivity, */SimModuleActivity* simModuleActivity);
+	void checkSystem(AvrMicroRepository& avrMicroRepository, SmokeActivity* smokeActivity, SimModuleActivity* simModuleActivity);
 private:
 };
 

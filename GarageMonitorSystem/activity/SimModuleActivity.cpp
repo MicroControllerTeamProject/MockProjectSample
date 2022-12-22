@@ -14,7 +14,7 @@ bool SimModuleActivity::makeCall(AvrMicroRepository& avrMicroRepository) {
 	avrMicroRepository.begin_m(this->_baud);
 	char* bufferResponse;
 	avrMicroRepository.clearBuffer_m();
-	avrMicroRepository.print_chars("atd"); avrMicroRepository.print_chars(this->_prefixAndphoneNumber, true);
+	avrMicroRepository.print_m("atd"); avrMicroRepository.print_m(this->_prefixAndphoneNumber, true);
 	if (avrMicroRepository.serial_available())
 	{
 		bufferResponse = avrMicroRepository.readString_m();
@@ -34,17 +34,17 @@ bool SimModuleActivity::makeCall(AvrMicroRepository& avrMicroRepository) {
 		{
 			returnValue = true;
 		}
-		else
+		/*else
 		{
 			this->setLastErrorCode('N');
-		}
+		}*/
 #if defined(VM_DEBUG)
-		avrMicroRepository.print_chars("returned internal value : "); avrMicroRepository.print_chars(bufferResponse, true);
+		avrMicroRepository.print_m("returned internal value : "); avrMicroRepository.print_m(bufferResponse, true);
 		avrMicroRepository.clearBuffer_m();
 #endif
 
 #if defined(VM_DEBUG)
-		avrMicroRepository.print_chars("ram b:"); avrMicroRepository.print_int(avrMicroRepository.getFreeRam(), true);
+		avrMicroRepository.print_m("ram b:"); avrMicroRepository.print_m(avrMicroRepository.getFreeRam(), true);
 		avrMicroRepository.clearBuffer_m();
 #endif
 
@@ -52,7 +52,7 @@ bool SimModuleActivity::makeCall(AvrMicroRepository& avrMicroRepository) {
 		avrMicroRepository.delaym(2000);
 	}
 #if defined(VM_DEBUG)
-	avrMicroRepository.print_chars("ram a:"); avrMicroRepository.print_int(avrMicroRepository.getFreeRam(), true);
+	avrMicroRepository.print_m("ram a:"); avrMicroRepository.print_m(avrMicroRepository.getFreeRam(), true);
 	avrMicroRepository.clearBuffer_m();
 #endif
 	return returnValue;

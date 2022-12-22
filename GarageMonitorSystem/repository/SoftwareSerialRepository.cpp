@@ -19,7 +19,7 @@ void SoftwareSerialRepository::init(uint8_t rx, uint8_t tx, bool inv_logic){
 	this->softwareSerial = new SoftwareSerial(rx, tx, inv_logic);
 }
 
-void SoftwareSerialRepository::print_chars(const char* data,bool isNewLine = false)
+void SoftwareSerialRepository::print_m(const char* data,bool isNewLine = false)
 {
 	if (this->softwareSerial != nullptr)
 	{

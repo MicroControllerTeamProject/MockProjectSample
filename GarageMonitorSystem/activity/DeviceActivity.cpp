@@ -56,6 +56,21 @@ DeviceActivity::DeviceActivity(AnalogPort** analogPort,float vref, uint8_t analo
 DeviceActivity::DeviceActivity(){
 }
 
+AnalogPort** DeviceActivity::getAnalogPortOnError()
+{
+	return this->analogPort;
+}
+
+DigitalPort** DeviceActivity::getDigitalPortOnError()
+{
+	return this->digitalPort;
+}
+
+//const char* DeviceActivity::getDeviceOnErrorUID()
+//{
+//	return this->deviceOnErrorUID;
+//}
+
 //bool DeviceActivity::isThereAnyCustomMisureOnAlarm()
 //{
 //	float customMisureValue = getCustomMisureValue();
@@ -102,6 +117,8 @@ DeviceActivity::DeviceActivity(){
 //	return false;
 //}
 
+
+
 bool DeviceActivity::isThereAnyAnalogPortOnAlarm(AvrMicroRepository& mainRepository)
 {
 	for (int i = 0; i < this->_analogPortsNumber; i++)
@@ -110,14 +127,15 @@ bool DeviceActivity::isThereAnyAnalogPortOnAlarm(AvrMicroRepository& mainReposit
 		{
 			if (((this->_vref / 1024) * mainRepository.analogReadm(this->analogPort[i]->getPin())) < this->analogPort[i]->maxVoltageAlarmValueIn)
 			{
-				strcpy(this->_lastAlarmDescription, "levMax");
+				this->analogPort[i]->isOnError = true;
+				this->analogPort[i]->analogVrefValue = ((this->_vref / 1024) * mainRepository.analogReadm(this->analogPort[i]->getPin()));
 				return false;
 			}
 
 			if (((this->_vref / 1024) * mainRepository.analogReadm(this->analogPort[i]->getPin())) > this->analogPort[i]->minVoltageAlarmValueIn)
 			{
-				strcpy(this->_lastAlarmDescription, "levMin");
-				//this->lastAlarmDescription = analogPort[i]->getUid() + " level LOW";
+				this->analogPort[i]->isOnError = true;
+				this->analogPort[i]->analogVrefValue = ((this->_vref / 1024) * mainRepository.analogReadm(this->analogPort[i]->getPin()));
 				return false;
 			} 
 		}
@@ -132,12 +150,14 @@ bool DeviceActivity::isThereAnyAnalogPortOnAlarm(AvrMicroRepository& mainReposit
 			//Serial.println("Entrato2");
 			if ((mainRepository.analogReadm(this->analogPort[i]->getPin())) > this->analogPort[i]->maxAlarmValueIn )
 			{
-				//this->lastAlarmDescription = analogPort[i]->getUid() + " level HIGH:" + _mainRepository.analogReadm(this->analogPort[i]->getPin());
+				this->analogPort[i]->isOnError = true;
+				this->analogPort[i]->digitalValue = (mainRepository.analogReadm(this->analogPort[i]->getPin()));
 				return true;
 			}
 			if ((mainRepository.analogReadm(this->analogPort[i]->getPin())) < this->analogPort[i]->minAlarmValueIn )
 			{
-				//this->lastAlarmDescription = analogPort[i]->getUid() + " level LOW";
+				this->analogPort[i]->isOnError = true;
+				this->analogPort[i]->digitalValue = (mainRepository.analogReadm(this->analogPort[i]->getPin()));
 				return true;
 			}
 		}
@@ -338,14 +358,14 @@ float  DeviceActivity::getVref()
 	return _vref;
 }
 
-char DeviceActivity::getLastErrorCode()
-{
-	return this->_lastErrorCode;
-}
-
-void DeviceActivity::setLastErrorCode(char errorCode) {
-	this->_lastErrorCode = errorCode;
-}
+//char DeviceActivity::getLastErrorCode()
+//{
+//	return this->_lastErrorCode;
+//}
+//
+//void DeviceActivity::setLastErrorCode(char errorCode) {
+//	this->_lastErrorCode = errorCode;
+//}
 
 
 

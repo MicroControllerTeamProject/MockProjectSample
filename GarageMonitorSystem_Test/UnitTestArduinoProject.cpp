@@ -98,7 +98,7 @@ namespace UnitTestGarageMonitorSystem
 
 #pragma region objects for test 
 			AnalogPort** analogPowerBatteryPorts = new AnalogPort*[1];
-			analogPowerBatteryPorts[0] = new AnalogPort("batt01", 14);
+			analogPowerBatteryPorts[0] = new AnalogPort("bat01", 14);
 			analogPowerBatteryPorts[0]->maxVoltageAlarmValueIn = 5.0f;
 			analogPowerBatteryPorts[0]->minVoltageAlarmValueIn = 3.3f;
 
@@ -112,6 +112,7 @@ namespace UnitTestGarageMonitorSystem
 
 #pragma region Asserts 
 			GarageBusinessLayer* garageBusinessLayer = new GarageBusinessLayer();
+
 			Assert::AreEqual("[||||]o", garageBusinessLayer->getBatteryGrapfLevel(avrMicroRepository, voltageActivity, 14));
 #pragma endregion Asserts
 			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(ultrasonicRepository, 0));*/
@@ -128,8 +129,6 @@ namespace UnitTestGarageMonitorSystem
 
 			digitalUltasonicPorts[0] = new DigitalPort("Trig", 4);
 			digitalUltasonicPorts[0]->direction = DigitalPort::PortDirection::input;
-			
-			
 			digitalUltasonicPorts[1] = new DigitalPort("Echo", 5);
 			digitalUltasonicPorts[1]->direction = DigitalPort::PortDirection::output;
 
@@ -146,36 +145,48 @@ namespace UnitTestGarageMonitorSystem
 #pragma endregion Asserts
 			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(ultrasonicRepository, 0));*/
 		}
-
-		TEST_METHOD(TestMethod_SimModule)
-		{
-#pragma region repository mocked
-			Mock<AvrMicroRepository> mockedAvrMicroRepository;
-			AvrMicroRepository& avrMicroRepository = mockedAvrMicroRepository.get();
-#pragma endregion Repository mocked
-
-			SimModuleActivity* simModuleActivity = new SimModuleActivity();
-			simModuleActivity->setBaud(19200);
-			simModuleActivity->setPrefixAndphoneNumber("+393202445649");
-
-#pragma region mocked methods 
-			When(Method(mockedAvrMicroRepository, readString_m)).AlwaysReturn("ERROR");
-			When(Method(mockedAvrMicroRepository, begin_m)).AlwaysReturn();
-			When(Method(mockedAvrMicroRepository, clearBuffer_m)).AlwaysReturn();
-			When(OverloadedMethod(mockedAvrMicroRepository, print_chars, void(char*,bool))).AlwaysReturn();
-			When(Method(mockedAvrMicroRepository, free_m)).AlwaysReturn();
-			When(Method(mockedAvrMicroRepository, delaym)).AlwaysReturn();
-			When(Method(mockedAvrMicroRepository, serial_available)).AlwaysReturn(true);
-			
-#pragma endregion mocked methods 
-
-#pragma region Asserts 
-			GarageBusinessLayer* garageBusinessLayer = new GarageBusinessLayer();
-			/*garageBusinessLayer->checkSystem(avrMicroRepository, simModuleActivity);*/
-			bool check = simModuleActivity->makeCall(avrMicroRepository);
-			Assert::AreEqual(false, check);
-#pragma endregion Asserts
-			
-		}
+//
+//		TEST_METHOD(TestMethod_PhoneCallIsStarted)
+//		{
+//#pragma region repository mocked
+//			Mock<AvrMicroRepository> mockedAvrMicroRepository;
+//			AvrMicroRepository& avrMicroRepository = mockedAvrMicroRepository.get();
+//#pragma endregion Repository mocked
+//
+//			SimModuleActivity* simModuleActivity = new SimModuleActivity();
+//			simModuleActivity->setBaud(19200);
+//			simModuleActivity->setPrefixAndphoneNumber("+393202445649");
+//
+//			AnalogPort** analogSmokePorts = new AnalogPort * [1];
+//			analogSmokePorts[0] = new AnalogPort("sk01", 15);
+//			analogSmokePorts[0]->maxAlarmValueIn = 150;
+//			analogSmokePorts[0]->minAlarmValueIn = 1;
+//
+//			SmokeActivity* smokeActivity = new SmokeActivity(analogSmokePorts, 5, 1);
+//
+//#pragma region mocked methods 
+//			When(Method(mockedAvrMicroRepository, readString_m)).AlwaysReturn("OK");
+//			When(Method(mockedAvrMicroRepository, serial_available)).AlwaysReturn(true);
+//
+//			//void methods
+//			When(Method(mockedAvrMicroRepository, begin_m)).AlwaysReturn();
+//			When(Method(mockedAvrMicroRepository, clearBuffer_m)).AlwaysReturn();
+//			When(OverloadedMethod(mockedAvrMicroRepository, print_m, void(const char*,bool))).AlwaysReturn();
+//			When(Method(mockedAvrMicroRepository, free_m)).AlwaysReturn();
+//			When(Method(mockedAvrMicroRepository, delaym)).AlwaysReturn();
+//			
+//			
+//#pragma endregion mocked methods 
+//
+//#pragma region Asserts 
+//			GarageBusinessLayer* garageBusinessLayer = new GarageBusinessLayer();
+//			garageBusinessLayer->checkSystem(avrMicroRepository, smokeActivity, simModuleActivity);
+//
+//			/*bool check = simModuleActivity->makeCall(avrMicroRepository);*/
+//			/*Assert::AreEqual(false, check);*/
+//#pragma endregion Asserts
+//			
+//		}
 	};
 }
+

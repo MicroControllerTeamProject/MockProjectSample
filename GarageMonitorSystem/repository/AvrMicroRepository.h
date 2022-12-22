@@ -18,13 +18,11 @@ public:
 
 	/*virtual float analogVrefRead(float vref,uint8_t analogPin);*/
 
-	virtual void print_chars(char* data, bool isNewLine = false);
+	virtual void print_m(const char* data, bool isNewLine = false);
 
-	virtual void print_chars(float data, bool isNewLine = false);
+	virtual void print_m(float data, bool isNewLine = false);
 
-	virtual void print_float(float data, bool isNewLine = false);
-
-	virtual void print_int(int data, bool isNewLine = false);
+	virtual void print_m(int data, bool isNewLine = false);
 
 	//virtual void println(const char* data);
 	//virtual void println(float data);

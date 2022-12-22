@@ -31,28 +31,22 @@ uint8_t AvrMicroRepository::digitalReadm(uint8_t analogPin) {
 	return digitalRead(analogPin);
 }
 
-void AvrMicroRepository::print_chars(char* data,bool isNewLine = false)
+void AvrMicroRepository::print_m(const char* data,bool isNewLine = false)
 {
 	Serial.print(data);
 	if (isNewLine)Serial.println();
 	delay(100);
 }
 
-void AvrMicroRepository::print_chars(float data, bool isNewLine = false)
+void AvrMicroRepository::print_m(float data, bool isNewLine = false)
 {
 	Serial.print(data);
 	if (isNewLine)Serial.println();
 	delay(100);
 }
 
-void AvrMicroRepository::print_float(float data, bool isNewLine = false)
-{
-	Serial.print(data);
-	if (isNewLine)Serial.println();
-	delay(100);
-}
 
-void AvrMicroRepository::print_int(int data, bool isNewLine = false)
+void AvrMicroRepository::print_m(int data, bool isNewLine = false)
 {
 	Serial.print(data);
 	if (isNewLine)Serial.println();

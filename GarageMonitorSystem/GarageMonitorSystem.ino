@@ -31,7 +31,7 @@
 //AvrMicroRepository repo;
 
 void setup() {
-	return;
+	
 
 	/*AnalogPort** analogSmokePorts = new AnalogPort*[1];
 	analogSmokePorts[0] = new AnalogPort("Smoke01", 14);
@@ -50,13 +50,28 @@ void setup() {
 }
 
 void loop() {
-	GarageBusinessLayer garageBusinessLayer;;
+	GarageBusinessLayer garageBusinessLayer;
+
 	AvrMicroRepository avrMicroRepository;
+
+	AnalogPort** analogSmokePorts = new AnalogPort * [1];
+	analogSmokePorts[0] = new AnalogPort("smk01", A1);
+	analogSmokePorts[0]->maxAlarmValueIn = 150;
+	analogSmokePorts[0]->minAlarmValueIn = 1;
+
+	SmokeActivity* smokeActivity = new SmokeActivity(analogSmokePorts, 5,1);
+
 	SimModuleActivity* simModuleActivity = new SimModuleActivity();
 	simModuleActivity->setBaud(19200);
 	simModuleActivity->setPrefixAndphoneNumber("+393202445649;");
-	garageBusinessLayer.checkSystem(avrMicroRepository,simModuleActivity);
+	
+	garageBusinessLayer.checkSystem(avrMicroRepository, smokeActivity,simModuleActivity);
+
+
 	delete(simModuleActivity);
+	delete(smokeActivity);
+	delete(analogSmokePorts[0]);
+	free(analogSmokePorts);
 }
 
 

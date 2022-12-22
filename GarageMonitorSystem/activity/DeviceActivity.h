@@ -20,7 +20,9 @@ public:
 	//String getLastErrorDescription();
 	/*AvrMicroRepository& _mainRepository;*/
 
-	
+	//const char* getDeviceOnErrorUID();
+	AnalogPort** getAnalogPortOnError();
+	DigitalPort** getDigitalPortOnError();
 	
 	
 private:
@@ -38,16 +40,22 @@ private:
 	//virtual  float  getCustomMisureValue();
 	//bool isThereAnyCustomMisureOnAlarm();
 	//bool isThereAnyDigitalPortOnAlarm();
-	
+
+
 protected:
 	uint8_t _analogPortsNumber = 0;
+	uint8_t digitalPortsNumber = 0;
 	AnalogPort** analogPort;
 	DigitalPort** digitalPort;
 	bool isThereAnyAnalogPortOnAlarm(AvrMicroRepository& mainRepository);
 	bool isThereAnyDigitalPortOnAlarm(AvrMicroRepository& mainRepository);
 	float getVref();
-	uint8_t digitalPortsNumber = 0;
-	char getLastErrorCode();
-	void setLastErrorCode(char errorCode);
+	/*char getLastErrorCode();
+	void setLastErrorCode(char errorCode);*/
+private:
+	/*const char* deviceOnErrorUID = {};
+	char* deviceErrorValue = {};*/
+	/*char lastErrorCode = 'X';*/
+	/*uint8_t deviceErrorPin = {};*/
 };
 
