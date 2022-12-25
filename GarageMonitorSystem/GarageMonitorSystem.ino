@@ -27,9 +27,8 @@
 
 
 //simActivity _simActivity;
-
 //AvrMicroRepository repo;
-
+SoftwareSerial Serial1(7, 8);
 void setup() {
 	
 
@@ -48,10 +47,15 @@ void setup() {
    
 	garageBusinessLayer->canOpenTheDoor(avrMicroRepository, smokeActivity, pirActivity);*/
 }
-
 void loop() {
-	GarageBusinessLayer garageBusinessLayer;
 
+	SoftwareSerial* Serial2 = new SoftwareSerial(4, 5);
+	Serial2->begin(9600);
+	Serial2->println("Ciao mondo");
+	delete(Serial2);
+
+	delay(1000);
+	GarageBusinessLayer garageBusinessLayer;
 	AvrMicroRepository avrMicroRepository;
 
 	AnalogPort** analogSmokePorts = new AnalogPort * [1];
@@ -67,11 +71,16 @@ void loop() {
 	
 	garageBusinessLayer.checkSystem(avrMicroRepository, smokeActivity,simModuleActivity);
 
-
 	delete(simModuleActivity);
 	delete(smokeActivity);
 	delete(analogSmokePorts[0]);
 	free(analogSmokePorts);
+	
+
+//#if defined(VM_DEBUG)
+//	avrMicroRepository.print_m("free ram :"); avrMicroRepository.print_m(avrMicroRepository.getFreeRam(), true);
+//	avrMicroRepository.clearBuffer_m();
+//#endif
 }
 
 

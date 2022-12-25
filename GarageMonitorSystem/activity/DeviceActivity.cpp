@@ -56,14 +56,24 @@ DeviceActivity::DeviceActivity(AnalogPort** analogPort,float vref, uint8_t analo
 DeviceActivity::DeviceActivity(){
 }
 
-AnalogPort** DeviceActivity::getAnalogPortOnError()
+AnalogPort** DeviceActivity::getAllAnalogPorts()
 {
 	return this->analogPort;
 }
 
-DigitalPort** DeviceActivity::getDigitalPortOnError()
+DigitalPort** DeviceActivity::getAllDigitalPorts()
 {
 	return this->digitalPort;
+}
+
+uint8_t DeviceActivity::getAnalogPortsNumber()
+{
+	return this->_analogPortsNumber;
+}
+
+uint8_t DeviceActivity::getDigitalPortsNumber()
+{
+	return this->digitalPortsNumber;
 }
 
 //const char* DeviceActivity::getDeviceOnErrorUID()
@@ -126,7 +136,7 @@ bool DeviceActivity::isThereAnyAnalogPortOnAlarm(AvrMicroRepository& mainReposit
 		if (this->analogPort[i]->isEnable && this->analogPort[i]->maxVoltageAlarmValueIn != 0)
 		{
 			if (((this->_vref / 1024) * mainRepository.analogReadm(this->analogPort[i]->getPin())) < this->analogPort[i]->maxVoltageAlarmValueIn)
-			{
+			{			
 				this->analogPort[i]->isOnError = true;
 				this->analogPort[i]->analogVrefValue = ((this->_vref / 1024) * mainRepository.analogReadm(this->analogPort[i]->getPin()));
 				return false;

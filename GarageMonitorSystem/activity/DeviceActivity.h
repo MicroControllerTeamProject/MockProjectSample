@@ -21,9 +21,10 @@ public:
 	/*AvrMicroRepository& _mainRepository;*/
 
 	//const char* getDeviceOnErrorUID();
-	AnalogPort** getAnalogPortOnError();
-	DigitalPort** getDigitalPortOnError();
-	
+	AnalogPort** getAllAnalogPorts();
+	DigitalPort** getAllDigitalPorts();
+	uint8_t getAnalogPortsNumber();
+	uint8_t getDigitalPortsNumber();
 	
 private:
 	/*DigitalPort** digitalPort;*/

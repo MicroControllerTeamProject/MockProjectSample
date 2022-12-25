@@ -12,18 +12,20 @@ char* GarageBusinessLayer::getBatteryGrapfLevel(AvrMicroRepository& avrMicroRepo
 	return voltageActivity->getLipoBatteryGrafBarLevel(avrMicroRepository, analogPortPin);
 }
 
-void GarageBusinessLayer::checkSystem(AvrMicroRepository& avrMicroRepository,
-	SmokeActivity* smokeActivity, SimModuleActivity* simModuleActivity)
+void GarageBusinessLayer::checkSystem(AvrMicroRepository& avrMicroRepository,SmokeActivity* smokeActivity, SimModuleActivity* simModuleActivity)
 {
 	if (smokeActivity->isThereSmoke(avrMicroRepository))
 	{
-		
-		/*if (simModuleActivity->makeCall(avrMicroRepository))
+		for (int i = 0; i < smokeActivity->getAnalogPortsNumber(); i++)
 		{
-
-			avrMicroRepository.print_m("Chiamata effettuata", true);
-			avrMicroRepository.clearBuffer_m();
-		}*/
+			if (smokeActivity->getAllAnalogPorts()[i]->isOnError)
+			{
+				if (simModuleActivity->makeCall(avrMicroRepository))
+				{
+				}
+			}
+		}
+		
 	}
 
 }

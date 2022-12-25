@@ -51,10 +51,10 @@ bool SimModuleActivity::makeCall(AvrMicroRepository& avrMicroRepository) {
 		avrMicroRepository.free_m(bufferResponse);
 		avrMicroRepository.delaym(2000);
 	}
-#if defined(VM_DEBUG)
-	avrMicroRepository.print_m("ram a:"); avrMicroRepository.print_m(avrMicroRepository.getFreeRam(), true);
-	avrMicroRepository.clearBuffer_m();
-#endif
+//#if defined(VM_DEBUG)
+//	avrMicroRepository.print_m("ram a:"); avrMicroRepository.print_m(avrMicroRepository.getFreeRam(), true);
+//	avrMicroRepository.clearBuffer_m();
+//#endif
 	return returnValue;
 }
 
