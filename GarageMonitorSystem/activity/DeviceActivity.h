@@ -39,7 +39,7 @@ private:
 	String lastErrorDescription = "";*/
 	char _lastAlarmCode;
 	char _lastErrorCode;
-	float _vref = 5;
+
 	//virtual float getUnitOfMisureValue(String portName);
 	//virtual  float  getCustomMisureValue();
 	//bool isThereAnyCustomMisureOnAlarm();
@@ -53,7 +53,9 @@ protected:
 	DigitalPort** digitalPort;
 	bool isThereAnyAnalogPortOnAlarm(AvrMicroRepository& mainRepository);
 	bool isThereAnyDigitalPortOnAlarm(AvrMicroRepository& mainRepository);
+	float analogReadVoltageByPin(uint8_t pin, AvrMicroRepository& mainRepository);
 	float getVref();
+	analogRefMode vrefMode = analogRefMode::DEFAULT_m;
 	/*char getLastErrorCode();
 	void setLastErrorCode(char errorCode);*/
 private:
@@ -61,5 +63,6 @@ private:
 	char* deviceErrorValue = {};*/
 	/*char lastErrorCode = 'X';*/
 	/*uint8_t deviceErrorPin = {};*/
+	float _vref = 5;
 };
 

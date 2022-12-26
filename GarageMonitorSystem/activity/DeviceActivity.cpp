@@ -32,6 +32,7 @@ DeviceActivity::DeviceActivity(AnalogPort** analogPort,float vref, analogRefMode
 	this->analogPort = analogPort;
 	this->_analogPortsNumber = analogPortsNumber;
 	this->_vref = vref;
+	this->vrefMode = mode;
 
 	//for (int i = 0; i < this->analogPortsNumer; i++)
 	//{
@@ -133,17 +134,17 @@ bool DeviceActivity::isThereAnyAnalogPortOnAlarm(AvrMicroRepository& mainReposit
 	{
 		if (this->analogPort[i]->isEnable && this->analogPort[i]->maxVoltageAlarmValueIn != 0)
 		{
-			if (((this->_vref / 1023.0f) * mainRepository.analogReadm(this->analogPort[i]->getPin())) < this->analogPort[i]->maxVoltageAlarmValueIn)
+			if (mainRepository.analogVoltageRead_m(this->analogPort[i]->getPin(),this->getVref(),this->vrefMode) < this->analogPort[i]->maxVoltageAlarmValueIn)
 			{			
 				this->analogPort[i]->isOnError = true;
-				this->analogPort[i]->analogVrefValue = ((this->_vref / 1023.0f) * mainRepository.analogReadm(this->analogPort[i]->getPin()));
+				this->analogPort[i]->analogVrefValue = mainRepository.analogVoltageRead_m(this->analogPort[i]->getPin(), this->getVref(), this->vrefMode);
 				return false;
 			}
 
-			if (((this->_vref / 1023.0f) * mainRepository.analogReadm(this->analogPort[i]->getPin())) > this->analogPort[i]->minVoltageAlarmValueIn)
+			if (mainRepository.analogVoltageRead_m(this->analogPort[i]->getPin(), this->getVref(), this->vrefMode) > this->analogPort[i]->minVoltageAlarmValueIn)
 			{
 				this->analogPort[i]->isOnError = true;
-				this->analogPort[i]->analogVrefValue = ((this->_vref / 1023.0f) * mainRepository.analogReadm(this->analogPort[i]->getPin()));
+				this->analogPort[i]->analogVrefValue = mainRepository.analogVoltageRead_m(this->analogPort[i]->getPin(), this->getVref(), this->vrefMode);
 				return false;
 			} 
 		}
@@ -272,21 +273,21 @@ bool DeviceActivity::isThereAnyDigitalPortOnAlarm(AvrMicroRepository& mainReposi
 //	return this->lastErrorDescription;
 //}
 //
-//float DeviceActivity::analogReadVoltageByName(String analogPortName)
-//{
-//	for (int i = 0; i < this->analogPortsNumber; i++)
-//	{
-//		if (this->analogPort[i]->getUid() == analogPortName)
-//		{
-//			return (this->vref /1023) * _mainRepository.analogReadm(this->analogPort[i]->getPin());
-//			/*else
-//			{
-//				lastError = this->analogPort[i]->uid + String(" is not output mode");
-//				return false;
-//			}*/
-//		}
-//	}
-//}
+float DeviceActivity::analogReadVoltageByPin(uint8_t pin, AvrMicroRepository& mainRepository)
+{
+	for (int i = 0; i < this->_analogPortsNumber; i++)
+	{
+		if (this->analogPort[i]->getPin() == pin)
+		{
+			return mainRepository.analogVoltageRead_m(this->analogPort[i]->getPin(),this->_vref,this->vrefMode);
+			/*else
+			{
+				lastError = this->analogPort[i]->uid + String(" is not output mode");
+				return false;
+			}*/
+		}
+	}
+}
 //
 //int DeviceActivity::analogReadByName(String analogPortName)
 //{

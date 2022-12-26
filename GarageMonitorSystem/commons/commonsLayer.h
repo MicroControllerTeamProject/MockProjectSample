@@ -1,6 +1,6 @@
 #pragma once
 
-enum analogRefMode
+enum analogRefMode 
 {
 	EXTERNAL_m = 0,
 
