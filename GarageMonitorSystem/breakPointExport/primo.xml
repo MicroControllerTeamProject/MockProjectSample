@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<BreakpointCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<BreakpointCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Breakpoints>
     <Breakpoint>
-      <Version>15</Version>
+      <Version>65536</Version>
       <IsEnabled>1</IsEnabled>
       <IsVisible>1</IsVisible>
       <IsEmulated>0</IsEmulated>
@@ -12,11 +12,11 @@
       <LocationType>SourceLocation</LocationType>
       <TextPosition>
         <Version>4</Version>
-        <FileName>.\GarageMonitorSystem\activity\DeviceActivity.cpp</FileName>
-        <startLine>139</startLine>
+        <FileName>.\GarageMonitorSystem\activity\NTC3950thermistorActivity.cpp</FileName>
+        <startLine>12</startLine>
         <StartColumn>0</StartColumn>
-        <EndLine>139</EndLine>
-        <EndColumn>42</EndColumn>
+        <EndLine>12</EndLine>
+        <EndColumn>20</EndColumn>
         <MarkerId>0</MarkerId>
         <IsLineBased>1</IsLineBased>
         <IsDocumentPathNotFound>0</IsDocumentPathNotFound>
@@ -28,8 +28,8 @@
           <Bytes />
         </Checksum>
       </TextPosition>
-      <NamedLocationText>isThereAnyAnalogPortOnAlarm(AvrMicroRepository&amp; mainRepository)</NamedLocationText>
-      <NamedLocationLine>7</NamedLocationLine>
+      <NamedLocationText>isThereAnyPortsOnAlarm(AvrMicroRepository&amp; avrMicroRepository)</NamedLocationText>
+      <NamedLocationLine>4</NamedLocationLine>
       <NamedLocationColumn>0</NamedLocationColumn>
       <HitCountType>NoHitCount</HitCountType>
       <HitCountTarget>1</HitCountTarget>
@@ -44,8 +44,8 @@
         <Language>00000000-0000-0000-0000-000000000000</Language>
       </AddressLocation>
       <DataCount>4</DataCount>
-      <AutomationInfo>&lt;vmbp Id='8d0fdefa-1f90-4534-9446-9012d27b8e82'/&gt;</AutomationInfo>
-      <TracepointText>"Max level error in {this-&gt;analogPort[i]-&gt;getUid()} device with actual level {((this-&gt;_vref / 1024) * mainRepository.analogReadm(this-&gt;analogPort[i]-&gt;getPin()))}"</TracepointText>
+      <AutomationInfo>&lt;vmbp Id='8b13c053-8c66-4f91-b360-9177992641c5'/&gt;</AutomationInfo>
+      <TracepointText>"maxValue :  {this-&gt;analogPort[i]-&gt;maxUnitOfMisureAlarmValue}"</TracepointText>
       <IsTracepointActive>1</IsTracepointActive>
       <TracepointTargetType>VsOutputWindow</TracepointTargetType>
       <TimeTravelTraceMarker>NoTracing</TimeTravelTraceMarker>
@@ -57,6 +57,9 @@
       <IsSnapshotWhenHit>1</IsSnapshotWhenHit>
       <SnapshotCountTarget>1</SnapshotCountTarget>
       <parentIndex>-1</parentIndex>
+      <IsTemporary>0</IsTemporary>
+      <BreakpointId>7</BreakpointId>
+      <PrerequisiteBreakpointId>0</PrerequisiteBreakpointId>
     </Breakpoint>
   </Breakpoints>
 </BreakpointCollection>

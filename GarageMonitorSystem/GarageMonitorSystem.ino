@@ -10,6 +10,7 @@
 #include "business/GarageBusinessLayer.h"
 #include "repository/AvrMicroRepository.h"
 #include "activity/SimModuleActivity.h"
+#include "activity/NTC3950thermistorActivity.h"
 #include <stdint.h>
 
 
@@ -48,15 +49,14 @@ void setup() {
 	garageBusinessLayer->canOpenTheDoor(avrMicroRepository, smokeActivity, pirActivity);*/
 }
 void loop() {
-
-	SoftwareSerial* Serial2 = new SoftwareSerial(4, 5);
-	Serial2->begin(9600);
-	Serial2->println("Ciao mondo");
-	delete(Serial2);
-
 	delay(1000);
 	GarageBusinessLayer garageBusinessLayer;
 	AvrMicroRepository avrMicroRepository;
+
+	AnalogPort** analogNTC3950Ports = new AnalogPort * [1];
+	analogNTC3950Ports[0] = new AnalogPort("NTC01", A0);
+	analogNTC3950Ports[0]->maxUnitOfMisureAlarmValue = 25.00f;
+	analogNTC3950Ports[0]->minUnitOfMisureAlarmValue = 10.00f;
 
 	AnalogPort** analogSmokePorts = new AnalogPort * [1];
 	analogSmokePorts[0] = new AnalogPort("smk01", A1);
@@ -65,6 +65,10 @@ void loop() {
 
 	SmokeActivity* smokeActivity = new SmokeActivity(analogSmokePorts, 5,analogRefMode::DEFAULT_m,1);
 
+	NTC3950thermistorActivity* nTC3950thermistorActivity = new NTC3950thermistorActivity(analogNTC3950Ports, 3.30f, analogRefMode::INTERNAL_m, 1,200000.00f);
+
+	bool result = nTC3950thermistorActivity->isThereAnyPortsOnAlarm(avrMicroRepository);
+
 	SimModuleActivity* simModuleActivity = new SimModuleActivity();
 	simModuleActivity->setBaud(19200);
 	simModuleActivity->setPrefixAndphoneNumber("+393202445649;");
@@ -72,9 +76,16 @@ void loop() {
 	garageBusinessLayer.checkSystem(avrMicroRepository, smokeActivity,simModuleActivity);
 
 	delete(simModuleActivity);
+	delete(nTC3950thermistorActivity);
 	delete(smokeActivity);
+
 	delete(analogSmokePorts[0]);
+	delete(analogNTC3950Ports[0]);
+
 	free(analogSmokePorts);
+	free(analogNTC3950Ports);
+
+	delay(100);
 	
 
 //#if defined(VM_DEBUG)

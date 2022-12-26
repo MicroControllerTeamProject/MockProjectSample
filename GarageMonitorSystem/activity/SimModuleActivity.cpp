@@ -38,15 +38,15 @@ bool SimModuleActivity::makeCall(AvrMicroRepository& avrMicroRepository) {
 		{
 			this->setLastErrorCode('N');
 		}*/
-#if defined(VM_DEBUG)
-		avrMicroRepository.print_m("returned internal value : "); avrMicroRepository.print_m(bufferResponse, true);
-		avrMicroRepository.clearBuffer_m();
-#endif
+//#if defined(VM_DEBUG)
+//		avrMicroRepository.print_m("returned internal value : "); avrMicroRepository.print_m(bufferResponse, true);
+//		avrMicroRepository.clearBuffer_m();
+//#endif
 
-#if defined(VM_DEBUG)
-		avrMicroRepository.print_m("ram b:"); avrMicroRepository.print_m(avrMicroRepository.getFreeRam(), true);
-		avrMicroRepository.clearBuffer_m();
-#endif
+//#if defined(VM_DEBUG)
+//		avrMicroRepository.print_m("ram b:"); avrMicroRepository.print_m(avrMicroRepository.getFreeRam(), true);
+//		avrMicroRepository.clearBuffer_m();
+//#endif
 
 		avrMicroRepository.free_m(bufferResponse);
 		avrMicroRepository.delaym(2000);
