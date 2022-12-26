@@ -42,7 +42,7 @@ namespace UnitTestGarageMonitorSystem
 			digitalPirPorts[0]->direction = DigitalPort::PortDirection::input;
 #pragma endregion objects for test 
 
-			SmokeActivity* smokeActivity = new SmokeActivity(analogSmokePorts, 5, 1);
+			SmokeActivity* smokeActivity = new SmokeActivity(analogSmokePorts, 5,analogRefMode::DEFAULT_m, 1);
 			PirActivity* pirActivity = new PirActivity(digitalPirPorts, 1);
 
 #pragma region mocked methods 
@@ -75,7 +75,7 @@ namespace UnitTestGarageMonitorSystem
 			digitalPirPorts[0]->direction = DigitalPort::PortDirection::input;
 #pragma endregion objects for test 
 
-			SmokeActivity* smokeActivity = new SmokeActivity(analogSmokePorts, 5, 1);
+			SmokeActivity* smokeActivity = new SmokeActivity(analogSmokePorts, 5,analogRefMode::DEFAULT_m, 1);
 			PirActivity* pirActivity = new PirActivity(digitalPirPorts, 1);
 
 #pragma region mocked methods 
@@ -104,7 +104,7 @@ namespace UnitTestGarageMonitorSystem
 
 #pragma endregion objects for test 
 
-			VoltageActivity* voltageActivity = new VoltageActivity(analogPowerBatteryPorts, 4.2f, 1);
+			VoltageActivity* voltageActivity = new VoltageActivity(analogPowerBatteryPorts, 4.2f,analogRefMode::EXTERNAL_m, 1);
 
 #pragma region mocked methods 
 			When(Method(mockedAvrMicroRepository, analogReadm)).AlwaysReturn(1024);

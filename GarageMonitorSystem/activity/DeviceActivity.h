@@ -3,13 +3,16 @@
 #include "..\model\AnalogPort.h"
 #include "..\model\DigitalPort.h"
 #include "..\repository\AvrMicroRepository.h"
+#include "..\commons\commonsLayer.h"
 
 
 class DeviceActivity
 {
+
 public:
+	
 	DeviceActivity(DigitalPort** digitalPort, uint8_t digitalPortsNumber);
-	DeviceActivity(AnalogPort** analogPort,float _vref, uint8_t analogPortsNumber);
+	DeviceActivity(AnalogPort** analogPort,float _vref , analogRefMode mode, uint8_t analogPortsNumber);
 	DeviceActivity();
 	//virtual bool isThereAnyPortOnAlarm();
 	//virtual String getLastAlarmDescription();

@@ -63,7 +63,7 @@ void loop() {
 	analogSmokePorts[0]->maxAlarmValueIn = 150;
 	analogSmokePorts[0]->minAlarmValueIn = 1;
 
-	SmokeActivity* smokeActivity = new SmokeActivity(analogSmokePorts, 5,1);
+	SmokeActivity* smokeActivity = new SmokeActivity(analogSmokePorts, 5,analogRefMode::DEFAULT_m,1);
 
 	SimModuleActivity* simModuleActivity = new SimModuleActivity();
 	simModuleActivity->setBaud(19200);

@@ -27,7 +27,7 @@ DeviceActivity::DeviceActivity(DigitalPort** digitalPort,  uint8_t digitalPortsN
 	//}
 }
 
-DeviceActivity::DeviceActivity(AnalogPort** analogPort,float vref, uint8_t analogPortsNumber)
+DeviceActivity::DeviceActivity(AnalogPort** analogPort,float vref, analogRefMode mode, uint8_t analogPortsNumber)
 {
 	this->analogPort = analogPort;
 	this->_analogPortsNumber = analogPortsNumber;
@@ -127,25 +127,23 @@ uint8_t DeviceActivity::getDigitalPortsNumber()
 //	return false;
 //}
 
-
-
 bool DeviceActivity::isThereAnyAnalogPortOnAlarm(AvrMicroRepository& mainRepository)
 {
 	for (int i = 0; i < this->_analogPortsNumber; i++)
 	{
 		if (this->analogPort[i]->isEnable && this->analogPort[i]->maxVoltageAlarmValueIn != 0)
 		{
-			if (((this->_vref / 1024) * mainRepository.analogReadm(this->analogPort[i]->getPin())) < this->analogPort[i]->maxVoltageAlarmValueIn)
+			if (((this->_vref / 1023.0f) * mainRepository.analogReadm(this->analogPort[i]->getPin())) < this->analogPort[i]->maxVoltageAlarmValueIn)
 			{			
 				this->analogPort[i]->isOnError = true;
-				this->analogPort[i]->analogVrefValue = ((this->_vref / 1024) * mainRepository.analogReadm(this->analogPort[i]->getPin()));
+				this->analogPort[i]->analogVrefValue = ((this->_vref / 1023.0f) * mainRepository.analogReadm(this->analogPort[i]->getPin()));
 				return false;
 			}
 
-			if (((this->_vref / 1024) * mainRepository.analogReadm(this->analogPort[i]->getPin())) > this->analogPort[i]->minVoltageAlarmValueIn)
+			if (((this->_vref / 1023.0f) * mainRepository.analogReadm(this->analogPort[i]->getPin())) > this->analogPort[i]->minVoltageAlarmValueIn)
 			{
 				this->analogPort[i]->isOnError = true;
-				this->analogPort[i]->analogVrefValue = ((this->_vref / 1024) * mainRepository.analogReadm(this->analogPort[i]->getPin()));
+				this->analogPort[i]->analogVrefValue = ((this->_vref / 1023.0f) * mainRepository.analogReadm(this->analogPort[i]->getPin()));
 				return false;
 			} 
 		}
@@ -175,7 +173,6 @@ bool DeviceActivity::isThereAnyAnalogPortOnAlarm(AvrMicroRepository& mainReposit
 
 	return false;
 }
-
 
 bool DeviceActivity::isThereAnyDigitalPortOnAlarm(AvrMicroRepository& mainRepository)
 {

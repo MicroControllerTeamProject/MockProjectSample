@@ -27,6 +27,11 @@ uint16_t AvrMicroRepository::analogReadm(uint8_t analogPin) {
 	return analogRead(analogPin);
 }
 
+float AvrMicroRepository::analogVoltageRead_m(uint8_t analogPin, float _vref, analogRefMode mode) {
+	analogReference(mode);
+	return (_vref / 1023.0f) * analogRead(analogPin);
+}
+
 uint8_t AvrMicroRepository::digitalReadm(uint8_t analogPin) {
 	return digitalRead(analogPin);
 }
@@ -92,7 +97,8 @@ int AvrMicroRepository::read() {
 //	return (int)charsBufferByReference;
 //}
 
-//Send a char* empty by reference to fill with Serial.readstring() to avoid to declare a fix array.
+
+//return value need to free() memory.
 char* AvrMicroRepository::readString_m() {
 	String responseBufferString = Serial.readString();
 	char* charsBufferByReference;
