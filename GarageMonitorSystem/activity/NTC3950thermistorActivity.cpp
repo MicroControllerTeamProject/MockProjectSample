@@ -1,6 +1,6 @@
 #include "NTC3950thermistorActivity.h"
 
-NTC3950thermistorActivity::NTC3950thermistorActivity(AnalogPort** analogPort, float vref, analogRefMode mode, uint8_t analogPortsNumber, float r1_voltageResistor) : DeviceActivity(analogPort, vref, mode, analogPortsNumber)
+NTC3950thermistorActivity::NTC3950thermistorActivity(AnalogPort** analogPort, float vref, commonsLayer::analogRefMode mode, uint8_t analogPortsNumber, float r1_voltageResistor) : DeviceActivity(analogPort, vref, mode, analogPortsNumber)
 {
 	this->R_1 = r1_voltageResistor;
 }
@@ -11,7 +11,7 @@ bool NTC3950thermistorActivity::isThereAnyPortsOnAlarm(AvrMicroRepository& avrMi
 	{
 		// loop over several values to lower noise
 		float T_sum = 0.0;
-		for (int ii; ii < this->avg_size; ii++) {
+		for (int ii = 0; ii < this->avg_size; ii++) {
 			// read the input on analog pin 0:
 
 			float voltage = this->analogReadVoltageByPin(this->analogPort[i]->getPin(), avrMicroRepository);

@@ -12,7 +12,7 @@ class DeviceActivity
 public:
 	
 	DeviceActivity(DigitalPort** digitalPort, uint8_t digitalPortsNumber);
-	DeviceActivity(AnalogPort** analogPort,float _vref , analogRefMode mode, uint8_t analogPortsNumber);
+	DeviceActivity(AnalogPort** analogPort,float _vref ,commonsLayer::analogRefMode mode, uint8_t analogPortsNumber);
 	DeviceActivity();
 	//virtual bool isThereAnyPortOnAlarm();
 	//virtual String getLastAlarmDescription();
@@ -55,7 +55,7 @@ protected:
 	bool isThereAnyDigitalPortOnAlarm(AvrMicroRepository& mainRepository);
 	float analogReadVoltageByPin(uint8_t pin, AvrMicroRepository& mainRepository);
 	float getVref();
-	analogRefMode vrefMode = analogRefMode::DEFAULT_m;
+	commonsLayer::analogRefMode vrefMode = commonsLayer::analogRefMode::DEFAULT_m;
 	/*char getLastErrorCode();
 	void setLastErrorCode(char errorCode);*/
 private:

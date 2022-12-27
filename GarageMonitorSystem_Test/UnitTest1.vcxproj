@@ -158,12 +158,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\GarageMonitorSystem\activity\DeviceActivity.cpp" />
+    <ClCompile Include="..\GarageMonitorSystem\activity\NTC3950thermistorActivity.cpp" />
     <ClCompile Include="..\GarageMonitorSystem\activity\PirActivity.cpp" />
     <ClCompile Include="..\GarageMonitorSystem\activity\SimModuleActivity.cpp" />
     <ClCompile Include="..\GarageMonitorSystem\activity\SmokeActivity.cpp" />
     <ClCompile Include="..\GarageMonitorSystem\activity\UltrasonicActivity.cpp" />
     <ClCompile Include="..\GarageMonitorSystem\activity\VoltageActivity.cpp" />
     <ClCompile Include="..\GarageMonitorSystem\business\GarageBusinessLayer.cpp" />
+    <ClCompile Include="..\GarageMonitorSystem\commons\commonsLayer.cpp" />
     <ClCompile Include="..\GarageMonitorSystem\model\AnalogPort.cpp" />
     <ClCompile Include="..\GarageMonitorSystem\model\DigitalPort.cpp" />
     <ClCompile Include="pch.cpp">

@@ -27,7 +27,7 @@ DeviceActivity::DeviceActivity(DigitalPort** digitalPort,  uint8_t digitalPortsN
 	//}
 }
 
-DeviceActivity::DeviceActivity(AnalogPort** analogPort,float vref, analogRefMode mode, uint8_t analogPortsNumber)
+DeviceActivity::DeviceActivity(AnalogPort** analogPort,float vref, commonsLayer::analogRefMode mode, uint8_t analogPortsNumber)
 {
 	this->analogPort = analogPort;
 	this->_analogPortsNumber = analogPortsNumber;

@@ -1,7 +1,5 @@
 #pragma once
 #include "stdint.h"
-#include "..\commons\commonsLayer.h"
-
 
 class AvrMicroRepository
 {
@@ -15,7 +13,7 @@ public:
 
 	virtual uint16_t analogReadm(uint8_t analogPin);
 
-	virtual float analogVoltageRead_m(uint8_t analogPin, float _vref, analogRefMode mode);
+	virtual float analogVoltageRead_m(uint8_t analogPin, float _vref, uint8_t mode);
 
 	virtual uint8_t digitalReadm(uint8_t analogPin);
 

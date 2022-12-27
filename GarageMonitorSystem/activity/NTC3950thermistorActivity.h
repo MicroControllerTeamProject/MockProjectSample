@@ -5,7 +5,7 @@
 class NTC3950thermistorActivity : public DeviceActivity
 {
 public:
-    NTC3950thermistorActivity(AnalogPort** analogPort, float vref, analogRefMode mode, uint8_t analogPortsNumber, float r1_voltageResistor);
+    NTC3950thermistorActivity(AnalogPort** analogPort, float vref, commonsLayer::analogRefMode mode, uint8_t analogPortsNumber, float r1_voltageResistor);
     bool isThereAnyPortsOnAlarm(AvrMicroRepository& avrMicroRepository);
   /*  float getTemperature();*/
 

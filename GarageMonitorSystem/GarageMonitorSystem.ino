@@ -63,9 +63,9 @@ void loop() {
 	analogSmokePorts[0]->maxAlarmValueIn = 150;
 	analogSmokePorts[0]->minAlarmValueIn = 1;
 
-	SmokeActivity* smokeActivity = new SmokeActivity(analogSmokePorts, 5,analogRefMode::DEFAULT_m,1);
+	SmokeActivity* smokeActivity = new SmokeActivity(analogSmokePorts, 5, commonsLayer::analogRefMode::DEFAULT_m,1);
 
-	NTC3950thermistorActivity* nTC3950thermistorActivity = new NTC3950thermistorActivity(analogNTC3950Ports, 3.30f, analogRefMode::INTERNAL_m, 1,200000.00f);
+	NTC3950thermistorActivity* nTC3950thermistorActivity = new NTC3950thermistorActivity(analogNTC3950Ports, 3.30f, commonsLayer::analogRefMode::EXTERNAL_m, 1,200000.00f);
 
 	bool result = nTC3950thermistorActivity->isThereAnyPortsOnAlarm(avrMicroRepository);
 
