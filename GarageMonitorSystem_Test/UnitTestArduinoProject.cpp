@@ -126,8 +126,9 @@ namespace UnitTestGarageMonitorSystem
 			digitalUltasonicPorts[1] = new DigitalPort("Echo", 5);
 			digitalUltasonicPorts[1]->direction = DigitalPort::PortDirection::output;
 
+			When(Method(mockedUltrasonicRepository, getDistance)).AlwaysReturn(500u);
 
-			UltrasonicActivity* ultrasonicActivity = new UltrasonicActivity(digitalUltasonicPorts, 2, "Trig", "Echo");
+			UltrasonicActivity* ultrasonicActivity = new UltrasonicActivity(digitalUltasonicPorts, 2, "Trig", "Echo",0);
 
 			GarageBusinessLayer* garageBusinessLayer = new GarageBusinessLayer();
 			Assert::AreEqual(500u, ultrasonicActivity->getDistance(ultrasonicRepository));

@@ -6,12 +6,15 @@
 UltrasonicActivity::UltrasonicActivity(DigitalPort** digitalPort, 
 	uint8_t digitalPortsNumber,
 	char* triggerPortName,
-	char* echoPortName) : DeviceActivity(digitalPort, digitalPortsNumber)
+	char* echoPortName,
+	unsigned long timeOut
+) : DeviceActivity(digitalPort, digitalPortsNumber)
 {
 	this->digitalPort = digitalPort;
 	this->digitalPortsNumber = digitalPortsNumber;
 	this->triggerPortName = triggerPortName;
 	this->echoPortName = echoPortName;
+	this->timeOut = timeOut;
 }
 
 //unsigned int UltrasonicActivity::getDistance(String triggerPortName,String echoPortName)
@@ -60,7 +63,7 @@ unsigned int UltrasonicActivity::getDistance(UltrasonicRepository& ultrasonicRep
 	}
 	if (triggerPortPin != NULL && echoPortPin != NULL)
 	{
-		return ultrasonicRepository.getDistance(triggerPortPin, echoPortPin);
+		return ultrasonicRepository.getDistance(triggerPortPin, echoPortPin,this->timeOut);
 	}
 }
 
