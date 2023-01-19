@@ -46,8 +46,7 @@ namespace UnitTestGarageMonitorSystem
 
 			When(Method(mockedAvrMicroRepository, analogReadm)).AlwaysReturn(100);
 			When(Method(mockedAvrMicroRepository, digitalReadm)).AlwaysReturn(1);
-
-
+			When(Method(mockedAvrMicroRepository, testMethode)).AlwaysReturn(0);
 
 			GarageBusinessLayer* b = new GarageBusinessLayer();
 			Assert::AreEqual(true, b->canOpenTheDoor(mainRepository, smokeActivity, pirActivity));
@@ -79,6 +78,7 @@ namespace UnitTestGarageMonitorSystem
 
 			When(Method(mockedAvrMicroRepository, analogReadm)).AlwaysReturn(500);
 			When(Method(mockedAvrMicroRepository, digitalReadm)).AlwaysReturn(1);
+			When(Method(mockedAvrMicroRepository, testMethode)).AlwaysReturn(1);
 
 
 
@@ -112,7 +112,6 @@ namespace UnitTestGarageMonitorSystem
 
 			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(ultrasonicRepository, 0));*/
 		}
-
 		TEST_METHOD(TestMethod_UltrasonicTest)
 		{
 
@@ -135,7 +134,6 @@ namespace UnitTestGarageMonitorSystem
 
 			/*Assert::AreEqual("[|   ]o", garageDoorActivity->getBatteryGrafBarLevel(ultrasonicRepository, 0));*/
 		}
-
 		TEST_METHOD(TestMethod_ThereAreFlamesInGarage)
 		{
 			Mock<AvrMicroRepository> mockedAvrMicroRepository;

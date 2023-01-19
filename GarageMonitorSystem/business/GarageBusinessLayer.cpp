@@ -4,6 +4,7 @@ GarageBusinessLayer::GarageBusinessLayer() {
 }
 
 bool GarageBusinessLayer::canOpenTheDoor(AvrMicroRepository& avrMicroRepository, SmokeActivity* smokeActivity, PirActivity* pirActivity) {
+	if (avrMicroRepository.testMethode())return false;
 	if (!(smokeActivity->isThereSmoke(avrMicroRepository)) && (pirActivity->isThereAnyOne(avrMicroRepository))) return true;
 	return false;
 }

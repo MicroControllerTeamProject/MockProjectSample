@@ -29,7 +29,9 @@ public:
 	uint8_t getAnalogPortsNumber();
 	uint8_t getDigitalPortsNumber();
 	
+	
 private:
+
 	/*DigitalPort** digitalPort;*/
 	/*AnalogPort** analogPort;*/
 	

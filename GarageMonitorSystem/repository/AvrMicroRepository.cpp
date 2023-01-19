@@ -15,12 +15,16 @@ extern int __brkval;
 int temp;
 
 
-AvrMicroRepository::AvrMicroRepository() {
+AvrMicroRepository::AvrMicroRepository() : ITestRepository() {
 }
 
 void AvrMicroRepository::analogReferencem(uint8_t mode)
 {
 	analogReference(mode);
+}
+
+bool AvrMicroRepository::testMethode() {
+	return true;
 }
 
 uint16_t AvrMicroRepository::analogReadm(uint8_t analogPin) {

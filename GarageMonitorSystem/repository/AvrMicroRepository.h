@@ -1,13 +1,16 @@
 #pragma once
 #include "stdint.h"
+#include "ITestRepository.h"
 
-class AvrMicroRepository
+class AvrMicroRepository : public ITestRepository
 {
 public:
 
 	AvrMicroRepository();
 
 	/*~AvrMicroRepository();*/
+
+	virtual bool testMethode();
 
 	virtual void analogReferencem(uint8_t mode);
 
